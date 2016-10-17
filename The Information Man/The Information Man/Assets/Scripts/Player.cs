@@ -3,25 +3,65 @@ using System.Collections;
 
 public class Player : MonoBehaviour
 {
-    public float PlayerSpeed;
-    public float jumpPower;
+    public float maxSpeed = 3;
+    public float speed = 50f;
+    //public float jumpPower = 150f;
+
+    public bool grounded;
+
+    private Rigidbody2D rb2d;
+
+    void Start()
+    {
+        rb2d = gameObject.GetComponent<Rigidbody2D>();
+    }
 
     void Update()
     {
-        //Amount to move
-        // Input.GetAxis MAKES MOOVEMENT LEFT TO RIGHT WITH SMOOTHING
-        float amountToMove = Input.GetAxis("Horizontal") * PlayerSpeed * Time.deltaTime;
-        //Move the Player
-        transform.Translate(Vector3.right * amountToMove);
+        if (Input.GetAxis("Horizontal") < -0.1f)
+        {
+            transform.localScale = new Vector3(-1, 1, 1);
+        }
+        if (Input.GetAxis("Horizontal") > 0.1f)
+        {
+            transform.localScale = new Vector3(1, 1, 1);
+        }
 
-        //When Players reaches desired (L/R)possition make him stop
+        /*if (Input.GetButtonDown("Jump") && grounded)
+        {
+            rb2d.AddForce(Vector2.up * jumpPower);
+        }*/
+
         Vector3 viewPos = Camera.main.WorldToViewportPoint(transform.position);
         viewPos.x = Mathf.Clamp01(viewPos.x);
         viewPos.y = Mathf.Clamp01(viewPos.y);
         transform.position = Camera.main.ViewportToWorldPoint(viewPos);
+    }
 
-        Rigidbody2D rb = GetComponent<Rigidbody2D>();
-        if (Input.GetKey(KeyCode.UpArrow))
-            rb.AddForce(Vector2.up * jumpPower);
+    void FixedUpdate()
+    {
+        Vector3 easeVelocity = rb2d.velocity;
+        easeVelocity.y = rb2d.velocity.y;
+        easeVelocity.z = 0.0f;
+        easeVelocity.x *= 0.75f;
+        
+        float h = Input.GetAxis("Horizontal");
+
+        if (grounded)
+        {
+            rb2d.velocity = easeVelocity;
+        }
+
+        rb2d.AddForce(Vector2.right * speed * h);
+
+        if (rb2d.velocity.x > maxSpeed)
+        {
+            rb2d.velocity = new Vector2(maxSpeed, rb2d.velocity.y);
+        }
+
+        if (rb2d.velocity.x < -maxSpeed)
+        {
+            rb2d.velocity = new Vector2(-maxSpeed, rb2d.velocity.y);
+        }
     }
 }
