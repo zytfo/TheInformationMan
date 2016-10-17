@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\GroundCheck.cs" />
+     <Compile Include="Assets\Scripts\PauseMenu.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>D:/Soft/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
