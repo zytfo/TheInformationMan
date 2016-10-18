@@ -24,14 +24,14 @@ public class PauseMenu : MonoBehaviour
         {
             PauseUI.SetActive(true);
 
-            if (Input.GetAxis("Horizontal") <= -0.00001d)
+            /*if (Input.GetAxis("Horizontal") <= -0.00001d)
             {
                 PauseUI.transform.localScale = new Vector3(-1, 1, 1);
             }
             if (Input.GetAxis("Horizontal") > 0.00001d)
             {
                 PauseUI.transform.localScale = new Vector3(1, 1, 1);
-            }
+            }*/
             
             Time.timeScale = 0;
         }

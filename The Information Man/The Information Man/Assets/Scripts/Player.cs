@@ -28,11 +28,13 @@ public class Player : MonoBehaviour
         anim.SetFloat("speed", Mathf.Abs(Input.GetAxis("Horizontal")));
         if (Input.GetAxis("Horizontal") < -0.1f)
         {
-            transform.localScale = new Vector3(-1, 1, 1);
+            //transform.localScale = new Vector3(-1, 1, 1);
+            transform.eulerAngles = new Vector2(0, 180);
         }
         if (Input.GetAxis("Horizontal") > 0.1f)
         {
-            transform.localScale = new Vector3(1, 1, 1);
+            //transform.localScale = new Vector3(1, 1, 1);
+            transform.eulerAngles = new Vector2(0, 0);
         }
 
         /*if (Input.GetButtonDown("Jump") && grounded)
