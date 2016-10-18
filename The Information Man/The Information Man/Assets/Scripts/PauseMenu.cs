@@ -23,6 +23,16 @@ public class PauseMenu : MonoBehaviour
         if (paused)
         {
             PauseUI.SetActive(true);
+
+            if (Input.GetAxis("Horizontal") < -0.1f)
+            {
+                PauseUI.transform.localScale = new Vector3(-1, 1, 1);
+            }
+            if (Input.GetAxis("Horizontal") > 0.1f)
+            {
+                PauseUI.transform.localScale = new Vector3(1, 1, 1);
+            }
+            
             Time.timeScale = 0;
         }
 
