@@ -1,0 +1,7 @@
+/*
+This folder contains files for the Quick Start tutorial.
+
+See the Quick Start section of the user manual.
+
+The subfolder Final contains the final result of the tutorial.
+*/
