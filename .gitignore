@@ -1,23 +1,33 @@
-# =============== #
-# Unity generated #
-# =============== #
-Temp/
-Library/
+# Unity generated and a few customs #
+# ================================= #
+Temp/*
+Library/*
+Build/*
+Obj/*
+WebBuild/*
+WindowsBuild/*
 
 # ===================================== #
 # Visual Studio / MonoDevelop generated #
 # ===================================== #
-ExportedObj/
-obj/
+ExportedObj/*
 *.svd
 *.userprefs
-/*.csproj
+*.csproj
 *.pidb
 *.suo
-/*.sln
+*.sln
 *.user
 *.unityproj
 *.booproj
+*.log
+# Ignore UnityVS so users can use different versions
+Assets/UnityVS/*
+
+#ignoring pidb, they are just code completion caching data according to:
+# http://stackoverflow.com/questions/1022111/what-are-monodevelops-pidb-files
+*.pidb
+*.userprefs
 
 # ============ #
 # OS generated #
@@ -27,10 +37,6 @@ obj/
 ._*
 .Spotlight-V100
 .Trashes
+Icon?
 ehthumbs.db
 Thumbs.db
-The Information Man/The Information Man/Library/assetDatabase3
-The Information Man/The Information Man/Library/assetDatabase3
-The Information Man/The Information Man/Library/expandedItems
-The Information Man/The Information Man/Library/metadata/00/00000000000000006100000000000000
-The Information Man/The Information Man/Library/CurrentLayout.dwlt

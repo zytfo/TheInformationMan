@@ -113,6 +113,9 @@
      <None Include="Assets\Dialogue System\Prefabs\_README.txt" />
      <None Include="Assets\Dialogue System\Examples\Feature Demo\Menu Text Demo\_README.txt" />
      <None Include="Assets\Dialogue System\Examples\Feature Demo\Articy Feature Demo\Articy Feature Demo.xml" />
+ <Reference Include="Assembly-UnityScript">
+ <HintPath>D:/Soft/Unity/Projects/TheInformationMan/The Information Man/The Information Man/Library/ScriptAssemblies/Assembly-UnityScript.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEditor.Advertisements">
  <HintPath>D:/Soft/Unity/Editor/Data/UnityExtensions/Unity/Advertisements/Editor/UnityEditor.Advertisements.dll</HintPath>
  </Reference>
@@ -137,6 +140,15 @@
  <Reference Include="UnityEditor.TreeEditor">
  <HintPath>D:/Soft/Unity/Editor/Data/UnityExtensions/Unity/TreeEditor/Editor/UnityEditor.TreeEditor.dll</HintPath>
  </Reference>
+ <Reference Include="DialogueSystem">
+ <HintPath>D:/Soft/Unity/Projects/TheInformationMan/The Information Man/The Information Man/Assets/Dialogue System/DLLs/DialogueSystem.dll</HintPath>
+ </Reference>
+ <Reference Include="LuaInterpreter">
+ <HintPath>D:/Soft/Unity/Projects/TheInformationMan/The Information Man/The Information Man/Assets/Dialogue System/DLLs/LuaInterpreter.dll</HintPath>
+ </Reference>
+ <Reference Include="DialogueSystemEditors">
+ <HintPath>D:/Soft/Unity/Projects/TheInformationMan/The Information Man/The Information Man/Assets/Dialogue System/DLLs/Editor/DialogueSystemEditors.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEditor.Graphs">
  <HintPath>D:/Soft/Unity/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>
  </Reference>
@@ -148,15 +160,6 @@
  </Reference>
  <Reference Include="UnityEditor.WindowsStandalone.Extensions">
  <HintPath>D:/Soft/Unity/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
- </Reference>
- <Reference Include="DialogueSystemEditors">
- <HintPath>D:/Soft/Unity/Projects/TheInformationMan/The Information Man/The Information Man/Assets/Dialogue System/DLLs/Editor/DialogueSystemEditors.dll</HintPath>
- </Reference>
- <Reference Include="DialogueSystem">
- <HintPath>D:/Soft/Unity/Projects/TheInformationMan/The Information Man/The Information Man/Assets/Dialogue System/DLLs/DialogueSystem.dll</HintPath>
- </Reference>
- <Reference Include="LuaInterpreter">
- <HintPath>D:/Soft/Unity/Projects/TheInformationMan/The Information Man/The Information Man/Assets/Dialogue System/DLLs/LuaInterpreter.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>
