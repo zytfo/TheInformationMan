@@ -1,65 +1,49 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PauseMenu : MonoBehaviour
-{
+public class PauseMenu : MonoBehaviour {
+	public GameObject PauseUI;
 
-    public GameObject PauseUI;
+	private bool paused = false;
 
-    private bool paused = false;
+	public void Start()
+	{
+		PauseUI.SetActive(false);
+	}
 
-    void Start()
-    {
-        PauseUI.SetActive(false);
-    }
+	public void Update()
+	{
+		if (Input.GetButtonDown ("Pause")) 
+		{
+			paused = !paused;
+		}
 
-    void Update()
-    {
-        if (Input.GetButtonDown("Pause"))
-        {
-            paused = !paused;
-        }
+		if (paused) 
+		{
+			PauseUI.SetActive (true);
+			Time.timeScale = 0;
+		}
 
-        if (paused)
-        {
-            PauseUI.SetActive(true);
+		if (!paused) 
+		{
+			PauseUI.SetActive (false);
+			Time.timeScale = 1;
+		}
+	}
 
-            /*if (Input.GetAxis("Horizontal") <= -0.00001d)
-            {
-                PauseUI.transform.localScale = new Vector3(-1, 1, 1);
-            }
-            if (Input.GetAxis("Horizontal") > 0.00001d)
-            {
-                PauseUI.transform.localScale = new Vector3(1, 1, 1);
-            }*/
-            
-            Time.timeScale = 0;
-        }
+	public void Resume() {
+		paused = false;
+	}
 
-        if (!paused)
-        {
-            PauseUI.SetActive(false);
-            Time.timeScale = 1;
-        }
-    }
+	public void Restart() {
+		Application.LoadLevel (Application.loadedLevel);
+	}
 
-    public void Resume() 
-    {
-        paused = false;
-    }
+	public void MainMenu() {
+		Application.LoadLevel (0);
+	}
 
-    public void Restart()
-    {
-        Application.LoadLevel(Application.loadedLevel);
-    }
-
-    public void MainMenu()
-    {
-        Application.LoadLevel(0);
-    }
-
-    public void Quit()
-    {
-        Application.Quit();
-    }
+	public void Quit() {
+		Application.Quit ();
+	}
 }

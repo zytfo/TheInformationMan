@@ -5,7 +5,7 @@ public class Player : MonoBehaviour
 {
     public float maxSpeed = 3;
     public float speed = 50f;
-    //public float jumpPower = 150f;
+    public float jumpPower = 150f;
 
     public int curHealth;
     public int maxHealth = 100;
@@ -37,16 +37,27 @@ public class Player : MonoBehaviour
             transform.eulerAngles = new Vector2(0, 0);
         }
 
-        /*if (Input.GetButtonDown("Jump") && grounded)
+        if (Input.GetButtonDown("Jump") && grounded)
         {
             rb2d.AddForce(Vector2.up * jumpPower);
-        }*/
+        }
 
         Vector3 viewPos = Camera.main.WorldToViewportPoint(transform.position);
         viewPos.x = Mathf.Clamp01(viewPos.x);
         viewPos.y = Mathf.Clamp01(viewPos.y);
         transform.position = Camera.main.ViewportToWorldPoint(viewPos);
-    }
+   
+		if (curHealth > maxHealth)
+		{
+			curHealth = maxHealth;
+		}
+
+		if (curHealth <= 0)
+		{
+			Die();
+		}
+	
+	}
 
     void FixedUpdate()
     {
