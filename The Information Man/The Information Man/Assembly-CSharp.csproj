@@ -38,10 +38,10 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="UnityEngine">
-      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
+      <HintPath>D:/Soft/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor">
-      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
+      <HintPath>D:/Soft/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -102,9 +102,12 @@
      <Compile Include="Assets\Dialogue System\Scripts\Templates\TemplateDialogueUI.cs" />
      <Compile Include="Assets\Dialogue System\Scripts\Templates\TemplateQuestLogWindow.cs" />
      <Compile Include="Assets\Dialogue System\Scripts\Templates\TemplateTextFieldUI.cs" />
+     <Compile Include="Assets\Scripts\ActivateTextAtLine.cs" />
      <Compile Include="Assets\Scripts\GroundCheck.cs" />
      <Compile Include="Assets\Scripts\PauseMenu.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
+     <Compile Include="Assets\Scripts\TextBoxManager.cs" />
+     <Compile Include="Assets\Scripts\TextImporter.cs" />
      <None Include="Assets\Dialogue System\_README.txt" />
      <None Include="Assets\Dialogue System\Examples\Mobile Test\_README.txt" />
      <None Include="Assets\Dialogue System\Examples\Bark Example\Three NPCs Bark\_README.txt" />
@@ -119,6 +122,7 @@
      <None Include="Assets\Dialogue System\Examples\Art\Portraits\_README.txt" />
      <None Include="Assets\Dialogue System\Prefabs\Unity UI Prefabs\Shared Assets\Playtime Font\medium\license.txt" />
      <None Include="Assets\Dialogue System\Examples\Art\Sounds\_README.txt" />
+     <None Include="Assets\Text\text.txt" />
      <None Include="Assets\Dialogue System\DLLs\_README.txt" />
      <None Include="Assets\Dialogue System\Prefabs\Legacy Unity GUI Prefabs\Circle\Textures\_README.txt" />
      <None Include="Assets\Dialogue System\Prefabs\Legacy Unity GUI Prefabs\Necromancer\_README.txt" />
@@ -155,6 +159,7 @@
      <None Include="Assets\Dialogue System\Prefabs\Legacy Unity GUI Prefabs\Wheel\_README.txt" />
      <None Include="Assets\Dialogue System\Examples\Feature Demo\Menu Text Demo\Feature Demo With Menu Text.xml" />
      <None Include="Assets\Dialogue System\Prefabs\Unity UI Prefabs\Shared Assets\Playtime Font\medium\read me.txt" />
+     <None Include="Assets\Text\NPC_speech.txt" />
      <None Include="Assets\Dialogue System\Scripts\Supplemental\UI\_README.txt" />
      <None Include="Assets\Dialogue System\Prefabs\Legacy Unity GUI Prefabs\Shared Fonts\Orbitron\SIL Open Font License.txt" />
      <None Include="Assets\Dialogue System\Prefabs\Legacy Unity GUI Prefabs\Shared Textures\_README.txt" />
@@ -164,16 +169,16 @@
      <None Include="Assets\Dialogue System\Examples\Feature Demo\Menu Text Demo\_README.txt" />
      <None Include="Assets\Dialogue System\Examples\Feature Demo\Articy Feature Demo\Articy Feature Demo.xml" />
  <Reference Include="UnityEngine.UI">
- <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+ <HintPath>D:/Soft/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Networking">
- <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+ <HintPath>D:/Soft/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
  </Reference>
  <Reference Include="DialogueSystem">
- <HintPath>C:/Users/Alexander/Documents/TheInformationMan/The Information Man/The Information Man/Assets/Dialogue System/DLLs/DialogueSystem.dll</HintPath>
+ <HintPath>D:/Soft/Unity/Projects/TheInformationMan/The Information Man/The Information Man/Assets/Dialogue System/DLLs/DialogueSystem.dll</HintPath>
  </Reference>
  <Reference Include="LuaInterpreter">
- <HintPath>C:/Users/Alexander/Documents/TheInformationMan/The Information Man/The Information Man/Assets/Dialogue System/DLLs/LuaInterpreter.dll</HintPath>
+ <HintPath>D:/Soft/Unity/Projects/TheInformationMan/The Information Man/The Information Man/Assets/Dialogue System/DLLs/LuaInterpreter.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
