@@ -132,7 +132,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.392}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1193,7 +1193,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 185888, guid: 1a15d744600baed4997ce2d9e6de5ad4, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 154774, guid: 1a15d744600baed4997ce2d9e6de5ad4, type: 2}
       propertyPath: m_IsActive
@@ -1323,7 +1323,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: dd4555332e4a1ba4f9b87a54e9ab5d52, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4dd19ebaee2873e488a5c8f33c5dcfb6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1396,10 +1396,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1920464491}
   m_RootOrder: 0
-  m_AnchorMin: {x: 0.019741092, y: 0.082789294}
-  m_AnchorMax: {x: 0.9851942, y: 0.91721076}
-  m_AnchoredPosition: {x: -1, y: 0.010000229}
-  m_SizeDelta: {x: 13.25, y: 12.5}
+  m_AnchorMin: {x: 0.017276496, y: 0.082789294}
+  m_AnchorMax: {x: 0.9851942, y: 0.92600006}
+  m_AnchoredPosition: {x: -0.5, y: -0.48999977}
+  m_SizeDelta: {x: 12.25, y: 11.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1366977154
 MonoBehaviour:
@@ -1422,7 +1422,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: ddbf3bd6624ad76429ef21634f6865c7, type: 3}
-    m_FontSize: 20
+    m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
@@ -1543,6 +1543,64 @@ MonoBehaviour:
   destroyWhenActivated: 1
   requireButtonPress: 0
   waitForPress: 0
+--- !u!1 &1535070672
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1535070674}
+  - 212: {fileID: 1535070673}
+  m_Layer: 0
+  m_Name: silitti
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!212 &1535070673
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1535070672}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_ReflectionProbeUsage: 0
+  m_ProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: 6dd0c214d68c0e843bd2564869a67fa2, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+--- !u!4 &1535070674
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1535070672}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.39, y: -0.62, z: 0}
+  m_LocalScale: {x: 1.1721574, y: 1.2369126, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1867842713}
+  m_RootOrder: 2
 --- !u!1 &1584127681
 GameObject:
   m_ObjectHideFlags: 0
@@ -1903,6 +1961,7 @@ Transform:
   m_Children:
   - {fileID: 1361004047}
   - {fileID: 1060095303}
+  - {fileID: 1535070674}
   m_Father: {fileID: 0}
   m_RootOrder: 1
 --- !u!1 &1899477655
@@ -2158,8 +2217,8 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: 0.16530032, y: 0.05866277}
   m_AnchorMax: {x: 0.831548, y: 0.2757302}
-  m_AnchoredPosition: {x: 1.25, y: -0.75}
-  m_SizeDelta: {x: 1.5, y: -1.5}
+  m_AnchoredPosition: {x: 1.25, y: 4}
+  m_SizeDelta: {x: 2, y: 7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1920464492
 MonoBehaviour:
@@ -2173,7 +2232,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:

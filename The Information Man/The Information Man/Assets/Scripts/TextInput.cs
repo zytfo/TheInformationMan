@@ -22,7 +22,7 @@ public class TextInput : MonoBehaviour {
     private void SubmitInput(string arg0)
     {
         string currentText = output.text.ToString();
-        
+        if (arg0 == "") return;
         if (counter == 0) { 
             newText = arg0;
             counter++;
