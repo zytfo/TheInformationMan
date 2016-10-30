@@ -104,6 +104,7 @@
      <Compile Include="Assets\Dialogue System\Scripts\Templates\TemplateTextFieldUI.cs" />
      <Compile Include="Assets\Scripts\ActivateTextAtLine.cs" />
      <Compile Include="Assets\Scripts\GroundCheck.cs" />
+     <Compile Include="Assets\Scripts\NextLevelScript.cs" />
      <Compile Include="Assets\Scripts\PauseMenu.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
      <Compile Include="Assets\Scripts\TextBoxManager.cs" />
