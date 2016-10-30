@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class NextLevelScript : MonoBehaviour {
+public class SecondToFirst : MonoBehaviour
+{
 
     void OnTriggerEnter2D(Collider2D other)
     {

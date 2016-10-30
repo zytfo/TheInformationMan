@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -15,7 +16,7 @@ public class Player : MonoBehaviour
     private Rigidbody2D rb2d;
 
     public bool canMove;
-
+    
     void Start()
     {
         rb2d = gameObject.GetComponent<Rigidbody2D>();
@@ -32,8 +33,16 @@ public class Player : MonoBehaviour
         }
         else
         {
-            anim.SetFloat("speed", Mathf.Abs(Input.GetAxis("Horizontal")));
-            if (Input.GetAxis("Horizontal") < -0.1f)
+            if (Input.GetKey("left") && Input.GetKey("right"))
+            {
+                anim.SetFloat("speed", Mathf.Abs(Input.GetAxis("Vertical")));
+            }
+            else 
+            {
+                anim.SetFloat("speed", Mathf.Abs(Input.GetAxis("Horizontal")));
+            }
+
+            if (SceneManager.GetActiveScene().name == "stage2" || Input.GetAxis("Horizontal") < -0.1f)
             {
                 transform.eulerAngles = new Vector2(0, 180);
             }
@@ -41,7 +50,6 @@ public class Player : MonoBehaviour
             {
                 transform.eulerAngles = new Vector2(0, 0);
             }
-
             /*if (Input.GetButtonDown("Jump") && grounded)
             {
                 rb2d.AddForce(Vector2.up * jumpPower);
@@ -83,8 +91,19 @@ public class Player : MonoBehaviour
             rb2d.velocity = easeVelocity;
         }
 
-        rb2d.AddForce(Vector2.right * speed * h);
-
+        if (Input.GetKey("left") && Input.GetKey("right"))
+        {
+            rb2d.AddForce(Vector2.right * 0);
+        }
+        else if (Input.GetKey("left"))
+        {
+            rb2d.AddForce(Vector2.right * speed * h);
+        }
+        else if (Input.GetKey("right"))
+        {
+            rb2d.AddForce(Vector2.right * speed * h);
+        }
+        
         if (rb2d.velocity.x > maxSpeed)
         {
             rb2d.velocity = new Vector2(maxSpeed, rb2d.velocity.y);
