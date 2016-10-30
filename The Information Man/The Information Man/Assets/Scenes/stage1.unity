@@ -216,6 +216,22 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6127606, guid: 0b2d7bd550cc4e14fb784a34942df41b, type: 2}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6127606, guid: 0b2d7bd550cc4e14fb784a34942df41b, type: 2}
+      propertyPath: m_Offset.x
+      value: -0.004950762
+      objectReference: {fileID: 0}
+    - target: {fileID: 6127606, guid: 0b2d7bd550cc4e14fb784a34942df41b, type: 2}
+      propertyPath: m_Size.x
+      value: 0.38264826
+      objectReference: {fileID: 0}
+    - target: {fileID: 5027306, guid: 0b2d7bd550cc4e14fb784a34942df41b, type: 2}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0b2d7bd550cc4e14fb784a34942df41b, type: 2}
   m_IsPrefabParent: 0
@@ -999,6 +1015,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1016535336}
   - 61: {fileID: 1016535335}
+  - 114: {fileID: 1016535337}
   m_Layer: 0
   m_Name: ExitFromStage
   m_TagString: Untagged
@@ -1015,11 +1032,11 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: -0.4950962, y: 0}
+  m_Offset: {x: -0.5099497, y: 0}
   serializedVersion: 2
-  m_Size: {x: 0.089024425, y: 1}
+  m_Size: {x: 0.05932051, y: 1}
 --- !u!4 &1016535336
 Transform:
   m_ObjectHideFlags: 0
@@ -1032,6 +1049,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 8
+--- !u!114 &1016535337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1016535334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10663260dc8a78246a74b5161413a903, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1060095301
 GameObject:
   m_ObjectHideFlags: 0
