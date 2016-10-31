@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
 
     public int curHealth;
     public int maxHealth = 100;
+	public bool isPaused = false;
 
     public bool grounded;
     private Animator anim;
@@ -26,6 +27,10 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+		if (isPaused) {
+			Time.timeScale = 0;
+		}
+
         if (!canMove)
         {
             anim.SetFloat("speed",Mathf.Abs(Input.GetAxis("Vertical")));
