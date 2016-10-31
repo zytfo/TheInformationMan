@@ -8,7 +8,7 @@ public class SecondToFirst : MonoBehaviour
     {
         if (other.name == "player")
         {
-            Application.LoadLevel(1);
+            Application.LoadLevel("stage1");
         }
     }
 }

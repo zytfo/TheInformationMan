@@ -21,7 +21,7 @@ function OnMouseExit() {
 
 function OnMouseUp() {
     if (Play) {
-        Application.LoadLevel(1);
+        Application.LoadLevel("preview");
     }
     if (Settings) {
         camera1.enabled = false;
