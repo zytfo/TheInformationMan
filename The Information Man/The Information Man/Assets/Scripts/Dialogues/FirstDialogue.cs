@@ -21,7 +21,7 @@ public class FirstDialogue : MonoBehaviour {
 			textPanel.GetComponent<UnityEngine.UI.Text>().text = "HA ZDAROVA SANYA";
 			inputField.GetComponent<UnityEngine.UI.InputField> ().text = "Enter your answer ...";
 			inputField.GetComponent<UnityEngine.UI.InputField> ().readOnly = false;
-			player.GetComponent<Player> ().isPaused = true;
+			player.GetComponent<Player> ().SetMove(false);
 		}
 	}
 
@@ -34,7 +34,7 @@ public class FirstDialogue : MonoBehaviour {
 			inputField.GetComponent<UnityEngine.UI.InputField> ().readOnly = true;
 			textPanel.GetComponent<UnityEngine.UI.Text> ().text = "";
 			inputField.GetComponent<UnityEngine.UI.InputField> ().text = "";
-			player.GetComponent<Player> ().isPaused = false;
+			player.GetComponent<Player> ().SetMove(true);
 		} else {
 			inputField.GetComponent<UnityEngine.UI.InputField> ().text = "Answer is wrong!1!";
 		}

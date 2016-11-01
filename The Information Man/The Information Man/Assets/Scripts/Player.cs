@@ -25,12 +25,12 @@ public class Player : MonoBehaviour
         anim = gameObject.GetComponent<Animator>();
     }
 
+	public void SetMove(bool move) {
+		this.canMove = move;
+	}
+
     void Update()
     {
-		if (isPaused) {
-			Time.timeScale = 0;
-		}
-
         if (!canMove)
         {
             anim.SetFloat("speed",Mathf.Abs(Input.GetAxis("Vertical")));
