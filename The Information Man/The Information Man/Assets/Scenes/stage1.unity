@@ -169,6 +169,22 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: debc2c00dcdf574408aa47b5eb64b8b5, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &818237871 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 126590, guid: 7de2c83800c78004d987952d67d39b9f, type: 2}
+  m_PrefabInternal: {fileID: 1309987778}
+--- !u!114 &818237872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 818237871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b6b8cb2b92c09d4f84b051348c7fdc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stageName: stage21
 --- !u!1001 &833078880
 Prefab:
   m_ObjectHideFlags: 0
@@ -734,7 +750,8 @@ Prefab:
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 11466474, guid: 7de2c83800c78004d987952d67d39b9f, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 7de2c83800c78004d987952d67d39b9f, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1368540723 stripped

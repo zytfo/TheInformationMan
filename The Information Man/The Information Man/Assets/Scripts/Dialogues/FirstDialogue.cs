@@ -18,8 +18,8 @@ public class FirstDialogue : MonoBehaviour {
 		{
 			leftPanel.GetComponent<UnityEngine.UI.Image> ().sprite = leftPicture;
 			rightPanel.GetComponent<UnityEngine.UI.Image> ().sprite = rightPicture;
-			textPanel.GetComponent<UnityEngine.UI.Text>().text = "HA ZDAROVA SANYA";
-			inputField.GetComponent<UnityEngine.UI.InputField> ().text = "Enter your answer ...";
+			textPanel.GetComponent<UnityEngine.UI.Text>().text = "MR. Силити: HA, ZDAROVA SANYA";
+			inputField.GetComponent<UnityEngine.UI.InputField> ().text = "";
 			inputField.GetComponent<UnityEngine.UI.InputField> ().readOnly = false;
 			player.GetComponent<Player> ().SetMove(false);
 		}
@@ -35,17 +35,6 @@ public class FirstDialogue : MonoBehaviour {
 			textPanel.GetComponent<UnityEngine.UI.Text> ().text = "";
 			inputField.GetComponent<UnityEngine.UI.InputField> ().text = "";
 			player.GetComponent<Player> ().SetMove(true);
-		} else {
-			inputField.GetComponent<UnityEngine.UI.InputField> ().text = "Answer is wrong!1!";
 		}
-	}
-
-	void Update () {
-		/*if (inputField.GetComponent<UnityEngine.UI.InputField> ().OnSubmit ()) {
-			rightPanel.GetComponent<UnityEngine.UI.Image> ().sprite = null;
-			inputField.GetComponent<UnityEngine.UI.InputField> ().readOnly = true;
-			textPanel.GetComponent<UnityEngine.UI.Text>().text = "";
-			player.GetComponent<Player> ().isPaused = false;
-		}*/
 	}
 }
