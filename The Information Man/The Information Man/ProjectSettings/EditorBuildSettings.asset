@@ -13,3 +13,9 @@ EditorBuildSettings:
     path: Assets/Scenes/stage1.unity
   - enabled: 1
     path: Assets/Scenes/stage2.unity
+  - enabled: 1
+    path: Assets/Scenes/stage21.unity
+  - enabled: 1
+    path: Assets/Scenes/stage22.unity
+  - enabled: 1
+    path: Assets/Scenes/stage23.unity

@@ -47,7 +47,7 @@ public class Player : MonoBehaviour
                 anim.SetFloat("speed", Mathf.Abs(Input.GetAxis("Horizontal")));
             }
 
-            if (SceneManager.GetActiveScene().name == "stage2" || Input.GetAxis("Horizontal") < -0.1f)
+            if (SceneManager.GetActiveScene().name == "stage2" || SceneManager.GetActiveScene().name == "stage21" || SceneManager.GetActiveScene().name == "stage22" || SceneManager.GetActiveScene().name == "stage23" || Input.GetAxis("Horizontal") < -0.1f)
             {
                 transform.eulerAngles = new Vector2(0, 180);
             }

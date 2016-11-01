@@ -109,7 +109,9 @@
      <Compile Include="Assets\Scripts\GroundCheck.cs" />
      <Compile Include="Assets\Scripts\MovesForScenes\FirstToSecond.cs" />
      <Compile Include="Assets\Scripts\MovesForScenes\PreviewToFirst.cs" />
-     <Compile Include="Assets\Scripts\MovesForScenes\SecondToFirst.cs" />
+     <Compile Include="Assets\Scripts\MovesForScenes\SecondTo21.cs" />
+     <Compile Include="Assets\Scripts\MovesForScenes\two1to22.cs" />
+     <Compile Include="Assets\Scripts\MovesForScenes\two2to23.cs" />
      <Compile Include="Assets\Scripts\PauseMenu.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
      <Compile Include="Assets\Scripts\Preview\NewLine.cs" />
