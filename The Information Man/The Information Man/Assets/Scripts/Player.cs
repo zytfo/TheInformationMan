@@ -17,7 +17,14 @@ public class Player : MonoBehaviour
     private Rigidbody2D rb2d;
 
     public bool canMove;
-    
+
+    private static bool _hadDialogue1;
+    public bool hadDialogue1
+    {
+        get { return _hadDialogue1; }
+        set { _hadDialogue1 = value; }
+    }
+
     void Start()
     {
         rb2d = gameObject.GetComponent<Rigidbody2D>();

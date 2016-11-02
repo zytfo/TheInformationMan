@@ -14,22 +14,20 @@ public class FirstDialogue : MonoBehaviour {
 	public GameObject player;
 
     private bool paused = false;
-    private ProbabilityTask t1;
-    private bool solvedTask = false;
+    private Task t1;
     private int counter = 0;
 
     void OnTriggerEnter2D(Collider2D other)
 	{
-		if (other.name == "player" && !solvedTask)
+		if (other.name == "player" && !player.GetComponent<Player>().hadDialogue1)
 		{
 			leftPanel.GetComponent<UnityEngine.UI.Image> ().sprite = leftPicture;
 			rightPanel.GetComponent<UnityEngine.UI.Image> ().sprite = rightPicture;
 			textPanel.GetComponent<UnityEngine.UI.Text>().text = "Mr. Silitti: HA, ZDAROVA SANYA";
 			inputField.GetComponent<UnityEngine.UI.InputField> ().text = "";
 			inputField.GetComponent<UnityEngine.UI.InputField> ().readOnly = false;
-			player.GetComponent<Player> ().SetMove(false);
+            player.GetComponent<Player> ().SetMove(false);
             t1 = new ProbabilityTask();
-
         }
 	}
 
@@ -41,7 +39,7 @@ public class FirstDialogue : MonoBehaviour {
 			counter++;
 			textPanel.GetComponent<UnityEngine.UI.Text> ().text += "\nMr. Sanya: Zdarova";
             textPanel.GetComponent<UnityEngine.UI.Text>().text += "\nMr. Silitti: Here's your first task:\n"
-                /*+ t1.Description() + t1.WriteTask() */ + "Write answer is: " + t1.writeAnswer + ". Any guesses?";
+                /*+ t1.WriteTask() */ + "Write answer is: " + t1.writeAnswer + ". Any guesses?";
 			inputField.GetComponent<UnityEngine.UI.InputField> ().text = "";
             guess = "";
 		}
@@ -50,7 +48,7 @@ public class FirstDialogue : MonoBehaviour {
             textPanel.GetComponent<UnityEngine.UI.Text>().text += "\nMr. Sanya: " + guess;
             textPanel.GetComponent<UnityEngine.UI.Text>().text += "\nMr. Silitti: Basically, you're correct! You can go now.";
             inputField.GetComponent<UnityEngine.UI.InputField>().text = "";
-            solvedTask = true;
+            player.GetComponent<Player>().hadDialogue1 = true;
             counter++;
         } else if (counter == 1 && guess != "" && t1.CheckResult(guess, t1.writeAnswer) < 1)
         {
@@ -58,19 +56,28 @@ public class FirstDialogue : MonoBehaviour {
             textPanel.GetComponent<UnityEngine.UI.Text>().text += "\nMr. Silitti: You're wrong! Try again!";
             inputField.GetComponent<UnityEngine.UI.InputField>().text = "";
         }
-        if (counter == 2 && guess == "Idu") {
+	}
+
+    void Update()
+    {
+        if (counter == 2 && (Input.GetKey("left") || Input.GetKey("right")))
+        {
             rightPanel.GetComponent<UnityEngine.UI.Image>().sprite = null;
             inputField.GetComponent<UnityEngine.UI.InputField>().readOnly = true;
             textPanel.GetComponent<UnityEngine.UI.Text>().text = "";
             inputField.GetComponent<UnityEngine.UI.InputField>().text = "";
             player.GetComponent<Player>().SetMove(true);
-		}
-	}
+        }
+    }
 }
 
 abstract class Task
 {
+    public double writeAnswer { get; set; }
+
     public abstract void GenerateValues();
+    public abstract string WriteTask();
+    public abstract double CalculateResult(); 
 
     public int CheckResult(string input, double writeAnswer)
     {
@@ -88,7 +95,7 @@ class ProbabilityTask : Task
     public enum ContentName { balls, fruits };
     public enum TaskType { marginal, joint, conditional };
 
-    public System.Collections.Generic.List<Box> boxes { get; set; }
+    public List<Box> boxes { get; set; }
     private ContentName contentName { get; set; }
     private TaskType taskType { get; set; }
 
@@ -101,8 +108,6 @@ class ProbabilityTask : Task
     private List<string> colors { get; set; }
     private List<List<string>> itemTypes { get; set; }
 
-    public double writeAnswer { get; set; }
-
     public ProbabilityTask()
     {
         System.Random rnd = new System.Random();
@@ -112,16 +117,6 @@ class ProbabilityTask : Task
         FillTypes();
         GenerateValues();
         writeAnswer = Math.Round(CalculateResult(), 2);
-    }
-
-    public ContentName getContentName()
-    {
-        return contentName;
-    }
-
-    public void AddBox(Box box)
-    {
-        boxes.Add(box);
     }
 
     public override void GenerateValues()
@@ -168,7 +163,7 @@ class ProbabilityTask : Task
         itemTypes.Add(fruits);
     }
 
-    public string Description()
+    public override string WriteTask()
     {
         string result = "Assume you have following boxes containing ";
         result += contentName + "\n";
@@ -182,12 +177,7 @@ class ProbabilityTask : Task
             result += "\n";
         }
         result += "At first you pick the box. Then something inside it. \n";
-        return result;
-    }
 
-    public string WriteTask()
-    {
-        string result = "";
         System.Random rnd = new System.Random();
         boxesIndex = rnd.Next(1, boxesCount);
         itemsIndex = rnd.Next(1, itemsCount);
@@ -209,7 +199,7 @@ class ProbabilityTask : Task
         return result;
     }
 
-    public double CalculateResult()
+    public override double CalculateResult()
     {
         double result = 0;
         switch ((int)taskType)
