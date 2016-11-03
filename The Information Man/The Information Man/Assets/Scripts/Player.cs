@@ -87,16 +87,16 @@ public class Player : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (!canMove)
-        {
-            return;
-        }
-
         Vector3 easeVelocity = rb2d.velocity;
         easeVelocity.y = rb2d.velocity.y;
         easeVelocity.z = 0.0f;
         easeVelocity.x *= 0.75f;
-        
+
+        if (!canMove)
+        {
+            rb2d.velocity = easeVelocity;
+            return;
+        }
         float h = Input.GetAxis("Horizontal");
         
         if (grounded)
