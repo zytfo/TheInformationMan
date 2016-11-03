@@ -1,5 +1,0 @@
-/*
-Dialogue System Sequence Example
-
-This folder contains a scene that plays a cutscene sequence.
-*/

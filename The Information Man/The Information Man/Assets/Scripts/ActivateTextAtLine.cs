@@ -3,7 +3,7 @@ using System.Collections;
 
 public class ActivateTextAtLine : MonoBehaviour {
 
-    public TextAsset theText;
+    /*public TextAsset theText;
     public int startLine;
     public int endLine;
 
@@ -62,5 +62,5 @@ public class ActivateTextAtLine : MonoBehaviour {
         {
             waitForPress = false;
         }
-    }   
+    } */  
 }

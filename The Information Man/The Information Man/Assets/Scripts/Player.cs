@@ -30,6 +30,7 @@ public class Player : MonoBehaviour
         rb2d = gameObject.GetComponent<Rigidbody2D>();
         curHealth = maxHealth;
         anim = gameObject.GetComponent<Animator>();
+        canMove = true;
     }
 
 	public void SetMove(bool move) {

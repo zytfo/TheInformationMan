@@ -55,7 +55,6 @@
      <Compile Include="Assets\Dialogue System\Scripts\Editor\Wizards\NPCSetupWizard.cs" />
      <Compile Include="Assets\Dialogue System\Scripts\Editor\Wizards\PlayerSetupWizard.cs" />
      <Compile Include="Assets\Dialogue System\Scripts\Supplemental\Utility\Editor\SupplementalMenuItems.cs" />
-     <None Include="Assets\Dialogue System\_README.txt" />
      <None Include="Assets\Dialogue System\Examples\Mobile Test\_README.txt" />
      <None Include="Assets\Dialogue System\Examples\Bark Example\Three NPCs Bark\_README.txt" />
      <None Include="Assets\Dialogue System\Examples\Unity UI Examples\_README.txt" />
@@ -64,13 +63,11 @@
      <None Include="Assets\Dialogue System\Prefabs\Legacy Unity GUI Prefabs\Computer\Typing.txt" />
      <None Include="Assets\Dialogue System\Examples\Lua Example\_README.txt" />
      <None Include="Assets\Dialogue System\Examples\Bark Example\Bark Example.xml" />
-     <None Include="Assets\Dialogue System\Third Party Support\_README.txt" />
      <None Include="Assets\Dialogue System\Examples\Bark Example\Bark Conversation\_README.txt" />
      <None Include="Assets\Dialogue System\Examples\Art\Portraits\_README.txt" />
      <None Include="Assets\Dialogue System\Prefabs\Unity UI Prefabs\Shared Assets\Playtime Font\medium\license.txt" />
      <None Include="Assets\Dialogue System\Examples\Art\Sounds\_README.txt" />
      <None Include="Assets\Text\text.txt" />
-     <None Include="Assets\Dialogue System\DLLs\_README.txt" />
      <None Include="Assets\Dialogue System\Prefabs\Legacy Unity GUI Prefabs\Circle\Textures\_README.txt" />
      <None Include="Assets\Dialogue System\Prefabs\Legacy Unity GUI Prefabs\Necromancer\_README.txt" />
      <None Include="Assets\Dialogue System\Examples\Feature Demo\Multiple Database Example\_README.txt" />
@@ -98,7 +95,6 @@
      <None Include="Assets\Dialogue System\Prefabs\Unity UI Prefabs\Shared Assets\Playtime Font\regular\license.txt" />
      <None Include="Assets\Dialogue System\Prefabs\iOS\link.xml" />
      <None Include="Assets\Dialogue System\Examples\Quick Start\_README.txt" />
-     <None Include="Assets\Dialogue System\Documentation\_README.txt" />
      <None Include="Assets\Dialogue System\Prefabs\Legacy Unity GUI Prefabs\Necromancer\Necromancer GUI\Readme.txt" />
      <None Include="Assets\Dialogue System\Scripts\Supplemental\Utility\_README.txt" />
      <None Include="Assets\Dialogue System\Scripts\_README.txt" />
@@ -141,15 +137,6 @@
  </Reference>
  <Reference Include="UnityEditor.TreeEditor">
  <HintPath>D:/Soft/Unity/Editor/Data/UnityExtensions/Unity/TreeEditor/Editor/UnityEditor.TreeEditor.dll</HintPath>
- </Reference>
- <Reference Include="DialogueSystem">
- <HintPath>D:/Soft/Unity/Projects/TheInformationMan/The Information Man/The Information Man/Assets/Dialogue System/DLLs/DialogueSystem.dll</HintPath>
- </Reference>
- <Reference Include="LuaInterpreter">
- <HintPath>D:/Soft/Unity/Projects/TheInformationMan/The Information Man/The Information Man/Assets/Dialogue System/DLLs/LuaInterpreter.dll</HintPath>
- </Reference>
- <Reference Include="DialogueSystemEditors">
- <HintPath>D:/Soft/Unity/Projects/TheInformationMan/The Information Man/The Information Man/Assets/Dialogue System/DLLs/Editor/DialogueSystemEditors.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.Graphs">
  <HintPath>D:/Soft/Unity/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>
