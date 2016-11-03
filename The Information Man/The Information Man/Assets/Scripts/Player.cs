@@ -31,6 +31,17 @@ public class Player : MonoBehaviour
         curHealth = maxHealth;
         anim = gameObject.GetComponent<Animator>();
         canMove = true;
+        switch (SceneManager.GetActiveScene().name)
+        {
+            case "stage2": transform.eulerAngles = new Vector2(0, 180);
+                break;
+            case "stage21": transform.eulerAngles = new Vector2(0, 180);
+                break;
+            case "stage22": transform.eulerAngles = new Vector2(0, 180);
+                break;
+            case "stage23": transform.eulerAngles = new Vector2(0, 180);
+                break;
+        }
     }
 
 	public void SetMove(bool move) {
@@ -55,7 +66,7 @@ public class Player : MonoBehaviour
                 anim.SetFloat("speed", Mathf.Abs(Input.GetAxis("Horizontal")));
             }
 
-            if (SceneManager.GetActiveScene().name == "stage2" || SceneManager.GetActiveScene().name == "stage21" || SceneManager.GetActiveScene().name == "stage22" || SceneManager.GetActiveScene().name == "stage23" || Input.GetAxis("Horizontal") < -0.1f)
+            if (Input.GetAxis("Horizontal") < -0.1f)
             {
                 transform.eulerAngles = new Vector2(0, 180);
             }
