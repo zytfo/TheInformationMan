@@ -59,7 +59,7 @@ public class Tasks : MonoBehaviour {
         public override void GenerateValues()
         {
             System.Random rnd = new System.Random();
-            boxesCount = rnd.Next(2, 5);
+            boxesCount = rnd.Next(2, 4);
             itemsCount = rnd.Next(2, 5);
             experimentsCount = 0;
             for (int i = 0; i < boxesCount; i++)
@@ -507,6 +507,36 @@ public class Tasks : MonoBehaviour {
                 return 1;
             else
                 return 0;
+        }
+    }
+
+    public class SumTask : Task
+    {
+        private int a { get; set; }
+        private int b { get; set; }
+
+        public SumTask()
+        {
+            GenerateValues();
+            writeAnswer = CalculateResult();
+        }
+
+        public override void GenerateValues()
+        {
+            System.Random rnd = new System.Random();
+            a = rnd.Next(0, 10);
+            b = rnd.Next(0, 10);
+        }
+
+        public override string WriteTask()
+        {
+            string result = "Calculate " + a + " + " + b;
+            return result;
+        }
+
+        public override string CalculateResult()
+        {
+            return (a + b).ToString();
         }
     }
 }

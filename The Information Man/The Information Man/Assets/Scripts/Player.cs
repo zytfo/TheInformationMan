@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     public float speed = 50f;
     //public float jumpPower = 150f;
 
+    public string fullname { get; set; }
     public int curHealth;
     public int maxHealth = 100;
 	public bool isPaused = false;
@@ -31,6 +32,7 @@ public class Player : MonoBehaviour
         curHealth = maxHealth;
         anim = gameObject.GetComponent<Animator>();
         canMove = true;
+        fullname = "Sanya";
         switch (SceneManager.GetActiveScene().name)
         {
             case "stage2": transform.eulerAngles = new Vector2(0, 180);
