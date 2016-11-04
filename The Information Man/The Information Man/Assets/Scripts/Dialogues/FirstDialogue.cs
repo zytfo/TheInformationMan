@@ -15,7 +15,7 @@ public class FirstDialogue : MonoBehaviour {
     private bool paused = false;
     private Tasks.Task t1, t2;
     private int attempts = 3;
-    private int counter = 0;
+    private int dialogueStep = 0;
     private int maxLines = 8;
 
     void OnTriggerEnter2D(Collider2D other)
@@ -38,122 +38,104 @@ public class FirstDialogue : MonoBehaviour {
     }
 
 	public void GetInput(string guess) {
-        if (counter == 0 && guess != "" && string.Equals(guess, "zdarova", StringComparison.CurrentCultureIgnoreCase))
+        if (dialogueStep == 0 && IsGreeting(guess))
         {
-            textPanel.GetComponent<UnityEngine.UI.Text>().text += "\n" + player.GetComponent<Player>().fullname + ": " + guess;
-            textPanel.GetComponent<UnityEngine.UI.Text>().text += "\nMr. Silitti: You've came to the interview?";
-            inputField.GetComponent<UnityEngine.UI.InputField>().text = "";
-            inputField.GetComponent<UnityEngine.UI.InputField>().ActivateInputField();
-            guess = "";
-            counter++;
+            ProcessDialogue(guess, "You've came to the interview?");
+            dialogueStep++;
         }
-        else if (counter == 1 && guess != "" && (guess == "yes" || guess == "Yes"))
+        else if (dialogueStep == 1 && (guess == "yes" || guess == "Yes"))
         {
-            textPanel.GetComponent<UnityEngine.UI.Text>().text += "\n" + player.GetComponent<Player>().fullname + ": " + guess;
-            textPanel.GetComponent<UnityEngine.UI.Text>().text += "\nMr. Silitti: Cool! Can you tell me your name?";
-            inputField.GetComponent<UnityEngine.UI.InputField>().text = "";
-            inputField.GetComponent<UnityEngine.UI.InputField>().ActivateInputField();
-            guess = "";
-            counter++;
+            ProcessDialogue(guess, "Cool! Can you tell me your name?");
+            dialogueStep++;
         }
-        else if (counter == 2 && guess != "" && guess == player.GetComponent<Player>().fullname)
+        else if (dialogueStep == 2 && guess == player.GetComponent<Player>().fullname)
         {
-            textPanel.GetComponent<UnityEngine.UI.Text>().text += "\n" + player.GetComponent<Player>().fullname + ": " + guess;
-            textPanel.GetComponent<UnityEngine.UI.Text>().text += "\nMr. Silitti: Good. I will give you a few tasks to check your skills.\n"
-                + "Are you ready for the first task?";
-            inputField.GetComponent<UnityEngine.UI.InputField>().text = "";
-            inputField.GetComponent<UnityEngine.UI.InputField>().ActivateInputField();
-            guess = "";
-            counter++;
+            ProcessDialogue(guess, "Good. I will give you a few tasks to check your skills.\nAre you ready for the first task?");
+            dialogueStep++;
         }
-        else if (counter == 3 && guess != "")
+        else if (dialogueStep == 3)
         {
-            textPanel.GetComponent<UnityEngine.UI.Text>().text += "\n" + player.GetComponent<Player>().fullname + ": " + guess;
-            textPanel.GetComponent<UnityEngine.UI.Text>().text += "\nMr. Silitti: "
-                + t1.WriteTask();
-            inputField.GetComponent<UnityEngine.UI.InputField>().text = "";
-            inputField.GetComponent<UnityEngine.UI.InputField>().ActivateInputField();
-            guess = "";
-            counter++;
+            ProcessDialogue(guess, t1.WriteTask());
+            dialogueStep++;
         }
-        else if (counter == 4 && t1.CheckResult(guess, t1.writeAnswer) == 1)
+        else if (dialogueStep == 4 && t1.CheckResult(guess, t1.writeAnswer) == 1)
         {
-            textPanel.GetComponent<UnityEngine.UI.Text>().text += "\n" + player.GetComponent<Player>().fullname + ": " + guess;
-            textPanel.GetComponent<UnityEngine.UI.Text>().text += "\nMr. Silitti: Surprisingly, correct! OK. Next task.";
-            inputField.GetComponent<UnityEngine.UI.InputField>().text = "";
-            inputField.GetComponent<UnityEngine.UI.InputField>().ActivateInputField();
-            guess = "";
-            counter++;
+            ProcessDialogue(guess, "Surprisingly, correct! OK. Next task.");
+            dialogueStep++;
         }
-        else if (counter == 4 && guess != "" && t1.CheckResult(guess, t1.writeAnswer) < 1)
+        else if (dialogueStep == 4 && t1.CheckResult(guess, t1.writeAnswer) < 1)
         {
             AnotherAttempt();
-            textPanel.GetComponent<UnityEngine.UI.Text>().text += "\n" + player.GetComponent<Player>().fullname + ": " + guess;
-            textPanel.GetComponent<UnityEngine.UI.Text>().text += "\nMr. Silitti: You're wrong! Try again!";
-            inputField.GetComponent<UnityEngine.UI.InputField>().text = "";
-            inputField.GetComponent<UnityEngine.UI.InputField>().ActivateInputField();
-            attempts--;
-            if (attempts < 0) StartCoroutine(GameOver(guess));
+            ProcessDialogue(guess, "You're wrong! Try again!");
         }
-        else if (counter == 5 && guess != "" && guess == "easy")
+        else if (dialogueStep == 5 && guess == "easy")
         {
-            textPanel.GetComponent<UnityEngine.UI.Text>().text += "\n" + player.GetComponent<Player>().fullname + ": " + guess;
-            textPanel.GetComponent<UnityEngine.UI.Text>().text += "\nMr. Silitti: Let's check.\n" + t2.WriteTask()
-                + "\nRight answer is: " + t2.writeAnswer;
-            inputField.GetComponent<UnityEngine.UI.InputField>().text = "";
-            inputField.GetComponent<UnityEngine.UI.InputField>().ActivateInputField();
-            guess = "";
-            counter++;
+            ProcessDialogue(guess, "Let's check.\n" + t2.WriteTask() + "\nRight answer is: " + t2.writeAnswer);
+            dialogueStep++;
         }
-        else if (counter == 6 && guess != "" && t2.CheckResult(guess, t2.writeAnswer) == 1)
+        else if (dialogueStep == 6 && t2.CheckResult(guess, t2.writeAnswer) == 1)
         {
-            textPanel.GetComponent<UnityEngine.UI.Text>().text += "\n" + player.GetComponent<Player>().fullname + ": " + guess;
-            textPanel.GetComponent<UnityEngine.UI.Text>().text += "\nMr. Silitti: Basically, you're correct! Welcome to the Innopolis University! "
-                + "You can go now.";
-            inputField.GetComponent<UnityEngine.UI.InputField>().text = "";
-            player.GetComponent<Player>().hadDialogue1 = true;
-            counter++;
+            DialogueSuccess(guess, "Basically, you're correct! Welcome to the Innopolis University!\nYou can go now.");
+            dialogueStep++;
         }
-        else if (counter == 6 && guess != "" && t2.CheckResult(guess, t2.writeAnswer) < 1)
+        else if (dialogueStep == 6 && t2.CheckResult(guess, t2.writeAnswer) < 1)
         {
             AnotherAttempt();
-            textPanel.GetComponent<UnityEngine.UI.Text>().text += "\n" + player.GetComponent<Player>().fullname + ": " + guess;
-            textPanel.GetComponent<UnityEngine.UI.Text>().text += "\nMr. Silitti: You're wrong! Try again!";
-            inputField.GetComponent<UnityEngine.UI.InputField>().text = "";
-            inputField.GetComponent<UnityEngine.UI.InputField>().ActivateInputField();
-            attempts--;
-            if (attempts < 0) StartCoroutine(GameOver(guess));
+            ProcessDialogue(guess, "You're wrong! Try again!");
+        }
+        else if (dialogueStep == 7 && t2.CheckResult(guess, t2.writeAnswer) < 1)
+        {
+            AnotherAttempt();
+            ProcessDialogue(guess, "You're wrong! Try again!");
         }
         else if (guess == "") inputField.GetComponent<UnityEngine.UI.InputField>().ActivateInputField();
         else if (guess == "skip")
         {
             inputField.GetComponent<UnityEngine.UI.InputField>().text = "";
             player.GetComponent<Player>().hadDialogue1 = true;
-            counter = 7;
+            dialogueStep = 7;
         }
         else
         {
             textPanel.GetComponent<UnityEngine.UI.Text>().text += "\n" + player.GetComponent<Player>().fullname + ": " + guess;
-            StartCoroutine(GameOver(guess));
+            StartCoroutine(GameOver());
         }
     }
 
     void Update()
     {
-        if ((counter == 3 || counter == 7) && (Input.GetKey("left") || Input.GetKey("right")))
+        if ((dialogueStep == 3 || dialogueStep == 7) && (Input.GetKey("left") || Input.GetKey("right")))
         {
             rightPanel.GetComponent<UnityEngine.UI.Image>().sprite = null;
             inputField.GetComponent<UnityEngine.UI.InputField>().readOnly = true;
-            textPanel.GetComponent<UnityEngine.UI.Text>().text = "";
+            //textPanel.GetComponent<UnityEngine.UI.Text>().text = "";
             inputField.GetComponent<UnityEngine.UI.InputField>().text = "";
             player.GetComponent<Player>().SetMove(true);
-            counter = 0;
+            dialogueStep = 0;
         }
         Remover();
     }
 
+    void ProcessDialogue(string playerStr, string otherStr)
+    {
+        textPanel.GetComponent<UnityEngine.UI.Text>().text += "\n" + player.GetComponent<Player>().fullname + ": " + playerStr;
+        textPanel.GetComponent<UnityEngine.UI.Text>().text += "\nMr. Silitti: " + otherStr;
+        inputField.GetComponent<UnityEngine.UI.InputField>().text = "";
+        inputField.GetComponent<UnityEngine.UI.InputField>().ActivateInputField();
+        if (attempts == 0) StartCoroutine(GameOver());
+    }
+
+    void DialogueSuccess(string playerStr, string otherStr)
+    {
+        textPanel.GetComponent<UnityEngine.UI.Text>().text += "\n" + player.GetComponent<Player>().fullname + ": " + playerStr;
+        textPanel.GetComponent<UnityEngine.UI.Text>().text += "\nMr. Silitti: " + otherStr;
+        inputField.GetComponent<UnityEngine.UI.InputField>().text = "";
+        player.GetComponent<Player>().hadDialogue1 = true;
+    }
+
     void AnotherAttempt()
     {
+        attempts--;
         if (textPanel.GetComponent<UnityEngine.UI.Text>().text.EndsWith("Try again!"))
         {
             int index = textPanel.GetComponent<UnityEngine.UI.Text>().text.LastIndexOf('\n');
@@ -161,6 +143,11 @@ public class FirstDialogue : MonoBehaviour {
             index = textPanel.GetComponent<UnityEngine.UI.Text>().text.LastIndexOf('\n');
             textPanel.GetComponent<UnityEngine.UI.Text>().text = textPanel.GetComponent<UnityEngine.UI.Text>().text.Remove(index);
         }
+    }
+
+    bool IsGreeting(string input) {
+        return input.Contains("hi") || input.Contains("Hi") || input.Contains("hello") || input.Contains("Hello")
+            || input.Contains("what's up") || input.Contains("What's up");
     }
 
     void Remover()
@@ -193,9 +180,9 @@ public class FirstDialogue : MonoBehaviour {
         yield return new WaitForSeconds(seconds);
     }
 
-    IEnumerator GameOver(string guess)
+    IEnumerator GameOver()
     { 
-        yield return new WaitForSeconds(3.0f);
+        //yield return new WaitForSeconds(0.0f);
         textPanel.GetComponent<UnityEngine.UI.Text>().text += "\nMr. Silitti: Basically, it's a GAMEOVER.";
         yield return new WaitForSeconds(2.0f);
         SceneManager.LoadScene("preview");

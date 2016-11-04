@@ -524,8 +524,8 @@ public class Tasks : MonoBehaviour {
         public override void GenerateValues()
         {
             System.Random rnd = new System.Random();
-            a = rnd.Next(0, 10);
-            b = rnd.Next(0, 10);
+            a = rnd.Next(1, 11);
+            b = rnd.Next(1, 11);
         }
 
         public override string WriteTask()
