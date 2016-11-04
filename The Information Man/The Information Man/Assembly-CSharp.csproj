@@ -46,7 +46,6 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\ActivateTextAtLine.cs" />
-     <Compile Include="Assets\Scripts\ChangeImage.cs" />
      <Compile Include="Assets\Scripts\Dialogues\FirstDialogue.cs" />
      <Compile Include="Assets\Scripts\Dialogues\SecondDialogue.cs" />
      <Compile Include="Assets\Scripts\Dialogues\Tasks.cs" />
@@ -57,7 +56,12 @@
      <Compile Include="Assets\Scripts\MovesForScenes\PreviewToFirst.cs" />
      <Compile Include="Assets\Scripts\PauseMenu.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
-     <Compile Include="Assets\Scripts\Preview\NewLine.cs" />
+     <Compile Include="Assets\Scripts\Preview\Biography.cs" />
+     <Compile Include="Assets\Scripts\Preview\ChangeAge.cs" />
+     <Compile Include="Assets\Scripts\Preview\ChangeImage.cs" />
+     <Compile Include="Assets\Scripts\Preview\ChangePoints.cs" />
+     <Compile Include="Assets\Scripts\Preview\ChangeSkills.cs" />
+     <Compile Include="Assets\Scripts\Preview\StartGame.cs" />
      <None Include="Assets\Dialogue System\Prefabs\Legacy Unity GUI Prefabs\Computer\Bitwise Font\!license.txt" />
      <None Include="Assets\Dialogue System\Prefabs\Legacy Unity GUI Prefabs\Shared Fonts\Orbitron\SIL Open Font License.txt" />
      <None Include="Assets\Dialogue System\Prefabs\Unity UI Prefabs\Unity UI Assets\_README.txt" />
