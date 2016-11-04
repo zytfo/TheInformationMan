@@ -11,10 +11,11 @@ public class FirstDialogue : MonoBehaviour {
 	public Sprite leftPicture;
 	public Sprite rightPicture;
 	public GameObject player;
+    public GameObject livesPanel;
 
     private bool paused = false;
-    private Tasks.Task t1, t2;
-    private int attempts = 3;
+    private Tasks.Task task;
+    //private int attempts = 3;
     private int dialogueStep = 0;
     private int maxLines = 8;
 
@@ -25,12 +26,10 @@ public class FirstDialogue : MonoBehaviour {
             leftPanel.GetComponent<UnityEngine.UI.Image> ().sprite = leftPicture;
 			rightPanel.GetComponent<UnityEngine.UI.Image> ().sprite = rightPicture;
 			textPanel.GetComponent<UnityEngine.UI.Text>().text = "Mr. Silitti: Good Morning!";
-			inputField.GetComponent<UnityEngine.UI.InputField> ().text = "";
-			inputField.GetComponent<UnityEngine.UI.InputField> ().readOnly = false;
+            inputField.GetComponent<UnityEngine.UI.InputField> ().readOnly = false;
             inputField.GetComponent<UnityEngine.UI.InputField>().ActivateInputField();
             player.GetComponent<Player> ().SetMove(false);
-            t1 = new Tasks.SumTask();
-            t2 = new Tasks.ProbabilityTask();
+            task = new Tasks.SumTask();
         }
 	}
 
@@ -48,42 +47,39 @@ public class FirstDialogue : MonoBehaviour {
             ProcessDialogue(guess, "Cool! Can you tell me your name?");
             dialogueStep++;
         }
-        else if (dialogueStep == 2 && guess == player.GetComponent<Player>().fullname)
+        else if (dialogueStep == 2 && (guess == player.GetComponent<Player>().fullname 
+            || string.Equals(guess, "The Information Man", StringComparison.CurrentCultureIgnoreCase)))
         {
             ProcessDialogue(guess, "Good. I will give you a few tasks to check your skills.\nAre you ready for the first task?");
             dialogueStep++;
         }
         else if (dialogueStep == 3)
         {
-            ProcessDialogue(guess, t1.WriteTask());
+            ProcessDialogue(guess, task.WriteTask());
             dialogueStep++;
         }
-        else if (dialogueStep == 4 && t1.CheckResult(guess, t1.writeAnswer) == 1)
+        else if (dialogueStep == 4 && task.CheckResult(guess, task.writeAnswer) == 1)
         {
             ProcessDialogue(guess, "Surprisingly, correct! OK. Next task.");
             dialogueStep++;
         }
-        else if (dialogueStep == 4 && t1.CheckResult(guess, t1.writeAnswer) < 1)
+        else if (dialogueStep == 4 && task.CheckResult(guess, task.writeAnswer) < 1)
         {
             AnotherAttempt();
             ProcessDialogue(guess, "You're wrong! Try again!");
         }
         else if (dialogueStep == 5 && guess == "easy")
         {
-            ProcessDialogue(guess, "Let's check.\n" + t2.WriteTask() + "\nRight answer is: " + t2.writeAnswer);
+            task = new Tasks.ProbabilityTask();
+            ProcessDialogue(guess, "Let's check.\n" + task.WriteTask() + "\nRight answer is: " + task.writeAnswer);
             dialogueStep++;
         }
-        else if (dialogueStep == 6 && t2.CheckResult(guess, t2.writeAnswer) == 1)
+        else if (dialogueStep == 6 && task.CheckResult(guess, task.writeAnswer) == 1)
         {
             DialogueSuccess(guess, "Basically, you're correct! Welcome to the Innopolis University!\nYou can go now.");
             dialogueStep++;
         }
-        else if (dialogueStep == 6 && t2.CheckResult(guess, t2.writeAnswer) < 1)
-        {
-            AnotherAttempt();
-            ProcessDialogue(guess, "You're wrong! Try again!");
-        }
-        else if (dialogueStep == 7 && t2.CheckResult(guess, t2.writeAnswer) < 1)
+        else if (dialogueStep == 6 && task.CheckResult(guess, task.writeAnswer) < 1)
         {
             AnotherAttempt();
             ProcessDialogue(guess, "You're wrong! Try again!");
@@ -110,10 +106,14 @@ public class FirstDialogue : MonoBehaviour {
             inputField.GetComponent<UnityEngine.UI.InputField>().readOnly = true;
             //textPanel.GetComponent<UnityEngine.UI.Text>().text = "";
             inputField.GetComponent<UnityEngine.UI.InputField>().text = "";
+            livesPanel.GetComponent<UnityEngine.UI.Text>().text = "";
             player.GetComponent<Player>().SetMove(true);
             dialogueStep = 0;
         }
-        Remover();
+        Shifter();
+        if (inputField.GetComponent<UnityEngine.UI.InputField>().isFocused)
+            livesPanel.GetComponent<UnityEngine.UI.Text>().text = (player.GetComponent<Player>().curHealth).ToString();
+            //livesPanel.GetComponent<UnityEngine.UI.Text>().text = attempts.ToString();
     }
 
     void ProcessDialogue(string playerStr, string otherStr)
@@ -122,7 +122,8 @@ public class FirstDialogue : MonoBehaviour {
         textPanel.GetComponent<UnityEngine.UI.Text>().text += "\nMr. Silitti: " + otherStr;
         inputField.GetComponent<UnityEngine.UI.InputField>().text = "";
         inputField.GetComponent<UnityEngine.UI.InputField>().ActivateInputField();
-        if (attempts == 0) StartCoroutine(GameOver());
+        //if (attempts == 0) StartCoroutine(GameOver());
+        if (player.GetComponent<Player>().curHealth <= 0) StartCoroutine(GameOver());
     }
 
     void DialogueSuccess(string playerStr, string otherStr)
@@ -135,7 +136,9 @@ public class FirstDialogue : MonoBehaviour {
 
     void AnotherAttempt()
     {
-        attempts--;
+        //attempts--;
+        player.GetComponent<Player>().curHealth -= 20;
+        //livesPanel.GetComponent<UnityEngine.UI.Text>().text = (player.GetComponent<Player>().curHealth / 20).ToString();
         if (textPanel.GetComponent<UnityEngine.UI.Text>().text.EndsWith("Try again!"))
         {
             int index = textPanel.GetComponent<UnityEngine.UI.Text>().text.LastIndexOf('\n');
@@ -150,7 +153,7 @@ public class FirstDialogue : MonoBehaviour {
             || input.Contains("what's up") || input.Contains("What's up");
     }
 
-    void Remover()
+    void Shifter()
     {
         if (textPanel.GetComponent<UnityEngine.UI.Text>().text.Split('\n').Length > maxLines)
         {

@@ -111,6 +111,7 @@ MonoBehaviour:
   leftPicture: {fileID: 21300000, guid: eca12382946d20948a68eedc0caa5d23, type: 3}
   rightPicture: {fileID: 21300000, guid: c0da3f83cf7a926438177bbcc334eaf7, type: 3}
   player: {fileID: 1368540723}
+  livesPanel: {fileID: 2139713841}
 --- !u!1 &487495008 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 160904, guid: f8362fb4c608ecd48a9dc6a0da8c13b6, type: 2}
@@ -697,18 +698,10 @@ Prefab:
       propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 49086322}
-    - target: {fileID: 11449810, guid: f8362fb4c608ecd48a9dc6a0da8c13b6, type: 2}
-      propertyPath: m_FontData.m_FontSize
-      value: 17
-      objectReference: {fileID: 0}
-    - target: {fileID: 11449810, guid: f8362fb4c608ecd48a9dc6a0da8c13b6, type: 2}
-      propertyPath: m_FontData.m_MaxSize
-      value: 300
-      objectReference: {fileID: 0}
-    - target: {fileID: 11449810, guid: f8362fb4c608ecd48a9dc6a0da8c13b6, type: 2}
-      propertyPath: m_FontData.m_MinSize
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f8362fb4c608ecd48a9dc6a0da8c13b6, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &2139713841 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 153490, guid: f8362fb4c608ecd48a9dc6a0da8c13b6, type: 2}
+  m_PrefabInternal: {fileID: 1876666528}
