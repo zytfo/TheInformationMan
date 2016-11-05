@@ -14,10 +14,18 @@ public class FirstDialogue : MonoBehaviour {
     public GameObject livesPanel;
 
     private bool paused = false;
-    private Tasks.Task task;
-    //private int attempts = 3;
     private int dialogueStep = 0;
     private int maxLines = 8;
+
+    Tasks.Task task()
+    {
+        return player.GetComponent<Player>().task;
+    }
+
+    void task(Tasks.Task task)
+    {
+        player.GetComponent<Player>().task = task;
+    }
 
     void OnTriggerEnter2D(Collider2D other)
 	{
@@ -29,7 +37,6 @@ public class FirstDialogue : MonoBehaviour {
             inputField.GetComponent<UnityEngine.UI.InputField> ().readOnly = false;
             inputField.GetComponent<UnityEngine.UI.InputField>().ActivateInputField();
             player.GetComponent<Player> ().SetMove(false);
-            task = new Tasks.SumTask();
         }
 	}
 
@@ -55,31 +62,38 @@ public class FirstDialogue : MonoBehaviour {
         }
         else if (dialogueStep == 3)
         {
-            ProcessDialogue(guess, task.WriteTask());
+            task(new Tasks.SumTask());
+            player.GetComponent<Player>().UpdateTaskPanel();
+            ProcessDialogue(guess, task().WriteTask());
             dialogueStep++;
         }
-        else if (dialogueStep == 4 && task.CheckResult(guess, task.writeAnswer) == 1)
+        else if (dialogueStep == 4 && task().CheckResult(guess, task().writeAnswer) == 1)
         {
+            task(null);
+            player.GetComponent<Player>().UpdateTaskPanel();
             ProcessDialogue(guess, "Surprisingly, correct! OK. Next task.");
             dialogueStep++;
         }
-        else if (dialogueStep == 4 && task.CheckResult(guess, task.writeAnswer) < 1)
+        else if (dialogueStep == 4 && task().CheckResult(guess, task().writeAnswer) < 1)
         {
             AnotherAttempt();
             ProcessDialogue(guess, "You're wrong! Try again!");
         }
         else if (dialogueStep == 5 && guess == "easy")
         {
-            task = new Tasks.ProbabilityTask();
-            ProcessDialogue(guess, "Let's check.\n" + task.WriteTask() + "\nRight answer is: " + task.writeAnswer);
+            task(new Tasks.ProbabilityTask());
+            player.GetComponent<Player>().UpdateTaskPanel();
+            ProcessDialogue(guess, "Let's check.\n" + task().WriteTask() + "\nRight answer is: " + task().writeAnswer);
             dialogueStep++;
         }
-        else if (dialogueStep == 6 && task.CheckResult(guess, task.writeAnswer) == 1)
+        else if (dialogueStep == 6 && task().CheckResult(guess, task().writeAnswer) == 1)
         {
+            task(null);
+            player.GetComponent<Player>().UpdateTaskPanel();
             DialogueSuccess(guess, "Basically, you're correct! Welcome to the Innopolis University!\nYou can go now.");
             dialogueStep++;
         }
-        else if (dialogueStep == 6 && task.CheckResult(guess, task.writeAnswer) < 1)
+        else if (dialogueStep == 6 && task().CheckResult(guess, task().writeAnswer) < 1)
         {
             AnotherAttempt();
             ProcessDialogue(guess, "You're wrong! Try again!");
@@ -113,7 +127,6 @@ public class FirstDialogue : MonoBehaviour {
         Shifter();
         if (inputField.GetComponent<UnityEngine.UI.InputField>().isFocused)
             livesPanel.GetComponent<UnityEngine.UI.Text>().text = (player.GetComponent<Player>().curHealth).ToString();
-            //livesPanel.GetComponent<UnityEngine.UI.Text>().text = attempts.ToString();
     }
 
     void ProcessDialogue(string playerStr, string otherStr)
@@ -122,7 +135,6 @@ public class FirstDialogue : MonoBehaviour {
         textPanel.GetComponent<UnityEngine.UI.Text>().text += "\nMr. Silitti: " + otherStr;
         inputField.GetComponent<UnityEngine.UI.InputField>().text = "";
         inputField.GetComponent<UnityEngine.UI.InputField>().ActivateInputField();
-        //if (attempts == 0) StartCoroutine(GameOver());
         if (player.GetComponent<Player>().curHealth <= 0) StartCoroutine(GameOver());
     }
 
@@ -131,6 +143,7 @@ public class FirstDialogue : MonoBehaviour {
         textPanel.GetComponent<UnityEngine.UI.Text>().text += "\n" + player.GetComponent<Player>().fullname + ": " + playerStr;
         textPanel.GetComponent<UnityEngine.UI.Text>().text += "\nMr. Silitti: " + otherStr;
         inputField.GetComponent<UnityEngine.UI.InputField>().text = "";
+        player.GetComponent<Player>().taskPanel.SetActive(false);
         player.GetComponent<Player>().hadDialogue1 = true;
     }
 

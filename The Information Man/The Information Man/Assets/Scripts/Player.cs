@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -19,6 +20,8 @@ public class Player : MonoBehaviour
 
     public bool canMove;
 
+    public GameObject taskPanel;
+    public Tasks.Task task { get; set; }
     private static bool _hadDialogue1;
     public bool hadDialogue1
     {
@@ -33,6 +36,9 @@ public class Player : MonoBehaviour
         anim = gameObject.GetComponent<Animator>();
         canMove = true;
         fullname = "Sanya";
+        taskPanel = GameObject.Find("TaskPanel");
+        taskPanel.SetActive(false);
+        task = null;
         switch (SceneManager.GetActiveScene().name)
         {
             case "stage2": transform.eulerAngles = new Vector2(0, 180);
@@ -52,6 +58,12 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown("t"))
+        {
+            UpdateTaskPanel();
+            taskPanel.SetActive(!taskPanel.activeInHierarchy);
+        }
+
         if (!canMove)
         {
             anim.SetFloat("speed",Mathf.Abs(Input.GetAxis("Vertical")));
@@ -96,7 +108,7 @@ public class Player : MonoBehaviour
                 Die();
             }
         }
-	}
+    }
 
     void FixedUpdate()
     {
@@ -154,5 +166,13 @@ public class Player : MonoBehaviour
     void Die()
     {
         Application.LoadLevel(Application.loadedLevel);
+    }
+
+    public void UpdateTaskPanel()
+    {
+        if (task == null)
+            taskPanel.GetComponentInChildren<Text>().GetComponent<Text>().text = "No tasks at the moment, you, lucky man!";
+        else
+            taskPanel.GetComponentInChildren<Text>().text = task.WriteTask();
     }
 }

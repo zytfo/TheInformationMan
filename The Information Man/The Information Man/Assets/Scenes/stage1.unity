@@ -431,18 +431,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 21205000, guid: edf77b72502208d4989d48f5199201a1, type: 2}
-      propertyPath: m_SortingOrder
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 11499836, guid: edf77b72502208d4989d48f5199201a1, type: 2}
-      propertyPath: isPaused
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 472396, guid: edf77b72502208d4989d48f5199201a1, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -0.71
-      objectReference: {fileID: 0}
+      propertyPath: taskPanel
+      value: 
+      objectReference: {fileID: 1450116756}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: edf77b72502208d4989d48f5199201a1, type: 2}
   m_IsPrefabParent: 0
@@ -611,6 +603,10 @@ Prefab:
 GameObject:
   m_PrefabParentObject: {fileID: 189836, guid: edf77b72502208d4989d48f5199201a1, type: 2}
   m_PrefabInternal: {fileID: 1120094248}
+--- !u!1 &1450116756 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 194766, guid: f8362fb4c608ecd48a9dc6a0da8c13b6, type: 2}
+  m_PrefabInternal: {fileID: 1876666528}
 --- !u!1 &1829226952 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 156964, guid: a3121083c30e91e4fa63d10c88732862, type: 2}
@@ -698,6 +694,10 @@ Prefab:
       propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 49086322}
+    - target: {fileID: 194766, guid: f8362fb4c608ecd48a9dc6a0da8c13b6, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f8362fb4c608ecd48a9dc6a0da8c13b6, type: 2}
   m_IsPrefabParent: 0

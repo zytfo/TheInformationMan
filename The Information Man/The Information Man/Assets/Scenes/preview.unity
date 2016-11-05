@@ -3971,7 +3971,6 @@ GameObject:
   - 222: {fileID: 417674711}
   - 114: {fileID: 417674710}
   - 114: {fileID: 417674709}
-  - 114: {fileID: 417674712}
   m_Layer: 5
   m_Name: Biography
   m_TagString: Untagged
@@ -4094,17 +4093,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 417674707}
---- !u!114 &417674712
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 417674707}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe13937db5445d24babb1e525cd6f704, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &421328458
 GameObject:
   m_ObjectHideFlags: 0
@@ -16120,10 +16108,10 @@ GameObject:
   - 222: {fileID: 1489699346}
   - 114: {fileID: 1489699345}
   - 114: {fileID: 1489699347}
-  - 114: {fileID: 1489699348}
   - 114: {fileID: 1489699349}
   - 114: {fileID: 1489699350}
   - 114: {fileID: 1489699351}
+  - 114: {fileID: 1489699348}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -16326,10 +16314,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1489699338}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1ea47f342fbc13418579a89677a6d9b, type: 3}
+  m_Script: {fileID: 11500000, guid: 811f048be33fc954db2cae517cbced98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bib: {fileID: 417674709}
+  counter: {fileID: 26801807}
 --- !u!114 &1489699349
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16406,6 +16394,7 @@ MonoBehaviour:
   - {fileID: 427427237}
   - {fileID: 386972858}
   - {fileID: 1490289479}
+  counterForPoints: {fileID: 26801807}
 --- !u!1 &1490289477
 GameObject:
   m_ObjectHideFlags: 0

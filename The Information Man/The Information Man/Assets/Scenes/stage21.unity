@@ -140,27 +140,6 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 408948, guid: 7de2c83800c78004d987952d67d39b9f, type: 2}
   m_PrefabInternal: {fileID: 64971780}
---- !u!1 &229982922 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 109840, guid: 0b2d7bd550cc4e14fb784a34942df41b, type: 2}
-  m_PrefabInternal: {fileID: 1749387165}
---- !u!95 &229982923
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 229982922}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 89a7c2b8422daab44b8885ae31624017, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &302649002 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 126590, guid: 7de2c83800c78004d987952d67d39b9f, type: 2}
@@ -259,6 +238,10 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f8362fb4c608ecd48a9dc6a0da8c13b6, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &311406716 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 194766, guid: f8362fb4c608ecd48a9dc6a0da8c13b6, type: 2}
+  m_PrefabInternal: {fileID: 311406715}
 --- !u!1 &418119004 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 105256, guid: f8362fb4c608ecd48a9dc6a0da8c13b6, type: 2}
@@ -635,18 +618,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 411696, guid: 0b2d7bd550cc4e14fb784a34942df41b, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 1.0161134
-      objectReference: {fileID: 0}
-    - target: {fileID: 411696, guid: 0b2d7bd550cc4e14fb784a34942df41b, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 1.0161133
-      objectReference: {fileID: 0}
-    - target: {fileID: 411696, guid: 0b2d7bd550cc4e14fb784a34942df41b, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 1.0161133
-      objectReference: {fileID: 0}
+    - target: {fileID: 11439400, guid: 0b2d7bd550cc4e14fb784a34942df41b, type: 2}
+      propertyPath: taskPanel
+      value: 
+      objectReference: {fileID: 311406716}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0b2d7bd550cc4e14fb784a34942df41b, type: 2}
   m_IsPrefabParent: 0
