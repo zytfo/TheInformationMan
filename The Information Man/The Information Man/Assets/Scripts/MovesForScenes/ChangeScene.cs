@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class ChangeScene : MonoBehaviour {
 	public string stageName;
@@ -8,7 +9,8 @@ public class ChangeScene : MonoBehaviour {
 	{
 		if (other.name == "player")
 		{
-			Application.LoadLevel (this.stageName);
+            other.GetComponent<Player>().panelText = other.GetComponent<Player>().textPanel.GetComponent<Text>().text;
+            Application.LoadLevel (this.stageName);
 		}
 	}
 }

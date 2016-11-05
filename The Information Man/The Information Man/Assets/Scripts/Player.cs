@@ -20,8 +20,26 @@ public class Player : MonoBehaviour
 
     public bool canMove;
 
-    public GameObject taskPanel;
+    public GameObject dialoguePanel;
+    public GameObject taskPanel { get; set; }
+    public GameObject textPanel;
+
+    private static string _panelText;
+    public string panelText
+    {
+        get { return _panelText; }
+        set { _panelText = value; }
+    }
+
+    private static string _inputText;
+    public string inputText
+    {
+        get { return _inputText; }
+        set { _inputText = value; }
+    }
+
     public Tasks.Task task { get; set; }
+
     private static bool _hadDialogue1;
     public bool hadDialogue1
     {
@@ -36,8 +54,10 @@ public class Player : MonoBehaviour
         anim = gameObject.GetComponent<Animator>();
         canMove = true;
         fullname = "Sanya";
-        taskPanel = GameObject.Find("TaskPanel");
-        taskPanel.SetActive(false);
+        dialoguePanel = GameObject.Find("DialoguePanel");
+        textPanel = GameObject.Find("TextPanel");
+        textPanel.GetComponent<Text>().text = panelText;
+        taskPanel = dialoguePanel.transform.Find("TaskPanel").gameObject;
         task = null;
         switch (SceneManager.GetActiveScene().name)
         {

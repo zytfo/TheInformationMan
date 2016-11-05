@@ -2,16 +2,17 @@
 using System.Collections;
 using System;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class FirstDialogue : MonoBehaviour {
-	public GameObject leftPanel;
-	public GameObject rightPanel;
-	public GameObject textPanel;
-	public GameObject inputField;
+    public Player player;
+    public Image leftPanel;
+	public Image rightPanel;
+	public Text textPanel;
+    public Text livesPanel;
+    public InputField inputField;
 	public Sprite leftPicture;
 	public Sprite rightPicture;
-	public GameObject player;
-    public GameObject livesPanel;
 
     private bool paused = false;
     private int dialogueStep = 0;
@@ -19,23 +20,23 @@ public class FirstDialogue : MonoBehaviour {
 
     Tasks.Task task()
     {
-        return player.GetComponent<Player>().task;
+        return player.task;
     }
 
     void task(Tasks.Task task)
     {
-        player.GetComponent<Player>().task = task;
+        player.task = task;
     }
 
     void OnTriggerEnter2D(Collider2D other)
 	{
-		if (other.name == "player" && !player.GetComponent<Player>().hadDialogue1)
+		if (other.name == "player" && !player.hadDialogue1)
 		{
-            leftPanel.GetComponent<UnityEngine.UI.Image> ().sprite = leftPicture;
-			rightPanel.GetComponent<UnityEngine.UI.Image> ().sprite = rightPicture;
-			textPanel.GetComponent<UnityEngine.UI.Text>().text = "Mr. Silitti: Good Morning!";
-            inputField.GetComponent<UnityEngine.UI.InputField> ().readOnly = false;
-            inputField.GetComponent<UnityEngine.UI.InputField>().ActivateInputField();
+            leftPanel.GetComponent<Image> ().sprite = leftPicture;
+			rightPanel.GetComponent<Image> ().sprite = rightPicture;
+			textPanel.GetComponent<Text>().text = "Mr. Silitti: Good Morning!";
+            inputField.readOnly = false;
+            inputField.ActivateInputField();
             player.GetComponent<Player> ().SetMove(false);
         }
 	}
@@ -54,7 +55,7 @@ public class FirstDialogue : MonoBehaviour {
             ProcessDialogue(guess, "Cool! Can you tell me your name?");
             dialogueStep++;
         }
-        else if (dialogueStep == 2 && (guess == player.GetComponent<Player>().fullname 
+        else if (dialogueStep == 2 && (guess == player.fullname 
             || string.Equals(guess, "The Information Man", StringComparison.CurrentCultureIgnoreCase)))
         {
             ProcessDialogue(guess, "Good. I will give you a few tasks to check your skills.\nAre you ready for the first task?");
@@ -63,14 +64,14 @@ public class FirstDialogue : MonoBehaviour {
         else if (dialogueStep == 3)
         {
             task(new Tasks.SumTask());
-            player.GetComponent<Player>().UpdateTaskPanel();
+            player.UpdateTaskPanel();
             ProcessDialogue(guess, task().WriteTask());
             dialogueStep++;
         }
         else if (dialogueStep == 4 && task().CheckResult(guess, task().writeAnswer) == 1)
         {
             task(null);
-            player.GetComponent<Player>().UpdateTaskPanel();
+            player.UpdateTaskPanel();
             ProcessDialogue(guess, "Surprisingly, correct! OK. Next task.");
             dialogueStep++;
         }
@@ -82,14 +83,14 @@ public class FirstDialogue : MonoBehaviour {
         else if (dialogueStep == 5 && guess == "easy")
         {
             task(new Tasks.ProbabilityTask());
-            player.GetComponent<Player>().UpdateTaskPanel();
+            player.UpdateTaskPanel();
             ProcessDialogue(guess, "Let's check.\n" + task().WriteTask() + "\nRight answer is: " + task().writeAnswer);
             dialogueStep++;
         }
         else if (dialogueStep == 6 && task().CheckResult(guess, task().writeAnswer) == 1)
         {
             task(null);
-            player.GetComponent<Player>().UpdateTaskPanel();
+            player.UpdateTaskPanel();
             DialogueSuccess(guess, "Basically, you're correct! Welcome to the Innopolis University!\nYou can go now.");
             dialogueStep++;
         }
@@ -98,16 +99,16 @@ public class FirstDialogue : MonoBehaviour {
             AnotherAttempt();
             ProcessDialogue(guess, "You're wrong! Try again!");
         }
-        else if (guess == "") inputField.GetComponent<UnityEngine.UI.InputField>().ActivateInputField();
+        else if (guess == "") inputField.ActivateInputField();
         else if (guess == "skip")
         {
-            inputField.GetComponent<UnityEngine.UI.InputField>().text = "";
-            player.GetComponent<Player>().hadDialogue1 = true;
+            inputField.text = "";
+            player.hadDialogue1 = true;
             dialogueStep = 7;
         }
         else
         {
-            textPanel.GetComponent<UnityEngine.UI.Text>().text += "\n" + player.GetComponent<Player>().fullname + ": " + guess;
+            textPanel.text += "\n" + player.fullname + ": " + guess;
             StartCoroutine(GameOver());
         }
     }
@@ -116,48 +117,48 @@ public class FirstDialogue : MonoBehaviour {
     {
         if ((dialogueStep == 3 || dialogueStep == 7) && (Input.GetKey("left") || Input.GetKey("right")))
         {
-            rightPanel.GetComponent<UnityEngine.UI.Image>().sprite = null;
-            inputField.GetComponent<UnityEngine.UI.InputField>().readOnly = true;
-            //textPanel.GetComponent<UnityEngine.UI.Text>().text = "";
-            inputField.GetComponent<UnityEngine.UI.InputField>().text = "";
-            livesPanel.GetComponent<UnityEngine.UI.Text>().text = "";
-            player.GetComponent<Player>().SetMove(true);
+            rightPanel.sprite = null;
+            inputField.readOnly = true;
+            inputField.text = "";
+            livesPanel.text = "";
+            player.SetMove(true);
             dialogueStep = 0;
         }
         Shifter();
-        if (inputField.GetComponent<UnityEngine.UI.InputField>().isFocused)
-            livesPanel.GetComponent<UnityEngine.UI.Text>().text = (player.GetComponent<Player>().curHealth).ToString();
+        if (inputField.isFocused)
+            livesPanel.text = (player.curHealth).ToString();
     }
 
     void ProcessDialogue(string playerStr, string otherStr)
     {
-        textPanel.GetComponent<UnityEngine.UI.Text>().text += "\n" + player.GetComponent<Player>().fullname + ": " + playerStr;
-        textPanel.GetComponent<UnityEngine.UI.Text>().text += "\nMr. Silitti: " + otherStr;
-        inputField.GetComponent<UnityEngine.UI.InputField>().text = "";
-        inputField.GetComponent<UnityEngine.UI.InputField>().ActivateInputField();
-        if (player.GetComponent<Player>().curHealth <= 0) StartCoroutine(GameOver());
+        textPanel.text += "\n" + player.fullname + ": " + playerStr;
+        textPanel.text += "\nMr. Silitti: " + otherStr;
+        inputField.text = "";
+        inputField.ActivateInputField();
+        if (player.curHealth <= 0) StartCoroutine(GameOver());
     }
 
     void DialogueSuccess(string playerStr, string otherStr)
     {
-        textPanel.GetComponent<UnityEngine.UI.Text>().text += "\n" + player.GetComponent<Player>().fullname + ": " + playerStr;
-        textPanel.GetComponent<UnityEngine.UI.Text>().text += "\nMr. Silitti: " + otherStr;
-        inputField.GetComponent<UnityEngine.UI.InputField>().text = "";
-        player.GetComponent<Player>().taskPanel.SetActive(false);
-        player.GetComponent<Player>().hadDialogue1 = true;
+        textPanel.text += "\n" + player.fullname + ": " + playerStr;
+        textPanel.text += "\nMr. Silitti: " + otherStr;
+        inputField.text = "";
+        player.taskPanel.SetActive(false);
+        player.hadDialogue1 = true;
+        player.panelText = textPanel.text;
     }
 
     void AnotherAttempt()
     {
         //attempts--;
-        player.GetComponent<Player>().curHealth -= 20;
-        //livesPanel.GetComponent<UnityEngine.UI.Text>().text = (player.GetComponent<Player>().curHealth / 20).ToString();
-        if (textPanel.GetComponent<UnityEngine.UI.Text>().text.EndsWith("Try again!"))
+        player.curHealth -= 20;
+        //livesPanel.text = (player.curHealth / 20).ToString();
+        if (textPanel.text.EndsWith("Try again!"))
         {
-            int index = textPanel.GetComponent<UnityEngine.UI.Text>().text.LastIndexOf('\n');
-            textPanel.GetComponent<UnityEngine.UI.Text>().text = textPanel.GetComponent<UnityEngine.UI.Text>().text.Remove(index);
-            index = textPanel.GetComponent<UnityEngine.UI.Text>().text.LastIndexOf('\n');
-            textPanel.GetComponent<UnityEngine.UI.Text>().text = textPanel.GetComponent<UnityEngine.UI.Text>().text.Remove(index);
+            int index = textPanel.text.LastIndexOf('\n');
+            textPanel.text = textPanel.text.Remove(index);
+            index = textPanel.text.LastIndexOf('\n');
+            textPanel.text = textPanel.text.Remove(index);
         }
     }
 
@@ -168,10 +169,10 @@ public class FirstDialogue : MonoBehaviour {
 
     void Shifter()
     {
-        if (textPanel.GetComponent<UnityEngine.UI.Text>().text.Split('\n').Length > maxLines)
+        if (textPanel.text.Split('\n').Length > maxLines)
         {
-            string result = textPanel.GetComponent<UnityEngine.UI.Text>().text;
-            int count = textPanel.GetComponent<UnityEngine.UI.Text>().text.Split('\n').Length - maxLines;
+            string result = textPanel.text;
+            int count = textPanel.text.Split('\n').Length - maxLines;
             for (int i = 0; i < count; ++i)
             {
                 bool found = false;
@@ -186,7 +187,7 @@ public class FirstDialogue : MonoBehaviour {
                     j++;
                 }
             }
-            textPanel.GetComponent<UnityEngine.UI.Text>().text = result;
+            textPanel.text = result;
         }
         else return;
     }
@@ -199,7 +200,7 @@ public class FirstDialogue : MonoBehaviour {
     IEnumerator GameOver()
     { 
         //yield return new WaitForSeconds(0.0f);
-        textPanel.GetComponent<UnityEngine.UI.Text>().text += "\nMr. Silitti: Basically, it's a GAMEOVER.";
+        textPanel.text += "\nMr. Silitti: Basically, it's a GAMEOVER.";
         yield return new WaitForSeconds(2.0f);
         SceneManager.LoadScene("preview");
     }

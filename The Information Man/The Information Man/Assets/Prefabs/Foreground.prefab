@@ -181,7 +181,8 @@ MonoBehaviour:
   isPaused: 0
   grounded: 0
   canMove: 0
-  taskPanel: {fileID: 0}
+  dialoguePanel: {fileID: 0}
+  textPanel: {fileID: 0}
 --- !u!212 &21205000
 SpriteRenderer:
   m_ObjectHideFlags: 1
