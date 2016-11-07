@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\ActivateTextAtLine.cs" />
+     <Compile Include="Assets\Scripts\Dialogues\DialogueAPI.cs" />
      <Compile Include="Assets\Scripts\Dialogues\FirstDialogue.cs" />
      <Compile Include="Assets\Scripts\Dialogues\SecondDialogue.cs" />
      <Compile Include="Assets\Scripts\Dialogues\Tasks.cs" />

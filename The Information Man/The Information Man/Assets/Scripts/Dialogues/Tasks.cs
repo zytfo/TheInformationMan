@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-public class Tasks : MonoBehaviour {
+public class Tasks {
 
     public abstract class Task
     {

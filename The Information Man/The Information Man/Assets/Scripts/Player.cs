@@ -40,12 +40,7 @@ public class Player : MonoBehaviour
 
     public Tasks.Task task { get; set; }
 
-    private static bool _hadDialogue1;
-    public bool hadDialogue1
-    {
-        get { return _hadDialogue1; }
-        set { _hadDialogue1 = value; }
-    }
+    public bool[] hadDialogue { get; set; }
 
     void Start()
     {
@@ -59,6 +54,7 @@ public class Player : MonoBehaviour
         textPanel.GetComponent<Text>().text = panelText;
         taskPanel = dialoguePanel.transform.Find("TaskPanel").gameObject;
         task = null;
+        hadDialogue = new bool[5];
         switch (SceneManager.GetActiveScene().name)
         {
             case "stage2": transform.eulerAngles = new Vector2(0, 0);
