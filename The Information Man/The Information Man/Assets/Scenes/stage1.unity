@@ -112,6 +112,7 @@ MonoBehaviour:
   textPanel: {fileID: 8057707}
   livesPanel: {fileID: 2139713842}
   inputField: {fileID: 1210133889}
+  rightPicture: {fileID: 0}
 --- !u!1 &366120085 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 174906, guid: f8362fb4c608ecd48a9dc6a0da8c13b6, type: 2}

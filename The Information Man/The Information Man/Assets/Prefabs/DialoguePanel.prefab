@@ -333,7 +333,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34e53076c0d5e3741800d0ff48755da9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  avatar: {fileID: 11436110}
+  avatarLeft: {fileID: 11436110}
+  avatarRight: {fileID: 11421716}
   index: 0
 --- !u!114 &11436110
 MonoBehaviour:

@@ -61,7 +61,7 @@ public class Player : MonoBehaviour
         task = null;
         switch (SceneManager.GetActiveScene().name)
         {
-            case "stage2": transform.eulerAngles = new Vector2(0, 180);
+            case "stage2": transform.eulerAngles = new Vector2(0, 0);
                 break;
             case "stage21": transform.eulerAngles = new Vector2(0, 180);
                 break;
@@ -151,7 +151,7 @@ public class Player : MonoBehaviour
 
         if (Input.GetKey("left") && Input.GetKey("right"))
         {
-            rb2d.AddForce(Vector2.right * 0);
+            stopPlayer();
         }
         else if (Input.GetKey("left"))
         {
@@ -194,5 +194,10 @@ public class Player : MonoBehaviour
             taskPanel.GetComponentInChildren<Text>().GetComponent<Text>().text = "No tasks at the moment, you, lucky man!";
         else
             taskPanel.GetComponentInChildren<Text>().text = task.WriteTask();
+    }
+
+    void stopPlayer()
+    {
+        rb2d.AddForce(Vector2.right * 0);
     }
 }
