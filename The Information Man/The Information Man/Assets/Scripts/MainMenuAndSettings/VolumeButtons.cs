@@ -3,6 +3,7 @@ using System.Collections;
 
 public class VolumeButtons : MonoBehaviour {
 	public bool lessButton = false;
+	public GameObject valuePanel;
 	public bool moreButton = false;
 
 	public void OnMouseEnter() {
@@ -14,11 +15,17 @@ public class VolumeButtons : MonoBehaviour {
 	}
 
 	public void OnMouseUp() {
-		if (lessButton) {
+		if (lessButton && valuePanel.GetComponent<TextMesh>().text != "0") {
 			AudioListener.volume -= 0.1f;
+			int value = int.Parse(valuePanel.GetComponent<TextMesh> ().text);
+			value -= 10;
+			valuePanel.GetComponent<TextMesh> ().text = value.ToString(); 
 		}
-		if (moreButton) {
+		if (moreButton && valuePanel.GetComponent<TextMesh>().text != "100") {
 			AudioListener.volume += 0.1f;
+			int value = int.Parse(valuePanel.GetComponent<TextMesh> ().text);
+			value += 10;
+			valuePanel.GetComponent<TextMesh> ().text = value.ToString();  
 		}
 	}
 }

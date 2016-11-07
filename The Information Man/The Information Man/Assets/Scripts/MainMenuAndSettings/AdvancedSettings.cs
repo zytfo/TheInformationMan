@@ -72,5 +72,40 @@ public class AdvancedSettings : MonoBehaviour {
 				spotLight3.GetComponent<Light> ().intensity = 2;
 			}
 		}
+
+		if (motionBlur) {
+			string str = this.GetComponent<TextMesh> ().text;
+			if (str == "On") {
+				this.GetComponent<TextMesh> ().text = "Off";
+			} else {
+				this.GetComponent<TextMesh> ().text = "On";
+			}
+		}
+
+		if (blood) {
+			string str = this.GetComponent<TextMesh> ().text;
+			if (str == "On") {
+				this.GetComponent<TextMesh> ().text = "Off";
+				spotLight1.GetComponent<Light> ().color = Color.white;
+				spotLight2.GetComponent<Light> ().color = Color.white;
+				spotLight3.GetComponent<Light> ().color = Color.white;
+			}
+			if (str == "Off") {
+				this.GetComponent<TextMesh> ().text = "On";
+				spotLight1.GetComponent<Light> ().color = Color.red;
+				spotLight2.GetComponent<Light> ().color = Color.red;
+				spotLight3.GetComponent<Light> ().color = Color.red;
+			}
+		}
 	}
 }
+
+
+
+
+
+
+
+
+
+
