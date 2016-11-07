@@ -23,7 +23,7 @@ public class StartGame : MonoBehaviour {
 
     bool checkCond()
     {
-        if ((name.text.Length > 3) && (isMale.isOn) && (biography.text.Length >= 140) && (System.Int32.Parse(age.text) > 15) && (System.Int32.Parse(age.text) <= 45)) return true; else return false;
+        if ((name.text.Length > 3) && (isMale.isOn) && (biography.text.Length == 140) && (System.Int32.Parse(age.text) > 15) && (System.Int32.Parse(age.text) <= 45)) return true; else return false;
     } 
 
     public void StartNewGame()

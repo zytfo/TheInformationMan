@@ -1,7 +1,5 @@
 D:\Soft\Unity\Projects\TheInformationMan\The Information Man\The Information Man\Temp\bin\Debug\Assembly-CSharp.dll
 D:\Soft\Unity\Projects\TheInformationMan\The Information Man\The Information Man\Temp\bin\Debug\Assembly-CSharp.pdb
-D:\Soft\Unity\Projects\TheInformationMan\The Information Man\The Information Man\Temp\bin\Debug\DialogueSystem.dll
-D:\Soft\Unity\Projects\TheInformationMan\The Information Man\The Information Man\Temp\bin\Debug\LuaInterpreter.dll
 D:\Soft\Unity\Projects\TheInformationMan\The Information Man\The Information Man\Temp\bin\Debug\UnityEditor.dll
 D:\Soft\Unity\Projects\TheInformationMan\The Information Man\The Information Man\Temp\bin\Debug\UnityEngine.dll
 D:\Soft\Unity\Projects\TheInformationMan\The Information Man\The Information Man\Temp\bin\Debug\UnityEngine.Networking.dll

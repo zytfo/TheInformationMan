@@ -202,7 +202,7 @@ public class FirstDialogue : MonoBehaviour {
         //yield return new WaitForSeconds(0.0f);
         textPanel.text += "\nMr. Silitti: Basically, it's a GAMEOVER.";
         yield return new WaitForSeconds(2.0f);
-        SceneManager.LoadScene("preview");
+        SceneManager.LoadScene("MainMenu");
     }
 }
 

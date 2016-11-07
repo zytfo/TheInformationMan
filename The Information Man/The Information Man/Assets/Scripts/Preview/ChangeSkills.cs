@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ChangeSkills : MonoBehaviour
 {
@@ -43,5 +44,17 @@ public class ChangeSkills : MonoBehaviour
         if (number == -1) return;
         counter.text = number.ToString();
         counterForPoints.text = (System.Int32.Parse(counterForPoints.text) + 1).ToString();
+    }
+
+    IEnumerator WaitSeconds(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+    }
+
+    IEnumerator GameOver()
+    {
+        //yield return new WaitForSeconds(0.0f);
+        yield return new WaitForSeconds(2.0f);
+        SceneManager.LoadScene("MainMenu");
     }
 }
