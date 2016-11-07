@@ -112,6 +112,7 @@ public class FirstDialogue : MonoBehaviour {
             api.DialogueSuccess(guess, "Very interesting. I think it's enough for you. Welcome to this wonderful place!\n" 
                 + "Dormnitory manager is waiting for you. You are free to go.");
             dialogueStep++;
+            inputField.DeactivateInputField();
         }
         else if (dialogueStep == 8 && guess != "")
         {

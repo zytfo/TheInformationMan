@@ -28,6 +28,7 @@ public class StartGame : MonoBehaviour {
 
     public void StartNewGame()
     {
+        PlayerPrefs.SetInt("health", 100);
         Application.LoadLevel("stage1");
     }
 

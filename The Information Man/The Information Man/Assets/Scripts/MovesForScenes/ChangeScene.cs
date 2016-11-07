@@ -9,6 +9,7 @@ public class ChangeScene : MonoBehaviour {
 	{
 		if (other.name == "player")
 		{
+            PlayerPrefs.SetInt("health", other.GetComponent<Player>().curHealth);
             other.GetComponent<Player>().panelText = other.GetComponent<Player>().textPanel.GetComponent<Text>().text;
             Application.LoadLevel (this.stageName);
 		}

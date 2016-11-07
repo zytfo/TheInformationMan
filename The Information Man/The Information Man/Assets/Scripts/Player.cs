@@ -11,13 +11,7 @@ public class Player : MonoBehaviour
 
     public string fullname { get; set; }
 
-    private static int _curHealth = 100;
-    public int curHealth
-    {
-        get { return _curHealth; }
-        set { _curHealth = value; }
-    }
-
+    public int curHealth { get; set; }
     public int maxHealth = 100;
 
 	public bool isPaused = false;
@@ -54,7 +48,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         rb2d = gameObject.GetComponent<Rigidbody2D>();
-        //curHealth = maxHealth;
+        curHealth = PlayerPrefs.GetInt("health");
         anim = gameObject.GetComponent<Animator>();
         canMove = true;
         fullname = PlayerPrefs.GetString("name");
