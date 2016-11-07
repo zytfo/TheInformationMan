@@ -6,8 +6,8 @@ public class ChangeImage : MonoBehaviour {
 
     public Image image;
     public Text counter;
-    string[] name = new string[] { "alb", "artur", "dolj", "ilya", "kos" };
-    int i = 0;
+    public string[] name = new string[] { "alb", "artur", "dolj", "ilya", "kos" };
+    public int i = 0;
 
 	// Use this for initialization
 	void Start () {

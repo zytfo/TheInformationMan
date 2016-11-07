@@ -53,7 +53,7 @@ public class Player : MonoBehaviour
         curHealth = maxHealth;
         anim = gameObject.GetComponent<Animator>();
         canMove = true;
-        fullname = "Sanya";
+        fullname = PlayerPrefs.GetString("name");
         dialoguePanel = GameObject.Find("DialoguePanel");
         textPanel = GameObject.Find("TextPanel");
         textPanel.GetComponent<Text>().text = panelText;

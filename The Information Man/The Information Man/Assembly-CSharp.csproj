@@ -61,8 +61,10 @@
      <Compile Include="Assets\Scripts\Preview\ChangeImage.cs" />
      <Compile Include="Assets\Scripts\Preview\ChangePoints.cs" />
      <Compile Include="Assets\Scripts\Preview\ChangeSkills.cs" />
+     <Compile Include="Assets\Scripts\Preview\KeepData.cs" />
      <Compile Include="Assets\Scripts\Preview\StartGame.cs" />
      <Compile Include="Assets\Scripts\Preview\Susceptibility.cs" />
+     <Compile Include="Assets\Scripts\SetAvatar.cs" />
      <None Include="Assets\Dialogue System\Prefabs\Legacy Unity GUI Prefabs\Computer\Bitwise Font\!license.txt" />
      <None Include="Assets\Dialogue System\Prefabs\Legacy Unity GUI Prefabs\Shared Fonts\Orbitron\SIL Open Font License.txt" />
      <None Include="Assets\Dialogue System\Prefabs\Unity UI Prefabs\Unity UI Assets\_README.txt" />

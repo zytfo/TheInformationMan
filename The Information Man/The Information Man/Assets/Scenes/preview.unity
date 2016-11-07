@@ -6994,6 +6994,8 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 592238958}
+  - 114: {fileID: 592238960}
+  - 114: {fileID: 592238959}
   m_Layer: 0
   m_Name: Name
   m_TagString: Untagged
@@ -7013,6 +7015,30 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
+--- !u!114 &592238959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 592238957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39134bd1d117b4c4cabb43078f8e0c0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: {fileID: 929358633}
+  counter: {fileID: 1104838612}
+--- !u!114 &592238960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 592238957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d32fb42a724c7242b80404192ad97f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &592335269
 GameObject:
   m_ObjectHideFlags: 0
@@ -16241,6 +16267,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   image: {fileID: 188448072}
   counter: {fileID: 1104838612}
+  name:
+  - alb
+  - artur
+  - dolj
+  - ilya
+  - kos
+  i: 0
 --- !u!114 &1489699344
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -199,6 +199,7 @@ GameObject:
   - 223: {fileID: 22318714}
   - 114: {fileID: 11410952}
   - 114: {fileID: 11491290}
+  - 114: {fileID: 11434568}
   m_Layer: 0
   m_Name: DialoguePanel
   m_TagString: Untagged
@@ -321,6 +322,19 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &11434568
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 174906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34e53076c0d5e3741800d0ff48755da9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  avatar: {fileID: 11436110}
+  index: 0
 --- !u!114 &11436110
 MonoBehaviour:
   m_ObjectHideFlags: 1

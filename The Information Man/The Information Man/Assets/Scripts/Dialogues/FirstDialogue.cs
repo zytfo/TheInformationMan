@@ -11,7 +11,6 @@ public class FirstDialogue : MonoBehaviour {
 	public Text textPanel;
     public Text livesPanel;
     public InputField inputField;
-	public Sprite leftPicture;
 	public Sprite rightPicture;
 
     private bool paused = false;
@@ -32,8 +31,7 @@ public class FirstDialogue : MonoBehaviour {
 	{
 		if (other.name == "player" && !player.hadDialogue1)
 		{
-            leftPanel.GetComponent<Image> ().sprite = leftPicture;
-			rightPanel.GetComponent<Image> ().sprite = rightPicture;
+			//rightPanel.GetComponent<Image> ().sprite = rightPicture;
 			textPanel.GetComponent<Text>().text = "Mr. Silitti: Good Morning!";
             inputField.readOnly = false;
             inputField.ActivateInputField();
