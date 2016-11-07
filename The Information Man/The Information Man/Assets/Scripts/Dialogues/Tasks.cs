@@ -530,7 +530,7 @@ public class Tasks {
 
         public override string WriteTask()
         {
-            string result = "Calculate " + a + " + " + b;
+            string result = "What is " + a + " + " + b + "?";
             return result;
         }
 

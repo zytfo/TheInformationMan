@@ -10,8 +10,16 @@ public class Player : MonoBehaviour
     //public float jumpPower = 150f;
 
     public string fullname { get; set; }
-    public int curHealth;
+
+    private static int _curHealth = 100;
+    public int curHealth
+    {
+        get { return _curHealth; }
+        set { _curHealth = value; }
+    }
+
     public int maxHealth = 100;
+
 	public bool isPaused = false;
 
     public bool grounded;
@@ -22,7 +30,8 @@ public class Player : MonoBehaviour
 
     public GameObject dialoguePanel;
     public GameObject taskPanel { get; set; }
-    public GameObject textPanel;
+    public Text textPanel { get; set; }
+    public Text healthPanel { get; set; }
 
     private static string _panelText;
     public string panelText
@@ -45,16 +54,20 @@ public class Player : MonoBehaviour
     void Start()
     {
         rb2d = gameObject.GetComponent<Rigidbody2D>();
-        curHealth = maxHealth;
+        //curHealth = maxHealth;
         anim = gameObject.GetComponent<Animator>();
         canMove = true;
         fullname = PlayerPrefs.GetString("name");
+
         dialoguePanel = GameObject.Find("DialoguePanel");
-        textPanel = GameObject.Find("TextPanel");
-        textPanel.GetComponent<Text>().text = panelText;
+        textPanel = GameObject.Find("TextPanel").GetComponent<Text>();
+        healthPanel = GameObject.Find("Health").GetComponent<Text>();
+        textPanel.text = panelText;
         taskPanel = dialoguePanel.transform.Find("TaskPanel").gameObject;
         task = null;
+
         hadDialogue = new bool[5];
+
         switch (SceneManager.GetActiveScene().name)
         {
             case "stage2": transform.eulerAngles = new Vector2(0, 0);
@@ -78,6 +91,14 @@ public class Player : MonoBehaviour
         {
             UpdateTaskPanel();
             taskPanel.SetActive(!taskPanel.activeInHierarchy);
+        }
+
+        healthPanel.text = curHealth.ToString();
+
+        if (curHealth <= 0)
+        {
+            curHealth = 0;
+            Die();
         }
 
         if (!canMove)
@@ -117,11 +138,6 @@ public class Player : MonoBehaviour
             if (curHealth > maxHealth)
             {
                 curHealth = maxHealth;
-            }
-
-            if (curHealth <= 0)
-            {
-                Die();
             }
         }
     }
@@ -181,7 +197,7 @@ public class Player : MonoBehaviour
 
     void Die()
     {
-        Application.LoadLevel(Application.loadedLevel);
+        StartCoroutine(GameOver());
     }
 
     public void UpdateTaskPanel()
@@ -195,5 +211,11 @@ public class Player : MonoBehaviour
     void stopPlayer()
     {
         rb2d.AddForce(Vector2.right * 0);
+    }
+
+    public IEnumerator GameOver()
+    {
+        yield return new WaitForSeconds(2.0f);
+        SceneManager.LoadScene("MainMenu");
     }
 }

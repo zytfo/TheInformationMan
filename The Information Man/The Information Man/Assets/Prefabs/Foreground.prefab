@@ -176,13 +176,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxSpeed: 30
   speed: 30
-  curHealth: 0
   maxHealth: 100
   isPaused: 0
   grounded: 0
   canMove: 0
   dialoguePanel: {fileID: 0}
-  textPanel: {fileID: 0}
 --- !u!212 &21205000
 SpriteRenderer:
   m_ObjectHideFlags: 1

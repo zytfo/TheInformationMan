@@ -238,10 +238,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f8362fb4c608ecd48a9dc6a0da8c13b6, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &311406716 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 194766, guid: f8362fb4c608ecd48a9dc6a0da8c13b6, type: 2}
-  m_PrefabInternal: {fileID: 311406715}
 --- !u!1 &418119004 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 105256, guid: f8362fb4c608ecd48a9dc6a0da8c13b6, type: 2}
@@ -618,10 +614,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 11439400, guid: 0b2d7bd550cc4e14fb784a34942df41b, type: 2}
-      propertyPath: taskPanel
-      value: 
-      objectReference: {fileID: 311406716}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0b2d7bd550cc4e14fb784a34942df41b, type: 2}
   m_IsPrefabParent: 0

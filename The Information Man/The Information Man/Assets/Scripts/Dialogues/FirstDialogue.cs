@@ -1,14 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class FirstDialogue : MonoBehaviour {
     private Player player;
     private Text textPanel;
     private InputField inputField;
-    public Image rightPicture;
+    public Sprite rightPicture;
 
     private DialogueAPI api;
 
@@ -29,7 +29,6 @@ public class FirstDialogue : MonoBehaviour {
 	{
 		if (other.name == "player" && !player.hadDialogue[0])
 		{
-            rightPicture = null;
             api.DialogueStart(0, "Mr.Silitti", "Good Morning!", rightPicture);
         }
 	}
@@ -39,7 +38,7 @@ public class FirstDialogue : MonoBehaviour {
         textPanel = api.textPanel;
         player = api.player;
         inputField = api.inputField;
-}
+    }
 
 	public void GetInput(string guess) {
         if (dialogueStep == 0 && api.IsGreeting(guess))
@@ -52,92 +51,99 @@ public class FirstDialogue : MonoBehaviour {
             api.ProcessDialogue(guess, "Cool! Can you tell me your name?");
             dialogueStep++;
         }
-        else if (dialogueStep == 2 && (guess == player.fullname 
-            || string.Equals(guess, "The Information Man", StringComparison.CurrentCultureIgnoreCase)))
+        else if (dialogueStep == 2)
         {
-            api.ProcessDialogue(guess, "Good. I will give you a few tasks to check your skills.\nAre you ready for the first task?");
-            dialogueStep++;
+            if (guess == player.fullname
+            || string.Equals(guess, "The Information Man", StringComparison.CurrentCultureIgnoreCase))
+            {
+                api.ProcessDialogue(guess, "Oh, I have you in my lisk!. OK, I will give you a few tasks to check your\n skills. "
+                + "Are you ready for the first task?");
+                dialogueStep++;
+            }
+            else api.DialogueFail(guess, "I don't have you in my list. Don't waste my time anymore!");
         }
         else if (dialogueStep == 3)
         {
             task(new Tasks.SumTask());
             player.UpdateTaskPanel();
-            api.ProcessDialogue(guess, task().WriteTask());
+            api.ProcessDialogue(guess, "Your answer doesn't matter, actually. Never mind. " + task().WriteTask());
             dialogueStep++;
         }
-        else if (dialogueStep == 4 && task().CheckResult(guess, task().writeAnswer) == 1)
+        else if (dialogueStep == 4)
         {
-            task(null);
-            player.UpdateTaskPanel();
-            api.ProcessDialogue(guess, "Surprisingly, correct! OK. Next task.");
-            dialogueStep++;
+            if (task().CheckResult(guess, task().writeAnswer) == 1)
+            {
+                task(null);
+                player.UpdateTaskPanel();
+                api.ProcessDialogue(guess, "Surprisingly, correct! OK. Next task.");
+                dialogueStep++;
+            } 
+            else
+            {
+                api.AnotherAttempt();
+                api.ProcessDialogue(guess, "You're wrong! Try again!");
+            }
         }
-        else if (dialogueStep == 4 && task().CheckResult(guess, task().writeAnswer) < 1)
-        {
-            api.AnotherAttempt();
-            api.ProcessDialogue(guess, "You're wrong! Try again!");
-        }
-        else if (dialogueStep == 5 && guess == "easy")
+        else if (dialogueStep == 5)
         {
             task(new Tasks.ProbabilityTask());
             player.UpdateTaskPanel();
-            api.ProcessDialogue(guess, "Let's check.\n" + task().WriteTask() + "\nRight answer is: " + task().writeAnswer);
+            api.ProcessDialogue(guess, "I see your happy face. That's cool! This one may require more time to succeed.\n" 
+                + task().WriteTask() + "\nRight answer is: " + task().writeAnswer);
             dialogueStep++;
         }
-        else if (dialogueStep == 6 && task().CheckResult(guess, task().writeAnswer) == 1)
+        else if (dialogueStep == 6)
         {
-            task(null);
-            player.UpdateTaskPanel();
-            api.DialogueSuccess(guess, "Basically, you're correct! Welcome to the Innopolis University!\nYou can go now.");
+            if (task().CheckResult(guess, task().writeAnswer) == 1)
+            {
+                task(null);
+                player.UpdateTaskPanel();
+                api.ProcessDialogue(guess, "Basically, you're correct! And the last question: why do you want to study \nin Innopolis University?");
+                dialogueStep++;
+            }
+            else
+            {
+                api.AnotherAttempt();
+                api.ProcessDialogue(guess, "You're wrong! Try again!");
+            }
+        }
+        else if (dialogueStep == 7 && guess.Length > 40 && guess.Split().Length > 5)
+        {
+            api.DialogueSuccess(guess, "Very interesting. I think it's enough for you. Welcome to this wonderful place!\n" 
+                + "Dormnitory manager is waiting for you. You are free to go.");
             dialogueStep++;
         }
-        else if (dialogueStep == 6 && task().CheckResult(guess, task().writeAnswer) < 1)
+        else if (dialogueStep == 8 && guess != "")
         {
-            api.AnotherAttempt();
-            api.ProcessDialogue(guess, "You're wrong! Try again!");
+            textPanel.text += "\n" + player.fullname + ": " + guess;
+            inputField.text = "";
+            inputField.DeactivateInputField();
         }
         else if (guess == "") inputField.ActivateInputField();
         else if (guess == "skip")
         {
             inputField.text = "";
-            player.hadDialogue[0] = true;
-            dialogueStep = 7;
+            player.hadDialogue[api.dialogueNumber] = true;
+            dialogueStep = 8;
         }
         else
         {
-            textPanel.text += "\n" + player.fullname + ": " + guess;
-            StartCoroutine(GameOver());
+            api.WrongInput(guess);
         }
     }
 
     void Update()
     {
-        if ((dialogueStep == 3 || dialogueStep == 7) && (Input.GetKey("left") || Input.GetKey("right")))
+        if ((dialogueStep == 3 || dialogueStep == 8) && (Input.GetKey("left") || Input.GetKey("right")))
         {
-            //api.rightPicture = null;
-            inputField.readOnly = true;
+            api.rightPicture.sprite = null;
             inputField.text = "";
-            api.livesPanel.text = "";
+            inputField.DeactivateInputField();
+            inputField.readOnly = true;
             player.SetMove(true);
-            dialogueStep = 0;
+            dialogueStep = -1;
         }
-        api.Shifter();
-        if (inputField.isFocused)
-            api.livesPanel.text = (player.curHealth).ToString();
     }
 
-    
-
-    IEnumerator WaitSeconds(float seconds)
-    {
-        yield return new WaitForSeconds(seconds);
-    }
-
-    IEnumerator GameOver()
-    { 
-        textPanel.text += "\nMr. Silitti: Basically, it's a GAMEOVER.";
-        yield return new WaitForSeconds(2.0f);
-        SceneManager.LoadScene("MainMenu");
-    }
 }
 

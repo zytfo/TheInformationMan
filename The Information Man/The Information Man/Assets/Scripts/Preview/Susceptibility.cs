@@ -29,7 +29,6 @@ public class Susceptibility : MonoBehaviour {
 
     IEnumerator GameOver()
     {
-        //yield return new WaitForSeconds(0.0f);
         yield return new WaitForSeconds(2.0f);
         SceneManager.LoadScene("MainMenu");
     }
