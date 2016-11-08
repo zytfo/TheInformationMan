@@ -21,6 +21,7 @@ public class Player : MonoBehaviour
     private Rigidbody2D rb2d;
 
     public bool canMove;
+    private bool isDead;
 
     public GameObject dialoguePanel;
     public GameObject taskPanel { get; set; }
@@ -51,6 +52,7 @@ public class Player : MonoBehaviour
         curHealth = PlayerPrefs.GetInt("health");
         anim = gameObject.GetComponent<Animator>();
         canMove = true;
+        isDead = false;
         fullname = PlayerPrefs.GetString("name");
 
         dialoguePanel = GameObject.Find("DialoguePanel");
@@ -91,8 +93,11 @@ public class Player : MonoBehaviour
 
         if (curHealth <= 0)
         {
-            curHealth = 0;
-            Die();
+            if (!isDead)
+            {
+                isDead = true;
+                Die();
+            } 
         }
 
         if (!canMove)
@@ -207,9 +212,15 @@ public class Player : MonoBehaviour
         rb2d.AddForce(Vector2.right * 0);
     }
 
+    public void decreaseHealth(int change)
+    {
+        curHealth = Mathf.Max(0, curHealth - change);
+    }
+
     public IEnumerator GameOver()
     {
-        yield return new WaitForSeconds(2.0f);
+        textPanel.text += "\n---We haven't find enough desire to win from you. Basically, it's a GAMEOVER---";
+        yield return new WaitForSeconds(3.0f);
         SceneManager.LoadScene("MainMenu");
     }
 }

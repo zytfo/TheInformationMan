@@ -46,7 +46,6 @@ public class DialogueAPI : MonoBehaviour {
         textPanel.text += "\n" + interlocutorName + ": " + otherStr;
         inputField.text = "";
         inputField.ActivateInputField();
-        if (player.curHealth <= 0) StartCoroutine(GameOver());
     }
 
     public void DialogueSuccess(string playerStr, string otherStr)
@@ -68,7 +67,7 @@ public class DialogueAPI : MonoBehaviour {
 
     public void AnotherAttempt()
     {
-        player.curHealth -= 20;
+        player.decreaseHealth(20);
         if (textPanel.text.EndsWith("Try again!"))
         {
             textPanel.text = textPanel.text.Remove(textPanel.text.LastIndexOf('\n'));
@@ -78,7 +77,7 @@ public class DialogueAPI : MonoBehaviour {
     public void WrongInput(string playerStr)
     {
         System.Random rnd = new System.Random();
-        player.curHealth -= rnd.Next(1, 21);
+        player.decreaseHealth(rnd.Next(1, 21));
         string[] lines = textPanel.text.Split('\n');
         if (lines[lines.Length - 1].Contains(player.fullname + ":"))
             textPanel.text = textPanel.text.Remove(textPanel.text.LastIndexOf('\n'));
