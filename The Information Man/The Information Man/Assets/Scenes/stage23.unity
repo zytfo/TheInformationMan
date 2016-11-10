@@ -206,22 +206,6 @@ Animator:
 Transform:
   m_PrefabParentObject: {fileID: 411696, guid: 0b2d7bd550cc4e14fb784a34942df41b, type: 2}
   m_PrefabInternal: {fileID: 1749387165}
---- !u!1 &271452273 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 126590, guid: 7de2c83800c78004d987952d67d39b9f, type: 2}
-  m_PrefabInternal: {fileID: 1467319689}
---- !u!114 &271452274
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 271452273}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b6b8cb2b92c09d4f84b051348c7fdc0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stageName: stage22
 --- !u!4 &271452276 stripped
 Transform:
   m_PrefabParentObject: {fileID: 408948, guid: 7de2c83800c78004d987952d67d39b9f, type: 2}
@@ -723,6 +707,18 @@ Prefab:
     - target: {fileID: 126590, guid: 7de2c83800c78004d987952d67d39b9f, type: 2}
       propertyPath: m_Name
       value: ExitFromStageRight
+      objectReference: {fileID: 0}
+    - target: {fileID: 6197844, guid: 7de2c83800c78004d987952d67d39b9f, type: 2}
+      propertyPath: m_Offset.x
+      value: 0.5694647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6197844, guid: 7de2c83800c78004d987952d67d39b9f, type: 2}
+      propertyPath: m_Size.x
+      value: 2.1088414
+      objectReference: {fileID: 0}
+    - target: {fileID: 6197844, guid: 7de2c83800c78004d987952d67d39b9f, type: 2}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11466474, guid: 7de2c83800c78004d987952d67d39b9f, type: 2}

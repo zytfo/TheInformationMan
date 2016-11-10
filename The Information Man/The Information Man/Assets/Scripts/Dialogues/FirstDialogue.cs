@@ -9,6 +9,7 @@ public class FirstDialogue : MonoBehaviour {
     private Text textPanel;
     private InputField inputField;
     public Sprite rightPicture;
+    public BoxCollider2D box;
 
     private DialogueAPI api;
 
@@ -38,6 +39,7 @@ public class FirstDialogue : MonoBehaviour {
         textPanel = api.textPanel;
         player = api.player;
         inputField = api.inputField;
+        box.enabled = false;
     }
 
 	public void GetInput(string guess) {
@@ -113,6 +115,7 @@ public class FirstDialogue : MonoBehaviour {
                 + "Dormnitory manager is waiting for you. You are free to go.");
             dialogueStep++;
             inputField.DeactivateInputField();
+            box.enabled = true;
         }
         else if (dialogueStep == 8 && guess != "")
         {

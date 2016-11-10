@@ -52,6 +52,7 @@
      <Compile Include="Assets\Scripts\Dialogues\Tasks.cs" />
      <Compile Include="Assets\Scripts\GameController.cs" />
      <Compile Include="Assets\Scripts\GroundCheck.cs" />
+     <Compile Include="Assets\Scripts\Hall.cs" />
      <Compile Include="Assets\Scripts\MainMenuAndSettings\AdvancedSettings.cs" />
      <Compile Include="Assets\Scripts\MainMenuAndSettings\VolumeButtons.cs" />
      <Compile Include="Assets\Scripts\MovesForScenes\ChangeScene.cs" />
