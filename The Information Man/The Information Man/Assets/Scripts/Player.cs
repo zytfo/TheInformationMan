@@ -204,7 +204,7 @@ public class Player : MonoBehaviour
         if (task == null)
             taskPanel.GetComponentInChildren<Text>().GetComponent<Text>().text = "No tasks at the moment, you, lucky man!";
         else
-            taskPanel.GetComponentInChildren<Text>().text = task.WriteTask();
+            taskPanel.GetComponentInChildren<Text>().text = task.WriteTask() + "\nRight answer is: " + task.writeAnswer;
     }
 
     void stopPlayer()

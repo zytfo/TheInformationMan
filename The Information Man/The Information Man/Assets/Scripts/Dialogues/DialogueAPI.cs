@@ -26,6 +26,16 @@ public class DialogueAPI : MonoBehaviour {
         Shifter();
     }
 
+    public Tasks.Task task()
+    {
+        return player.task;
+    }
+
+    public void task(Tasks.Task task)
+    {
+        player.task = task;
+    }
+
     public void DialogueStart(int dialogueNumber, string interlocutorName, string greeting, Sprite rightPicture)
     {
         this.interlocutorName = interlocutorName;
@@ -50,11 +60,12 @@ public class DialogueAPI : MonoBehaviour {
 
     public void DialogueSuccess(string playerStr, string otherStr)
     {
-        ProcessDialogue(playerStr, otherStr);
-        inputField.DeactivateInputField();
+        textPanel.text += "\n" + player.fullname + ": " + playerStr;
+        textPanel.text += "\n" + interlocutorName + ": " + otherStr;
         player.taskPanel.SetActive(false);
         player.hadDialogue[dialogueNumber] = true;
         player.panelText = textPanel.text;
+        inputField.text = "";
         //rightPicture.sprite = null;
     }
 
@@ -90,6 +101,11 @@ public class DialogueAPI : MonoBehaviour {
     {
         return input == "hi" || input == "Hi" || input == "hello" || input == "Hello"
             || input == "what's up" || input == "What's up";
+    }
+
+    public bool IsCool(string input)
+    {
+        return input == "cool" || input == "Cool" || input == "great" || input == "Great";
     }
 
     public void Shifter()

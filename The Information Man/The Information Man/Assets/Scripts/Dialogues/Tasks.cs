@@ -387,8 +387,8 @@ public class Tasks {
 
         public override string WriteTask()
         {
-            string result = "The number of students entering the dormitory per minute is equal to " + mean
-                 + ". Find the probability that " + m + " students will enter the dormitory in a given minute.";
+            string result = "I have counted that the number of students going through the skyway\n per minute is equal to " + mean
+                 + ". Find the probability that " + m + " students will go near me next\n minute.";
             return result;
         }
 

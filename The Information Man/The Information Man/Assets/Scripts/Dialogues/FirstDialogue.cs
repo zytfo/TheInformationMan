@@ -2,7 +2,6 @@
 using System.Collections;
 using System;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 public class FirstDialogue : MonoBehaviour {
     private Player player;
@@ -15,16 +14,6 @@ public class FirstDialogue : MonoBehaviour {
 
     private bool paused = false;
     private int dialogueStep = 0;
-
-    Tasks.Task task()
-    {
-        return player.task;
-    }
-
-    void task(Tasks.Task task)
-    {
-        player.task = task;
-    }
 
     void OnTriggerEnter2D(Collider2D other)
 	{
@@ -43,7 +32,8 @@ public class FirstDialogue : MonoBehaviour {
     }
 
 	public void GetInput(string guess) {
-        if (dialogueStep == 0 && api.IsGreeting(guess))
+        if (guess == "") inputField.ActivateInputField();
+        else if (dialogueStep == 0 && api.IsGreeting(guess))
         {
             api.ProcessDialogue(guess, "You've came to the interview?");
             dialogueStep++;
@@ -66,16 +56,16 @@ public class FirstDialogue : MonoBehaviour {
         }
         else if (dialogueStep == 3)
         {
-            task(new Tasks.SumTask());
+            api.task(new Tasks.SumTask());
             player.UpdateTaskPanel();
-            api.ProcessDialogue(guess, "Your answer doesn't matter, actually. Never mind. " + task().WriteTask());
+            api.ProcessDialogue(guess, "Your answer doesn't matter actually. Never mind. " + api.task().WriteTask());
             dialogueStep++;
         }
         else if (dialogueStep == 4)
         {
-            if (task().CheckResult(guess, task().writeAnswer) == 1)
+            if (api.task().CheckResult(guess, api.task().writeAnswer) == 1)
             {
-                task(null);
+                api.task(null);
                 player.UpdateTaskPanel();
                 api.ProcessDialogue(guess, "Surprisingly, correct! OK. Next task.");
                 dialogueStep++;
@@ -88,17 +78,17 @@ public class FirstDialogue : MonoBehaviour {
         }
         else if (dialogueStep == 5)
         {
-            task(new Tasks.ProbabilityTask());
+            api.task(new Tasks.ProbabilityTask());
             player.UpdateTaskPanel();
             api.ProcessDialogue(guess, "I see your happy face. That's cool! This one may require more time to succeed.\n" 
-                + task().WriteTask() + "\nRight answer is: " + task().writeAnswer);
+                + api.task().WriteTask());
             dialogueStep++;
         }
         else if (dialogueStep == 6)
         {
-            if (task().CheckResult(guess, task().writeAnswer) == 1)
+            if (api.task().CheckResult(guess, api.task().writeAnswer) == 1)
             {
-                task(null);
+                api.task(null);
                 player.UpdateTaskPanel();
                 api.ProcessDialogue(guess, "Basically, you're correct! And the last question: why do you want to study \nin Innopolis University?");
                 dialogueStep++;
@@ -112,18 +102,14 @@ public class FirstDialogue : MonoBehaviour {
         else if (dialogueStep == 7 && guess.Length > 40 && guess.Split().Length > 5)
         {
             api.DialogueSuccess(guess, "Very interesting. I think it's enough for you. Welcome to this wonderful place!\n" 
-                + "Dormnitory manager is waiting for you. You are free to go.");
+                + "Dormitory manager is waiting for you. You are free to go.");
             dialogueStep++;
-            inputField.DeactivateInputField();
-            box.enabled = true;
         }
         else if (dialogueStep == 8 && guess != "")
         {
             textPanel.text += "\n" + player.fullname + ": " + guess;
             inputField.text = "";
-            inputField.DeactivateInputField();
         }
-        else if (guess == "") inputField.ActivateInputField();
         else if (guess == "skip")
         {
             inputField.text = "";
@@ -138,14 +124,15 @@ public class FirstDialogue : MonoBehaviour {
 
     void Update()
     {
-        if ((dialogueStep == 3 || dialogueStep == 8) && (Input.GetKey("left") || Input.GetKey("right")))
+        if (dialogueStep == 8 && (Input.GetKey("left") || Input.GetKey("right")))
         {
             api.rightPicture.sprite = null;
+            inputField.readOnly = true;
             inputField.text = "";
             inputField.DeactivateInputField();
-            inputField.readOnly = true;
             player.SetMove(true);
             dialogueStep = -1;
+            box.enabled = true;
         }
     }
 

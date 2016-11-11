@@ -181,6 +181,7 @@ GameObject:
   - 224: {fileID: 22475190}
   - 222: {fileID: 22293404}
   - 114: {fileID: 11409312}
+  - 223: {fileID: 22309440}
   m_Layer: 0
   m_Name: TextPanel
   m_TagString: Untagged
@@ -898,6 +899,25 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 123018}
+--- !u!223 &22309440
+Canvas:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 168964}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
 --- !u!223 &22318714
 Canvas:
   m_ObjectHideFlags: 1
