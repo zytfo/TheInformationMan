@@ -386,7 +386,7 @@ Prefab:
       value: ExitFromStageLeft
       objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 11466474, guid: 7de2c83800c78004d987952d67d39b9f, type: 2}
+    - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: 7de2c83800c78004d987952d67d39b9f, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &359419603 stripped
@@ -557,7 +557,7 @@ Prefab:
       value: 0.06856294
       objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 11466474, guid: 7de2c83800c78004d987952d67d39b9f, type: 2}
+    - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: 7de2c83800c78004d987952d67d39b9f, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &1031779755
@@ -802,20 +802,7 @@ Prefab:
       propertyPath: m_Name
       value: ExitFromStageRight
       objectReference: {fileID: 0}
-    - target: {fileID: 6197844, guid: 7de2c83800c78004d987952d67d39b9f, type: 2}
-      propertyPath: m_Offset.x
-      value: 0.5694647
-      objectReference: {fileID: 0}
-    - target: {fileID: 6197844, guid: 7de2c83800c78004d987952d67d39b9f, type: 2}
-      propertyPath: m_Size.x
-      value: 2.1088414
-      objectReference: {fileID: 0}
-    - target: {fileID: 6197844, guid: 7de2c83800c78004d987952d67d39b9f, type: 2}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 11466474, guid: 7de2c83800c78004d987952d67d39b9f, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7de2c83800c78004d987952d67d39b9f, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &1749387165

@@ -95,7 +95,7 @@ public class PainterDialogue : MonoBehaviour {
         {
             inputField.text = "";
             player.hadDialogue[api.dialogueNumber] = true;
-            dialogueStep = 8;
+            dialogueStep = 7;
         }
         else
         {

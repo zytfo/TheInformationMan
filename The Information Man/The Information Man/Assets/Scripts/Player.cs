@@ -67,6 +67,7 @@ public class Player : MonoBehaviour
         switch (SceneManager.GetActiveScene().name)
         {
             case "stage2": transform.eulerAngles = new Vector2(0, 0);
+                textPanel.text = "";
                 break;
             case "stage21": transform.eulerAngles = new Vector2(0, 180);
                 break;

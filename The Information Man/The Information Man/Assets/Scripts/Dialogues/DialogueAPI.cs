@@ -66,7 +66,6 @@ public class DialogueAPI : MonoBehaviour {
         player.hadDialogue[dialogueNumber] = true;
         player.panelText = textPanel.text;
         inputField.text = "";
-        //rightPicture.sprite = null;
     }
 
     public void DialogueFail(string playerStr, string otherStr)
@@ -105,7 +104,8 @@ public class DialogueAPI : MonoBehaviour {
 
     public bool IsCool(string input)
     {
-        return input == "cool" || input == "Cool" || input == "great" || input == "Great";
+        return input == "cool" || input == "Cool" || input == "great" || input == "Great"
+            || input == "nice" || input == "Nice";
     }
 
     public void Shifter()
