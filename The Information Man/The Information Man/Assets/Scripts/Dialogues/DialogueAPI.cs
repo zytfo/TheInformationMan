@@ -51,7 +51,7 @@ public class DialogueAPI : MonoBehaviour {
     {
         string[] lines = textPanel.text.Split('\n');
         if (lines[lines.Length - 1].Contains(player.fullname + ":"))
-            textPanel.text = textPanel.text.Remove(textPanel.text.LastIndexOf('\n'));
+            EraseLine();
         textPanel.text += "\n" + player.fullname + ": " + playerStr;
         textPanel.text += "\n" + interlocutorName + ": " + otherStr;
         inputField.text = "";
@@ -90,7 +90,7 @@ public class DialogueAPI : MonoBehaviour {
         player.decreaseHealth(rnd.Next(1, 21));
         string[] lines = textPanel.text.Split('\n');
         if (lines[lines.Length - 1].Contains(player.fullname + ":"))
-            textPanel.text = textPanel.text.Remove(textPanel.text.LastIndexOf('\n'));
+            EraseLine();
         textPanel.text += "\n" + player.fullname + ": " + playerStr;
         inputField.text = "";
         inputField.ActivateInputField();
@@ -131,6 +131,11 @@ public class DialogueAPI : MonoBehaviour {
             textPanel.text = result;
         }
         else return;
+    }
+
+    public void EraseLine()
+    {
+        textPanel.text = textPanel.text.Remove(textPanel.text.LastIndexOf('\n'));
     }
 
     IEnumerator WaitSeconds(float seconds)

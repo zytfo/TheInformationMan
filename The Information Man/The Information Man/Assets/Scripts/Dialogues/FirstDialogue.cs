@@ -12,14 +12,13 @@ public class FirstDialogue : MonoBehaviour {
 
     private DialogueAPI api;
 
-    private bool paused = false;
     private int dialogueStep = 0;
 
     void OnTriggerEnter2D(Collider2D other)
 	{
 		if (other.name == "player" && !player.hadDialogue[0])
 		{
-            api.DialogueStart(0, "Mr.Silitti", "Good Morning!", rightPicture);
+            api.DialogueStart(0, "Pr. Silitti", "Good Morning!", rightPicture);
         }
 	}
 

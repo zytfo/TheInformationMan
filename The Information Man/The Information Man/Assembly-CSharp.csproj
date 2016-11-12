@@ -51,6 +51,7 @@
      <Compile Include="Assets\Scripts\Dialogues\FirstDialogue.cs" />
      <Compile Include="Assets\Scripts\Dialogues\PainterDialogue.cs" />
      <Compile Include="Assets\Scripts\Dialogues\SecondDialogue.cs" />
+     <Compile Include="Assets\Scripts\Dialogues\Stage21Thoughts.cs" />
      <Compile Include="Assets\Scripts\Dialogues\Tasks.cs" />
      <Compile Include="Assets\Scripts\GameController.cs" />
      <Compile Include="Assets\Scripts\GroundCheck.cs" />

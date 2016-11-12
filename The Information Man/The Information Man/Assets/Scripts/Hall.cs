@@ -17,7 +17,6 @@ public class Hall : MonoBehaviour
     public Sprite rightPicture;
     private DialogueAPI api;
 
-    private bool paused = false;
     private int dialogueStep = 0;
 
     // Use this for initialization
@@ -40,6 +39,8 @@ public class Hall : MonoBehaviour
     void Update()
     {
         if (player.canMove) api.DialogueStart(2, "Yakubovich", "Pam pam pam! Welcome to the famous game show!", rightPicture);
+        if (dialogueStep == 2 || dialogueStep == 11) Cursor.visible = true;
+        else Cursor.visible = false;
     }
 
     public void but408()
@@ -55,12 +56,13 @@ public class Hall : MonoBehaviour
             open[0] = true;
             open[other] = true;
             api.ProcessDialogue("408", names[i] + " is not an elite room");
+            dialogueStep++;
             Cursor.visible = false;
             inputField.ActivateInputField();
         }
         else
         {
-            api.ProcessDialogue("404", "Good luck, the Information Man, good luck..");
+            api.ProcessDialogue("408", "Good luck, the Information Man, good luck..");
             StartCoroutine(LevelLoad());
         }
     }
@@ -78,12 +80,13 @@ public class Hall : MonoBehaviour
             open[1] = true;
             open[other] = true;
             api.ProcessDialogue("305", names[i] + " is not an elite room");
+            dialogueStep++;
             Cursor.visible = false;
             inputField.ActivateInputField();
         }
         else
         {
-            api.ProcessDialogue("404", "Good luck, the Information Man, good luck..");
+            api.ProcessDialogue("305", "Good luck, the Information Man, good luck..");
             StartCoroutine(LevelLoad());
         }
     }
@@ -101,6 +104,7 @@ public class Hall : MonoBehaviour
             open[2] = true;
             open[other] = true;
             api.ProcessDialogue("404", names[i] + " is not an elite room");
+            dialogueStep++;
             Cursor.visible = false;
             inputField.ActivateInputField();
         }
@@ -129,43 +133,43 @@ public class Hall : MonoBehaviour
             inputField.DeactivateInputField();
             dialogueStep++;
         }
-        else if (dialogueStep == 2 && api.IsCool(guess))
+        else if (dialogueStep == 3 && api.IsCool(guess))
         {
             api.ProcessDialogue(guess, "Spin the barrel!");
             dialogueStep++;
         }
-        else if (dialogueStep == 3)
+        else if (dialogueStep == 4)
         {
             api.ProcessDialogue("...spinning the barrel...", "Can you tell where did you came from?");
             dialogueStep++;
         }
-        else if (dialogueStep == 4 && guess.Length > 10)
+        else if (dialogueStep == 5 && guess.Length > 10)
         {
             api.ProcessDialogue(guess, "Interesting! Who do you want to send you greetings to?");
             dialogueStep++;
         }
-        else if (dialogueStep == 5 && guess.Length > 10 && guess.Split().Length > 2)
+        else if (dialogueStep == 6 && guess.Length > 10 && guess.Split().Length > 2)
         {
             api.ProcessDialogue(guess, "Have you got some gifts with you?");
             dialogueStep++;
         }
-        else if (dialogueStep == 6)
+        else if (dialogueStep == 7)
         {
             api.ProcessDialogue(guess, "Cool. 300 points on the barrel. Letter!");
             dialogueStep++;
         }
-        else if (dialogueStep == 7 && guess.Length == 1)
+        else if (dialogueStep == 8 && guess.Length == 1)
         {
             api.ProcessDialogue(guess, "No such letter. Basically, it's a \"Field of Dreams\" gameover.\n "
                 + "But I give you the last chance. Spin the barrel-roll!");
             dialogueStep++;
         }
-        else if (dialogueStep == 8)
+        else if (dialogueStep == 9)
         {
             api.ProcessDialogue("...spinning the barrel...", "Would you love to change your first choice of room?");
             dialogueStep++;
         }
-        else if (dialogueStep == 9)
+        else if (dialogueStep == 10)
         {
             api.ProcessDialogue(guess, "A matter of life and death! Pick the room!");
             Cursor.visible = true;
