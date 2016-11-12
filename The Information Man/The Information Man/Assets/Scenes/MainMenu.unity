@@ -97,7 +97,7 @@ GameObject:
   - 64: {fileID: 38273642}
   - 23: {fileID: 38273641}
   m_Layer: 0
-  m_Name: Plane
+  m_Name: Plane1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -160,6 +160,82 @@ Transform:
   m_Children: []
   m_Father: {fileID: 817428633}
   m_RootOrder: 1
+--- !u!1 &39491718
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 39491719}
+  - 23: {fileID: 39491721}
+  - 102: {fileID: 39491720}
+  m_Layer: 0
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &39491719
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 39491718}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -8, y: 4, z: 3.717515}
+  m_LocalScale: {x: 0.02, y: 0.02, z: 0.02}
+  m_Children: []
+  m_Father: {fileID: 1194190859}
+  m_RootOrder: 1
+--- !u!102 &39491720
+TextMesh:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 39491718}
+  m_Text: Fullscreen
+  m_OffsetZ: 0
+  m_CharacterSize: 1
+  m_LineSpacing: 1
+  m_Anchor: 0
+  m_Alignment: 1
+  m_TabSize: 4
+  m_FontSize: 150
+  m_FontStyle: 0
+  m_RichText: 1
+  m_Font: {fileID: 12800000, guid: 6bf2b47c467821641a686aa159989b5e, type: 3}
+  m_Color:
+    serializedVersion: 2
+    rgba: 4294967295
+--- !u!23 &39491721
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 39491718}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 6bf2b47c467821641a686aa159989b5e, type: 3}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 1
+  m_ReflectionProbeUsage: 1
+  m_ProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
 --- !u!1 &44775320
 GameObject:
   m_ObjectHideFlags: 0
@@ -201,8 +277,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 28.300001, y: 18, z: 0}
-  m_Center: {x: 14.150123, y: -9, z: 0}
+  m_Size: {x: 10.1, y: 18, z: 0}
+  m_Center: {x: 5.05, y: -8.999996, z: 0}
 --- !u!114 &44775323
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -234,10 +310,14 @@ MonoBehaviour:
   antialiasing: 1
   alphaBlending: 0
   superSampling: 0
+  resolution: 0
+  fullscreen: 0
   spotLight1: {fileID: 0}
   spotLight2: {fileID: 0}
   spotLight3: {fileID: 0}
-  menuText: {fileID: 0}
+  menuText1: {fileID: 0}
+  menuText2: {fileID: 0}
+  menuText3: {fileID: 0}
   grassObject: {fileID: 0}
 --- !u!102 &44775324
 TextMesh:
@@ -246,7 +326,7 @@ TextMesh:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 44775320}
-  m_Text: On
+  m_Text: 0
   m_OffsetZ: 0
   m_CharacterSize: 1
   m_LineSpacing: 1
@@ -375,6 +455,7 @@ GameObject:
   - 114: {fileID: 101811684}
   - 65: {fileID: 101811683}
   - 114: {fileID: 101811687}
+  - 114: {fileID: 101811688}
   m_Layer: 0
   m_Name: FantasticQuality
   m_TagString: Untagged
@@ -481,12 +562,38 @@ MonoBehaviour:
   camera1: {fileID: 0}
   camera2: {fileID: 0}
   camera3: {fileID: 0}
+  resolution: {fileID: 0}
   Back: 0
   Low: 0
   Medium: 0
   High: 0
   Fantastic: 1
   AdvancedSettings: 0
+--- !u!114 &101811688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 101811681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90ed0fe0b278a5440bda180e7d48578a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  play: 0
+  settings: 0
+  quit: 0
+  camera1: {fileID: 0}
+  camera2: {fileID: 0}
+  camera3: {fileID: 0}
+  resolution: {fileID: 0}
+  fullscreen: {fileID: 0}
+  back: 0
+  low: 0
+  medium: 0
+  high: 0
+  fantastic: 1
+  advancedSettings: 0
 --- !u!1 &108902981
 GameObject:
   m_ObjectHideFlags: 0
@@ -648,7 +755,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 131135999}
   m_Layer: 0
-  m_Name: Text
+  m_Name: Text2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -873,7 +980,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 232982136}
   m_Layer: 0
-  m_Name: Text
+  m_Name: Text3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -910,6 +1017,8 @@ Transform:
   - {fileID: 2042317647}
   - {fileID: 1193271711}
   - {fileID: 1184926525}
+  - {fileID: 1293394275}
+  - {fileID: 1194190859}
   m_Father: {fileID: 1117894005}
   m_RootOrder: 3
 --- !u!1 &260899471
@@ -943,6 +1052,82 @@ Transform:
   - {fileID: 1639284495}
   m_Father: {fileID: 232982136}
   m_RootOrder: 3
+--- !u!1 &266884527
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 266884528}
+  - 23: {fileID: 266884530}
+  - 102: {fileID: 266884529}
+  m_Layer: 0
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &266884528
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 266884527}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -8, y: 4, z: 3.717515}
+  m_LocalScale: {x: 0.02, y: 0.02, z: 0.02}
+  m_Children: []
+  m_Father: {fileID: 1293394275}
+  m_RootOrder: 1
+--- !u!102 &266884529
+TextMesh:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 266884527}
+  m_Text: Resolution
+  m_OffsetZ: 0
+  m_CharacterSize: 1
+  m_LineSpacing: 1
+  m_Anchor: 0
+  m_Alignment: 1
+  m_TabSize: 4
+  m_FontSize: 150
+  m_FontStyle: 0
+  m_RichText: 1
+  m_Font: {fileID: 12800000, guid: 6bf2b47c467821641a686aa159989b5e, type: 3}
+  m_Color:
+    serializedVersion: 2
+    rgba: 4294967295
+--- !u!23 &266884530
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 266884527}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 6bf2b47c467821641a686aa159989b5e, type: 3}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 1
+  m_ReflectionProbeUsage: 1
+  m_ProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
 --- !u!1 &283728754
 GameObject:
   m_ObjectHideFlags: 0
@@ -1016,7 +1201,7 @@ GameObject:
   - 64: {fileID: 308985961}
   - 23: {fileID: 308985960}
   m_Layer: 0
-  m_Name: Plane
+  m_Name: Plane3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1079,6 +1264,136 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 308985958}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &309838087
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 309838088}
+  - 23: {fileID: 309838092}
+  - 102: {fileID: 309838091}
+  - 114: {fileID: 309838090}
+  - 65: {fileID: 309838089}
+  m_Layer: 0
+  m_Name: Value
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &309838088
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 309838087}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5, y: 4, z: 3.717515}
+  m_LocalScale: {x: 0.02, y: 0.02, z: 0.02}
+  m_Children: []
+  m_Father: {fileID: 1194190859}
+  m_RootOrder: 0
+--- !u!65 &309838089
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 309838087}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 28.300001, y: 18, z: 0}
+  m_Center: {x: 14.150123, y: -9, z: 0}
+--- !u!114 &309838090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 309838087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aee5783aae101b24fa7e5c3d39751593, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  language: 0
+  lighting: 0
+  musicVolume: 0
+  soundVolume: 0
+  motionBlur: 0
+  blood: 0
+  mode3D: 0
+  smoothing: 0
+  textures: 0
+  polygones: 0
+  effects: 0
+  postprocessing: 0
+  grid: 0
+  environment: 0
+  grass: 0
+  FXAA: 0
+  MSAA: 0
+  antialiasing: 0
+  alphaBlending: 0
+  superSampling: 0
+  resolution: 0
+  fullscreen: 1
+  spotLight1: {fileID: 0}
+  spotLight2: {fileID: 0}
+  spotLight3: {fileID: 0}
+  menuText1: {fileID: 0}
+  menuText2: {fileID: 0}
+  menuText3: {fileID: 0}
+  grassObject: {fileID: 0}
+--- !u!102 &309838091
+TextMesh:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 309838087}
+  m_Text: On
+  m_OffsetZ: 0
+  m_CharacterSize: 1
+  m_LineSpacing: 1
+  m_Anchor: 0
+  m_Alignment: 1
+  m_TabSize: 4
+  m_FontSize: 150
+  m_FontStyle: 0
+  m_RichText: 1
+  m_Font: {fileID: 12800000, guid: 6bf2b47c467821641a686aa159989b5e, type: 3}
+  m_Color:
+    serializedVersion: 2
+    rgba: 4294967295
+--- !u!23 &309838092
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 309838087}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 6bf2b47c467821641a686aa159989b5e, type: 3}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 1
+  m_ReflectionProbeUsage: 1
+  m_ProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
 --- !u!1 &337984650
 GameObject:
   m_ObjectHideFlags: 0
@@ -1182,10 +1497,14 @@ MonoBehaviour:
   antialiasing: 0
   alphaBlending: 0
   superSampling: 0
+  resolution: 0
+  fullscreen: 0
   spotLight1: {fileID: 0}
   spotLight2: {fileID: 0}
   spotLight3: {fileID: 0}
-  menuText: {fileID: 0}
+  menuText1: {fileID: 0}
+  menuText2: {fileID: 0}
+  menuText3: {fileID: 0}
   grassObject: {fileID: 0}
 --- !u!102 &341428006
 TextMesh:
@@ -1439,21 +1758,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 387059437}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d23a2dba078616c4c9496ecdd01e68cb, type: 3}
+  m_Script: {fileID: 11500000, guid: 90ed0fe0b278a5440bda180e7d48578a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Play: 0
-  Settings: 0
-  Quit: 0
+  play: 0
+  settings: 0
+  quit: 0
   camera1: {fileID: 0}
   camera2: {fileID: 0}
   camera3: {fileID: 0}
-  Back: 0
-  Low: 0
-  Medium: 1
-  High: 0
-  Fantastic: 0
-  AdvancedSettings: 0
+  resolution: {fileID: 0}
+  fullscreen: {fileID: 0}
+  back: 0
+  low: 0
+  medium: 1
+  high: 0
+  fantastic: 0
+  advancedSettings: 0
 --- !u!65 &387059440
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1587,10 +1908,14 @@ MonoBehaviour:
   antialiasing: 0
   alphaBlending: 0
   superSampling: 1
+  resolution: 0
+  fullscreen: 0
   spotLight1: {fileID: 0}
   spotLight2: {fileID: 0}
   spotLight3: {fileID: 0}
-  menuText: {fileID: 0}
+  menuText1: {fileID: 0}
+  menuText2: {fileID: 0}
+  menuText3: {fileID: 0}
   grassObject: {fileID: 0}
 --- !u!102 &406011739
 TextMesh:
@@ -1831,10 +2156,14 @@ MonoBehaviour:
   antialiasing: 0
   alphaBlending: 0
   superSampling: 0
+  resolution: 0
+  fullscreen: 0
   spotLight1: {fileID: 0}
   spotLight2: {fileID: 0}
   spotLight3: {fileID: 0}
-  menuText: {fileID: 0}
+  menuText1: {fileID: 0}
+  menuText2: {fileID: 0}
+  menuText3: {fileID: 0}
   grassObject: {fileID: 145735479}
 --- !u!102 &518538253
 TextMesh:
@@ -1971,6 +2300,7 @@ GameObject:
   - 102: {fileID: 539226399}
   - 65: {fileID: 539226398}
   - 114: {fileID: 539226397}
+  - 114: {fileID: 539226401}
   m_Layer: 0
   m_Name: Back
   m_TagString: Untagged
@@ -2007,6 +2337,7 @@ MonoBehaviour:
   camera1: {fileID: 1416978014}
   camera2: {fileID: 952400699}
   camera3: {fileID: 1914544493}
+  resolution: {fileID: 0}
   Back: 1
   Low: 0
   Medium: 0
@@ -2072,6 +2403,31 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
+--- !u!114 &539226401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 539226395}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90ed0fe0b278a5440bda180e7d48578a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  play: 0
+  settings: 0
+  quit: 0
+  camera1: {fileID: 1416978014}
+  camera2: {fileID: 952400699}
+  camera3: {fileID: 1914544493}
+  resolution: {fileID: 0}
+  fullscreen: {fileID: 0}
+  back: 1
+  low: 0
+  medium: 0
+  high: 0
+  fantastic: 0
+  advancedSettings: 0
 --- !u!1 &570365678
 GameObject:
   m_ObjectHideFlags: 0
@@ -2146,10 +2502,14 @@ MonoBehaviour:
   antialiasing: 0
   alphaBlending: 0
   superSampling: 0
+  resolution: 0
+  fullscreen: 0
   spotLight1: {fileID: 0}
   spotLight2: {fileID: 0}
   spotLight3: {fileID: 0}
-  menuText: {fileID: 0}
+  menuText1: {fileID: 0}
+  menuText2: {fileID: 0}
+  menuText3: {fileID: 0}
   grassObject: {fileID: 0}
 --- !u!102 &570365682
 TextMesh:
@@ -2753,10 +3113,14 @@ MonoBehaviour:
   antialiasing: 0
   alphaBlending: 0
   superSampling: 0
+  resolution: 0
+  fullscreen: 0
   spotLight1: {fileID: 379263952}
   spotLight2: {fileID: 742739803}
   spotLight3: {fileID: 283728754}
-  menuText: {fileID: 232982135}
+  menuText1: {fileID: 1847114906}
+  menuText2: {fileID: 131135998}
+  menuText3: {fileID: 232982135}
   grassObject: {fileID: 0}
 --- !u!102 &891056534
 TextMesh:
@@ -3041,10 +3405,14 @@ MonoBehaviour:
   antialiasing: 0
   alphaBlending: 0
   superSampling: 0
+  resolution: 0
+  fullscreen: 0
   spotLight1: {fileID: 0}
   spotLight2: {fileID: 0}
   spotLight3: {fileID: 0}
-  menuText: {fileID: 0}
+  menuText1: {fileID: 0}
+  menuText2: {fileID: 0}
+  menuText3: {fileID: 0}
   grassObject: {fileID: 0}
 --- !u!102 &962654472
 TextMesh:
@@ -3272,10 +3640,14 @@ MonoBehaviour:
   antialiasing: 0
   alphaBlending: 0
   superSampling: 0
+  resolution: 0
+  fullscreen: 0
   spotLight1: {fileID: 379263952}
   spotLight2: {fileID: 742739803}
   spotLight3: {fileID: 283728754}
-  menuText: {fileID: 0}
+  menuText1: {fileID: 0}
+  menuText2: {fileID: 0}
+  menuText3: {fileID: 0}
   grassObject: {fileID: 0}
 --- !u!102 &1036740169
 TextMesh:
@@ -3336,6 +3708,7 @@ GameObject:
   - 102: {fileID: 1049071813}
   - 61: {fileID: 1049071811}
   - 114: {fileID: 1049071812}
+  - 114: {fileID: 1049071815}
   m_Layer: 0
   m_Name: AdvancedSettings
   m_TagString: Untagged
@@ -3386,6 +3759,7 @@ MonoBehaviour:
   camera1: {fileID: 1416978014}
   camera2: {fileID: 952400699}
   camera3: {fileID: 1914544493}
+  resolution: {fileID: 0}
   Back: 0
   Low: 0
   Medium: 0
@@ -3439,6 +3813,31 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
+--- !u!114 &1049071815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1049071809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90ed0fe0b278a5440bda180e7d48578a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  play: 0
+  settings: 0
+  quit: 0
+  camera1: {fileID: 1416978014}
+  camera2: {fileID: 952400699}
+  camera3: {fileID: 1914544493}
+  resolution: {fileID: 1614718357}
+  fullscreen: {fileID: 309838087}
+  back: 0
+  low: 0
+  medium: 0
+  high: 0
+  fantastic: 0
+  advancedSettings: 1
 --- !u!1 &1050428743
 GameObject:
   m_ObjectHideFlags: 0
@@ -3527,6 +3926,7 @@ GameObject:
   - 102: {fileID: 1057868231}
   - 65: {fileID: 1057868229}
   - 114: {fileID: 1057868230}
+  - 114: {fileID: 1057868233}
   m_Layer: 0
   m_Name: HighQuality
   m_TagString: Untagged
@@ -3575,6 +3975,7 @@ MonoBehaviour:
   camera1: {fileID: 0}
   camera2: {fileID: 0}
   camera3: {fileID: 0}
+  resolution: {fileID: 0}
   Back: 0
   Low: 0
   Medium: 0
@@ -3628,6 +4029,31 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
+--- !u!114 &1057868233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1057868227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90ed0fe0b278a5440bda180e7d48578a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  play: 0
+  settings: 0
+  quit: 0
+  camera1: {fileID: 0}
+  camera2: {fileID: 0}
+  camera3: {fileID: 0}
+  resolution: {fileID: 0}
+  fullscreen: {fileID: 0}
+  back: 0
+  low: 0
+  medium: 0
+  high: 1
+  fantastic: 0
+  advancedSettings: 0
 --- !u!1 &1059483557
 GameObject:
   m_ObjectHideFlags: 0
@@ -3640,7 +4066,7 @@ GameObject:
   - 64: {fileID: 1059483560}
   - 23: {fileID: 1059483559}
   m_Layer: 0
-  m_Name: Plane
+  m_Name: Plane2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3818,21 +4244,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 1116356429}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d23a2dba078616c4c9496ecdd01e68cb, type: 3}
+  m_Script: {fileID: 11500000, guid: 90ed0fe0b278a5440bda180e7d48578a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Play: 0
-  Settings: 0
-  Quit: 0
+  play: 0
+  settings: 0
+  quit: 0
   camera1: {fileID: 0}
   camera2: {fileID: 0}
   camera3: {fileID: 0}
-  Back: 0
-  Low: 1
-  Medium: 0
-  High: 0
-  Fantastic: 0
-  AdvancedSettings: 0
+  resolution: {fileID: 0}
+  fullscreen: {fileID: 0}
+  back: 0
+  low: 1
+  medium: 0
+  high: 0
+  fantastic: 0
+  advancedSettings: 0
 --- !u!65 &1116356432
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4073,10 +4501,14 @@ MonoBehaviour:
   antialiasing: 0
   alphaBlending: 0
   superSampling: 0
+  resolution: 0
+  fullscreen: 0
   spotLight1: {fileID: 0}
   spotLight2: {fileID: 0}
   spotLight3: {fileID: 0}
-  menuText: {fileID: 0}
+  menuText1: {fileID: 0}
+  menuText2: {fileID: 0}
+  menuText3: {fileID: 0}
   grassObject: {fileID: 0}
 --- !u!102 &1153878060
 TextMesh:
@@ -4304,10 +4736,14 @@ MonoBehaviour:
   antialiasing: 0
   alphaBlending: 1
   superSampling: 0
+  resolution: 0
+  fullscreen: 0
   spotLight1: {fileID: 0}
   spotLight2: {fileID: 0}
   spotLight3: {fileID: 0}
-  menuText: {fileID: 0}
+  menuText1: {fileID: 0}
+  menuText2: {fileID: 0}
+  menuText3: {fileID: 0}
   grassObject: {fileID: 0}
 --- !u!102 &1188542360
 TextMesh:
@@ -4385,6 +4821,35 @@ Transform:
   - {fileID: 1898894531}
   m_Father: {fileID: 232982136}
   m_RootOrder: 19
+--- !u!1 &1194190858
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1194190859}
+  m_Layer: 0
+  m_Name: Fullscreen
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1194190859
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1194190858}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 309838088}
+  - {fileID: 39491719}
+  m_Father: {fileID: 232982136}
+  m_RootOrder: 22
 --- !u!1 &1195558857
 GameObject:
   m_ObjectHideFlags: 0
@@ -4471,21 +4936,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 1195558857}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d23a2dba078616c4c9496ecdd01e68cb, type: 3}
+  m_Script: {fileID: 11500000, guid: 90ed0fe0b278a5440bda180e7d48578a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Play: 1
-  Settings: 0
-  Quit: 0
+  play: 1
+  settings: 0
+  quit: 0
   camera1: {fileID: 0}
   camera2: {fileID: 0}
   camera3: {fileID: 0}
-  Back: 0
-  Low: 0
-  Medium: 0
-  High: 0
-  Fantastic: 0
-  AdvancedSettings: 0
+  resolution: {fileID: 0}
+  fullscreen: {fileID: 0}
+  back: 0
+  low: 0
+  medium: 0
+  high: 0
+  fantastic: 0
+  advancedSettings: 0
 --- !u!65 &1195558862
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4632,6 +5099,35 @@ Transform:
   - {fileID: 1050428744}
   m_Father: {fileID: 232982136}
   m_RootOrder: 12
+--- !u!1 &1293394274
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1293394275}
+  m_Layer: 0
+  m_Name: Resolution
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1293394275
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1293394274}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 11, y: -5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1614718358}
+  - {fileID: 266884528}
+  m_Father: {fileID: 232982136}
+  m_RootOrder: 21
 --- !u!1 &1416978009
 GameObject:
   m_ObjectHideFlags: 0
@@ -4897,10 +5393,14 @@ MonoBehaviour:
   antialiasing: 0
   alphaBlending: 0
   superSampling: 0
+  resolution: 0
+  fullscreen: 0
   spotLight1: {fileID: 379263952}
   spotLight2: {fileID: 742739803}
   spotLight3: {fileID: 283728754}
-  menuText: {fileID: 0}
+  menuText1: {fileID: 0}
+  menuText2: {fileID: 0}
+  menuText3: {fileID: 0}
   grassObject: {fileID: 0}
 --- !u!102 &1480503465
 TextMesh:
@@ -5099,10 +5599,14 @@ MonoBehaviour:
   antialiasing: 0
   alphaBlending: 0
   superSampling: 0
+  resolution: 0
+  fullscreen: 0
   spotLight1: {fileID: 0}
   spotLight2: {fileID: 0}
   spotLight3: {fileID: 0}
-  menuText: {fileID: 0}
+  menuText1: {fileID: 0}
+  menuText2: {fileID: 0}
+  menuText3: {fileID: 0}
   grassObject: {fileID: 0}
 --- !u!102 &1544588620
 TextMesh:
@@ -5301,10 +5805,14 @@ MonoBehaviour:
   antialiasing: 0
   alphaBlending: 0
   superSampling: 0
+  resolution: 0
+  fullscreen: 0
   spotLight1: {fileID: 0}
   spotLight2: {fileID: 0}
   spotLight3: {fileID: 0}
-  menuText: {fileID: 0}
+  menuText1: {fileID: 0}
+  menuText2: {fileID: 0}
+  menuText3: {fileID: 0}
   grassObject: {fileID: 0}
 --- !u!102 &1554115426
 TextMesh:
@@ -5617,21 +6125,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 1604805071}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d23a2dba078616c4c9496ecdd01e68cb, type: 3}
+  m_Script: {fileID: 11500000, guid: 90ed0fe0b278a5440bda180e7d48578a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Play: 0
-  Settings: 0
-  Quit: 1
+  play: 0
+  settings: 0
+  quit: 1
   camera1: {fileID: 0}
   camera2: {fileID: 0}
   camera3: {fileID: 0}
-  Back: 0
-  Low: 0
-  Medium: 0
-  High: 0
-  Fantastic: 0
-  AdvancedSettings: 0
+  resolution: {fileID: 0}
+  fullscreen: {fileID: 0}
+  back: 0
+  low: 0
+  medium: 0
+  high: 0
+  fantastic: 0
+  advancedSettings: 0
 --- !u!65 &1604805076
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5644,6 +6154,136 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 112.6, y: 60, z: 0}
   m_Center: {x: 56.3, y: -30, z: 0}
+--- !u!1 &1614718357
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1614718358}
+  - 23: {fileID: 1614718362}
+  - 102: {fileID: 1614718361}
+  - 114: {fileID: 1614718360}
+  - 65: {fileID: 1614718359}
+  m_Layer: 0
+  m_Name: Value
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1614718358
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1614718357}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5, y: 4, z: 3.717515}
+  m_LocalScale: {x: 0.02, y: 0.02, z: 0.02}
+  m_Children: []
+  m_Father: {fileID: 1293394275}
+  m_RootOrder: 0
+--- !u!65 &1614718359
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1614718357}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 90.5, y: 18, z: 0}
+  m_Center: {x: 45.25, y: -8.999996, z: 0}
+--- !u!114 &1614718360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1614718357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aee5783aae101b24fa7e5c3d39751593, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  language: 0
+  lighting: 0
+  musicVolume: 0
+  soundVolume: 0
+  motionBlur: 0
+  blood: 0
+  mode3D: 0
+  smoothing: 0
+  textures: 0
+  polygones: 0
+  effects: 0
+  postprocessing: 0
+  grid: 0
+  environment: 0
+  grass: 0
+  FXAA: 0
+  MSAA: 0
+  antialiasing: 0
+  alphaBlending: 0
+  superSampling: 0
+  resolution: 1
+  fullscreen: 0
+  spotLight1: {fileID: 0}
+  spotLight2: {fileID: 0}
+  spotLight3: {fileID: 0}
+  menuText1: {fileID: 0}
+  menuText2: {fileID: 0}
+  menuText3: {fileID: 0}
+  grassObject: {fileID: 0}
+--- !u!102 &1614718361
+TextMesh:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1614718357}
+  m_Text: 0000x0000
+  m_OffsetZ: 0
+  m_CharacterSize: 1
+  m_LineSpacing: 1
+  m_Anchor: 0
+  m_Alignment: 1
+  m_TabSize: 4
+  m_FontSize: 150
+  m_FontStyle: 0
+  m_RichText: 1
+  m_Font: {fileID: 12800000, guid: 6bf2b47c467821641a686aa159989b5e, type: 3}
+  m_Color:
+    serializedVersion: 2
+    rgba: 4294967295
+--- !u!23 &1614718362
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1614718357}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 6bf2b47c467821641a686aa159989b5e, type: 3}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 1
+  m_ReflectionProbeUsage: 1
+  m_ProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
 --- !u!1 &1628456264
 GameObject:
   m_ObjectHideFlags: 0
@@ -5969,10 +6609,14 @@ MonoBehaviour:
   antialiasing: 0
   alphaBlending: 0
   superSampling: 0
+  resolution: 0
+  fullscreen: 0
   spotLight1: {fileID: 0}
   spotLight2: {fileID: 0}
   spotLight3: {fileID: 0}
-  menuText: {fileID: 0}
+  menuText1: {fileID: 0}
+  menuText2: {fileID: 0}
+  menuText3: {fileID: 0}
   grassObject: {fileID: 0}
 --- !u!102 &1741392089
 TextMesh:
@@ -6072,21 +6716,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 1781714402}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d23a2dba078616c4c9496ecdd01e68cb, type: 3}
+  m_Script: {fileID: 11500000, guid: 90ed0fe0b278a5440bda180e7d48578a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Play: 0
-  Settings: 0
-  Quit: 0
+  play: 0
+  settings: 0
+  quit: 0
   camera1: {fileID: 1416978014}
   camera2: {fileID: 952400699}
   camera3: {fileID: 1914544493}
-  Back: 1
-  Low: 0
-  Medium: 0
-  High: 0
-  Fantastic: 0
-  AdvancedSettings: 0
+  resolution: {fileID: 0}
+  fullscreen: {fileID: 0}
+  back: 1
+  low: 0
+  medium: 0
+  high: 0
+  fantastic: 0
+  advancedSettings: 0
 --- !u!102 &1781714406
 TextMesh:
   serializedVersion: 3
@@ -6208,10 +6854,14 @@ MonoBehaviour:
   antialiasing: 0
   alphaBlending: 0
   superSampling: 0
+  resolution: 0
+  fullscreen: 0
   spotLight1: {fileID: 0}
   spotLight2: {fileID: 0}
   spotLight3: {fileID: 0}
-  menuText: {fileID: 0}
+  menuText1: {fileID: 0}
+  menuText2: {fileID: 0}
+  menuText3: {fileID: 0}
   grassObject: {fileID: 0}
 --- !u!102 &1782883363
 TextMesh:
@@ -6439,10 +7089,14 @@ MonoBehaviour:
   antialiasing: 0
   alphaBlending: 0
   superSampling: 0
+  resolution: 0
+  fullscreen: 0
   spotLight1: {fileID: 379263952}
   spotLight2: {fileID: 742739803}
   spotLight3: {fileID: 283728754}
-  menuText: {fileID: 0}
+  menuText1: {fileID: 0}
+  menuText2: {fileID: 0}
+  menuText3: {fileID: 0}
   grassObject: {fileID: 0}
 --- !u!102 &1827961233
 TextMesh:
@@ -6565,10 +7219,14 @@ MonoBehaviour:
   antialiasing: 0
   alphaBlending: 0
   superSampling: 0
+  resolution: 0
+  fullscreen: 0
   spotLight1: {fileID: 379263952}
   spotLight2: {fileID: 742739803}
   spotLight3: {fileID: 283728754}
-  menuText: {fileID: 0}
+  menuText1: {fileID: 0}
+  menuText2: {fileID: 0}
+  menuText3: {fileID: 0}
   grassObject: {fileID: 0}
 --- !u!102 &1832209764
 TextMesh:
@@ -6626,7 +7284,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1847114907}
   m_Layer: 0
-  m_Name: Text
+  m_Name: Text1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6785,10 +7443,14 @@ MonoBehaviour:
   antialiasing: 0
   alphaBlending: 0
   superSampling: 0
+  resolution: 0
+  fullscreen: 0
   spotLight1: {fileID: 0}
   spotLight2: {fileID: 0}
   spotLight3: {fileID: 0}
-  menuText: {fileID: 0}
+  menuText1: {fileID: 0}
+  menuText2: {fileID: 0}
+  menuText3: {fileID: 0}
   grassObject: {fileID: 0}
 --- !u!65 &1908578419
 BoxCollider:
@@ -7122,21 +7784,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 2141148274}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d23a2dba078616c4c9496ecdd01e68cb, type: 3}
+  m_Script: {fileID: 11500000, guid: 90ed0fe0b278a5440bda180e7d48578a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Play: 0
-  Settings: 1
-  Quit: 0
+  play: 0
+  settings: 1
+  quit: 0
   camera1: {fileID: 1416978014}
   camera2: {fileID: 952400699}
   camera3: {fileID: 0}
-  Back: 0
-  Low: 0
-  Medium: 0
-  High: 0
-  Fantastic: 0
-  AdvancedSettings: 0
+  resolution: {fileID: 0}
+  fullscreen: {fileID: 0}
+  back: 0
+  low: 0
+  medium: 0
+  high: 0
+  fantastic: 0
+  advancedSettings: 0
 --- !u!65 &2141148277
 BoxCollider:
   m_ObjectHideFlags: 0

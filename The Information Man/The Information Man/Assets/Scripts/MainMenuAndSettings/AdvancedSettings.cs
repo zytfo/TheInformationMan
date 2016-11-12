@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class AdvancedSettings : MonoBehaviour {
-	public bool language = false;
+    public bool language = false;
 	public bool lighting = false;
 	public bool musicVolume = false;
 	public bool soundVolume = false;
@@ -22,14 +22,18 @@ public class AdvancedSettings : MonoBehaviour {
 	public bool antialiasing = false;
 	public bool alphaBlending = false;
 	public bool superSampling = false;
+    public bool resolution = false;
+    public bool fullscreen = false;
 
 	public GameObject spotLight1;
 	public GameObject spotLight2;
 	public GameObject spotLight3;
 
-	public GameObject menuText;
+	public GameObject menuText1;
+    public GameObject menuText2;
+    public GameObject menuText3;
 
-	public GameObject grassObject;
+    public GameObject grassObject;
 
 	public void OnMouseEnter() {
 		this.GetComponent<Renderer>().material.color = Color.red;
@@ -106,12 +110,15 @@ public class AdvancedSettings : MonoBehaviour {
 			string str = this.GetComponent<TextMesh> ().text;
 			if (str == "On") {
 				this.GetComponent<TextMesh> ().text = "Off";
-				menuText.GetComponent<Transform> ().rotation = Quaternion.Euler(0, 0, 0);
-			}
+				menuText1.GetComponent<Transform>().rotation = Quaternion.Euler(0, 0, 0);
+                menuText2.GetComponent<Transform>().rotation = Quaternion.Euler(0, 0, 0);
+                menuText3.GetComponent<Transform>().rotation = Quaternion.Euler(0, 0, 0);
+            }
 			if (str == "Off") {
 				this.GetComponent<TextMesh> ().text = "On";
-
-				menuText.GetComponent<Transform> ().rotation = Quaternion.Euler(20, -20, -20);
+                menuText1.GetComponent<Transform>().rotation = Quaternion.Euler(20, -20, -20);
+                menuText2.GetComponent<Transform>().rotation = Quaternion.Euler(20, -20, -20);
+                menuText3.GetComponent<Transform> ().rotation = Quaternion.Euler(20, -20, -20);
 			}
 		}
 
@@ -127,8 +134,8 @@ public class AdvancedSettings : MonoBehaviour {
 		if (textures) {
 			string str = this.GetComponent<TextMesh> ().text;
 			if (str == "High") {
-				this.GetComponent<TextMesh> ().text = "Ultra";
-				QualitySettings.currentLevel = QualityLevel.Fantastic;
+                this.GetComponent<TextMesh>().text = "Ultra";
+                QualitySettings.currentLevel = QualityLevel.Fantastic;
 			}
 			if (str == "Ultra") {
 				this.GetComponent<TextMesh> ().text = "Low";
@@ -265,12 +272,26 @@ public class AdvancedSettings : MonoBehaviour {
 
 		if (antialiasing) {
 			string str = this.GetComponent<TextMesh> ().text;
-			if (str == "On") {
-				this.GetComponent<TextMesh> ().text = "Off";
-			} else {
-				this.GetComponent<TextMesh> ().text = "On";
+			if (str == "0") {
+				this.GetComponent<TextMesh> ().text = "2";
+                QualitySettings.antiAliasing = 2;
 			}
-		}
+            if (str == "2")
+            {
+                this.GetComponent<TextMesh>().text = "4";
+                QualitySettings.antiAliasing = 2;
+            }
+            if (str == "4")
+            {
+                this.GetComponent<TextMesh>().text = "8";
+                QualitySettings.antiAliasing = 2;
+            }
+            if (str == "8")
+            {
+                this.GetComponent<TextMesh>().text = "0";
+                QualitySettings.antiAliasing = 2;
+            }
+        }
 
 		if (alphaBlending) {
 			string str = this.GetComponent<TextMesh> ().text;
@@ -290,7 +311,52 @@ public class AdvancedSettings : MonoBehaviour {
 			}
 		}
 
-	}
+        if (resolution)
+        {
+            string str = this.GetComponent<TextMesh>().text;
+            if (str == "1600x900")
+            {
+                Screen.SetResolution(1920, 1080, Screen.fullScreen);
+                this.GetComponent<TextMesh>().text = "1920x1080";
+            }
+            if (str == "1920x1080")
+            {
+                Screen.SetResolution(1024, 576, Screen.fullScreen);
+                this.GetComponent<TextMesh>().text = "1024x576";
+            }
+            if (str == "1024x576")
+            {
+                Screen.SetResolution(1280, 720, Screen.fullScreen);
+                this.GetComponent<TextMesh>().text = "1280x720";
+            }
+            if (str == "1280x720")
+            {
+                Screen.SetResolution(1366, 768, Screen.fullScreen);
+                this.GetComponent<TextMesh>().text = "1366x768";
+            }
+            if (str == "1366x768")
+            {
+                Screen.SetResolution(1600, 900, Screen.fullScreen);
+                this.GetComponent<TextMesh>().text = "1600x900";
+            }
+        }
+
+        if (fullscreen)
+        {
+            string str = this.GetComponent<TextMesh>().text;
+            if (str == "On")
+            {
+                this.GetComponent<TextMesh>().text = "Off";
+                Screen.fullScreen = false;
+            }
+            if (str == "Off")
+            {
+                this.GetComponent<TextMesh>().text = "On";
+                Screen.fullScreen = true;
+            }
+        }
+
+    }
 }
 
 
