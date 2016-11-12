@@ -58,7 +58,7 @@ public class FirstDialogue : MonoBehaviour {
         {
             api.task(new Tasks.SumTask());
             player.UpdateTaskPanel();
-            api.ProcessDialogue(guess, "Your answer doesn't matter actually. Never mind. " + api.task().WriteTask());
+            api.ProcessDialogue(guess, "Your answer doesn't matter actually. Never mind. " + api.task().taskDescription);
             dialogueStep++;
         }
         else if (dialogueStep == 4)
@@ -81,7 +81,7 @@ public class FirstDialogue : MonoBehaviour {
             api.task(new Tasks.ProbabilityTask());
             player.UpdateTaskPanel();
             api.ProcessDialogue(guess, "I see your happy face. That's cool! This one may require more time to succeed.\n" 
-                + api.task().WriteTask());
+                + api.task().taskDescription);
             dialogueStep++;
         }
         else if (dialogueStep == 6)

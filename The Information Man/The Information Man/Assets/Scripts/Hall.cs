@@ -32,22 +32,14 @@ public class Hall : MonoBehaviour
         player = api.player;
         inputField = api.inputField;
 
-        api.DialogueStart(2, "Yakubovich", "Pam pam pam! Welcome to the famous game show!", rightPicture);
         Cursor.visible = false;
+        player.canMove = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (dialogueStep == 7 && (Input.GetKey("left") || Input.GetKey("right")))
-        {
-            api.rightPicture.sprite = null;
-            inputField.readOnly = true;
-            inputField.text = "";
-            inputField.DeactivateInputField();
-            player.SetMove(true);
-            dialogueStep = -1;
-        }
+        if (player.canMove) api.DialogueStart(2, "Yakubovich", "Pam pam pam! Welcome to the famous game show!", rightPicture);
     }
 
     public void but408()
@@ -121,7 +113,7 @@ public class Hall : MonoBehaviour
 
     public void GetInput(string guess)
     {
-        if (guess == "" && dialogueStep != 2 && dialogueStep != 3 && dialogueStep != 8) inputField.ActivateInputField();
+        if (guess == "" && dialogueStep != 1 && dialogueStep != 3 && dialogueStep != 8) inputField.ActivateInputField();
         else if (dialogueStep == 0)
         {
             api.ProcessDialogue("Wait, what?", "Yes. Dormitory manager is away today. She has left for you 3 available\n rooms."
@@ -188,6 +180,7 @@ public class Hall : MonoBehaviour
     public IEnumerator LevelLoad()
     {
         yield return new WaitForSeconds(3.0f);
+        PlayerPrefs.SetInt("health", player.curHealth);
         SceneManager.LoadScene("stage3");
     }
 }

@@ -68,7 +68,7 @@ public class PainterDialogue : MonoBehaviour {
             api.task(new Tasks.PoissonDistributionTask());
             player.UpdateTaskPanel();
             api.ProcessDialogue(guess, "Cool! "
-                + api.task().WriteTask());
+                + api.task().taskDescription);
             dialogueStep++;
         }
         else if (dialogueStep == 6)

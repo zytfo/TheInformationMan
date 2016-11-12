@@ -75,6 +75,9 @@ public class Player : MonoBehaviour
                 break;
             case "stage23": transform.eulerAngles = new Vector2(0, 180);
                 break;
+            case "stage3":
+                textPanel.text = "";
+                break;
         }
     }
 
@@ -205,12 +208,17 @@ public class Player : MonoBehaviour
         if (task == null)
             taskPanel.GetComponentInChildren<Text>().GetComponent<Text>().text = "No tasks at the moment, you, lucky man!";
         else
-            taskPanel.GetComponentInChildren<Text>().text = task.WriteTask() + "\nRight answer is: " + task.writeAnswer;
+            taskPanel.GetComponentInChildren<Text>().text = task.taskDescription + "\nRight answer is: " + task.writeAnswer;
     }
 
     void stopPlayer()
     {
         rb2d.AddForce(Vector2.right * 0);
+    }
+
+    public void increaseHealth(int change)
+    {
+        curHealth = Mathf.Min(100, curHealth + change);
     }
 
     public void decreaseHealth(int change)

@@ -8,9 +8,11 @@ public class Tasks {
     public abstract class Task
     {
         public string writeAnswer { get; set; }
+        public string taskDescription { get; set; }
 
         public abstract void GenerateValues();
         public abstract string WriteTask();
+        public abstract string WriteSubTask();
         public abstract string CalculateResult();
 
         public virtual int CheckResult(string input, string writeAnswer)
@@ -54,6 +56,7 @@ public class Tasks {
             double tmp;
             double.TryParse(CalculateResult(), out tmp);
             writeAnswer = Math.Round(tmp, 2).ToString();
+            taskDescription = WriteTask();
         }
 
         public override void GenerateValues()
@@ -162,6 +165,10 @@ public class Tasks {
             return result.ToString();
         }
 
+        public override string WriteSubTask()
+        {
+            throw new NotImplementedException();
+        }
     }
 
     public class Box
@@ -251,6 +258,7 @@ public class Tasks {
             double tmp;
             double.TryParse(CalculateResult(), out tmp);
             writeAnswer = Math.Round(tmp, 2).ToString();
+            taskDescription = WriteTask();
         }
 
         public EntropyTask()
@@ -260,6 +268,7 @@ public class Tasks {
             double tmp;
             double.TryParse(CalculateResult(), out tmp);
             writeAnswer = Math.Round(tmp, 2).ToString();
+            taskDescription = WriteTask();
         }
 
         public double Log2(double n)
@@ -339,6 +348,11 @@ public class Tasks {
             }
             return result.ToString();
         }
+
+        public override string WriteSubTask()
+        {
+            throw new NotImplementedException();
+        }
     }
 
     class Symbol
@@ -371,6 +385,7 @@ public class Tasks {
             double tmp;
             double.TryParse(CalculateResult(), out tmp);
             writeAnswer = Math.Round(tmp, 2).ToString();
+            taskDescription = WriteTask();
         }
 
         private long Factorial(long x)
@@ -396,6 +411,11 @@ public class Tasks {
         {
             return (Math.Pow(Math.E, -mean) * Math.Pow(mean, m) / (double)Factorial(m)).ToString();
         }
+
+        public override string WriteSubTask()
+        {
+            throw new NotImplementedException();
+        }
     }
 
     public class HuffmanCodingTask : Task
@@ -404,6 +424,7 @@ public class Tasks {
         public List<Item> ensemble { get; set; }
         public List<string> codes { get; set; }
         private int itemsCount;
+        public bool differentValues { get; set; }
 
         public override void GenerateValues()
         {
@@ -429,6 +450,7 @@ public class Tasks {
         {
             GenerateValues();
             writeAnswer = CalculateResult();
+            taskDescription = WriteTask();
         }
 
         public double Log2(double n)
@@ -508,6 +530,198 @@ public class Tasks {
             else
                 return 0;
         }
+
+        public override string WriteSubTask()
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public class TwoRandomVariables : Task
+    {
+        public enum TaskType { margX, margY, joint, condYX, condXY, mutInf };
+        
+        public Box[] boxes { get; set; }
+        private int sum;
+        private int subtaskNumber = 0;
+
+        /* results */
+        private double margX;
+        private double margY;
+        private double joint;
+        private double condYX;
+        private double condXY;
+        private double mutInf;
+
+        public override void GenerateValues()
+        {
+            System.Random rnd = new System.Random();
+            int[] possibleSums = { 32, 64 };
+            sum = possibleSums[rnd.Next(0, 2)];
+            boxes = new Box[4];
+            for (int j = 0; j < 4; j++)
+            {
+                List<Item> items = new List<Item>();
+                List<int> itemsNumbers = new List<int>();
+                int sum2 = sum / 4;
+                for (int i = 0; i < 3; i++)
+                {
+                    int number = rnd.Next(0, sum2 + 1);
+                    sum2 -= number;
+                    itemsNumbers.Add(number);
+                }
+                itemsNumbers.Add(sum2);
+                foreach (int iN in itemsNumbers) items.Add(new Item("", iN));
+                boxes[j] = new Box("", items);
+            }
+            Calculate();
+        }
+
+
+        public TwoRandomVariables()
+        {
+            GenerateValues();
+            taskDescription = WriteTask();
+        }
+
+        public double Log2(double n)
+        {
+            return (Math.Log(n) / Math.Log(2));
+        }
+
+        public int GCD(int a, int b)
+        {
+            return b == 0 ? a : GCD(b, a % b);
+        }
+
+        public override string WriteTask()
+        {
+            string result = "";
+            int gcd, c;
+            string[] letters = new string[4] { "a", "b", "c", "d"};
+            string tmp;
+            result = "Assume you have two random variables X (input of the noisy channel) and\n Y (output) "
+                + "with joint distribution of these two random variables as follows:\n";
+            result += "       x = a  x = b  x = c  x = d\n";
+            for (int j = 0; j < 4; ++j)
+            {
+                result += "y = " + letters[j] + " ";
+                for (int i = 0; i < 3; ++i)
+                {
+                    gcd = GCD(boxes[j].items.ElementAt(i).count, sum);
+                    c = boxes[j].items.ElementAt(i).count;
+                    if (c == 0) tmp = "   0  ";
+                    else tmp = c / gcd + "/" + sum / gcd;
+                    if (tmp.Length == 3) tmp = " " + tmp + " ";
+                    else if (tmp.Length == 4) tmp = " " + tmp;
+                    result += tmp + " ";
+                }
+                gcd = GCD(boxes[j].items.ElementAt(3).count, sum);
+                c = boxes[j].items.ElementAt(3).count;
+                if (c == 0) tmp = "   0  ";
+                else tmp = c / gcd + "/" + sum / gcd;
+                if (tmp.Length == 3) tmp = " " + tmp + " ";
+                else if (tmp.Length == 4) tmp = " " + tmp;
+                result += tmp;
+                if (j != 3) result += "\n";
+            }
+            result += "\n" + WriteSubTask();
+            double wA;
+            double.TryParse(CalculateResult(), out wA);
+            writeAnswer = Math.Round(wA, 2).ToString();
+            subtaskNumber += 1;
+            return result;
+        }
+
+        public override string WriteSubTask()
+        {
+            switch ((TaskType)subtaskNumber)
+            {
+                case TaskType.margX:
+                    return "Compute the marginal entropy H(X) in bits.";
+                case TaskType.margY:
+                    return "Compute the marginal entropy H(Y) in bits.";
+                case TaskType.joint:
+                    return "What is the joint entropy H(X, Y) of the two random variables in bits?";
+                case TaskType.condYX:
+                    return "What is the conditional entropy H(Y|X) in bits?";
+                case TaskType.condXY:
+                    return "What is the conditional entropy H(X|Y) in bits?";
+                case TaskType.mutInf:
+                    return "What is the mutual information I(X; Y) between the two random variables in bits?";
+            }
+            return "All subtasks are passed!";
+        }
+
+        private void Calculate()
+        {
+            double probability;
+
+            /* margX */
+            int[] x = new int[4];
+            for (int i = 0; i < 4; ++i)
+            {
+                for (int j = 0; j < 4; ++j)
+                {
+                    x[i] += boxes[j].items.ElementAt(i).count;
+                }
+            }
+            foreach (int i in x)
+            {
+                probability = i / (double)sum;
+                if (probability != 0) margX -= probability * Log2(probability);
+            }
+
+            /* margY*/
+            margY = 2;
+
+            /* joint */
+            for (int i = 0; i < 4; ++i)
+            {
+                for (int j = 0; j < 4; ++j)
+                {
+                    probability = boxes[i].items.ElementAt(j).count / (double)sum;
+                    if (probability != 0) joint -= probability * Log2(probability);
+                }
+            }
+
+            /* mutInf */
+            mutInf = margX + margY - joint;
+
+            /* condYX */
+            condYX = margY - mutInf;
+
+            /* condXY */
+            condXY = margX - mutInf;
+        }
+
+        public override string CalculateResult()
+        {
+            double result = 0;
+
+            switch ((TaskType)subtaskNumber)
+            {
+                case TaskType.margX:
+                    result = margX;
+                    break;
+                case TaskType.margY:
+                    result = margY;
+                    break;
+                case TaskType.joint:
+                    result = joint;
+                    break;
+                case TaskType.condYX:
+                    result = condYX;
+                    break;
+                case TaskType.condXY:
+                    result = condXY;
+                    break;
+                case TaskType.mutInf:
+                    result = mutInf;
+                    break;
+            }
+            return result.ToString();
+        }
     }
 
     public class SumTask : Task
@@ -519,6 +733,7 @@ public class Tasks {
         {
             GenerateValues();
             writeAnswer = CalculateResult();
+            taskDescription = WriteTask();
         }
 
         public override void GenerateValues()
@@ -537,6 +752,11 @@ public class Tasks {
         public override string CalculateResult()
         {
             return (a + b).ToString();
+        }
+
+        public override string WriteSubTask()
+        {
+            throw new NotImplementedException();
         }
     }
 }

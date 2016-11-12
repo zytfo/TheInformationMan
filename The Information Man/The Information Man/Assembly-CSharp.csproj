@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\ActivateTextAtLine.cs" />
+     <Compile Include="Assets\Scripts\Battery.cs" />
      <Compile Include="Assets\Scripts\Dialogues\DialogueAPI.cs" />
      <Compile Include="Assets\Scripts\Dialogues\FirstDialogue.cs" />
      <Compile Include="Assets\Scripts\Dialogues\PainterDialogue.cs" />
@@ -55,6 +56,7 @@
      <Compile Include="Assets\Scripts\GroundCheck.cs" />
      <Compile Include="Assets\Scripts\Hall.cs" />
      <Compile Include="Assets\Scripts\MainMenuAndSettings\AdvancedSettings.cs" />
+     <Compile Include="Assets\Scripts\MainMenuAndSettings\MainMenu.cs" />
      <Compile Include="Assets\Scripts\MainMenuAndSettings\VolumeButtons.cs" />
      <Compile Include="Assets\Scripts\MovesForScenes\ChangeScene.cs" />
      <Compile Include="Assets\Scripts\PauseMenu.cs" />

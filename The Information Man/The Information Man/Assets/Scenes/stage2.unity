@@ -961,6 +961,10 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1546915364}
+--- !u!1 &1550979538 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 174906, guid: f8362fb4c608ecd48a9dc6a0da8c13b6, type: 2}
+  m_PrefabInternal: {fileID: 2041801235}
 --- !u!1001 &1558094796
 Prefab:
   m_ObjectHideFlags: 0
@@ -1412,6 +1416,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 11439400, guid: 0b2d7bd550cc4e14fb784a34942df41b, type: 2}
+      propertyPath: dialoguePanel
+      value: 
+      objectReference: {fileID: 1550979538}
     - target: {fileID: 21268902, guid: 0b2d7bd550cc4e14fb784a34942df41b, type: 2}
       propertyPath: m_SortingOrder
       value: -5
