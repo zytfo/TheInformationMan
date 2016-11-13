@@ -117,7 +117,7 @@ public class Hall : MonoBehaviour
 
     public void GetInput(string guess)
     {
-        if (guess == "" && dialogueStep != 1 && dialogueStep != 3 && dialogueStep != 8) inputField.ActivateInputField();
+        if (guess == "" && dialogueStep != 4 && dialogueStep != 9) inputField.ActivateInputField();
         else if (dialogueStep == 0)
         {
             api.ProcessDialogue("Wait, what?", "Yes. Dormitory manager is away today. She has left for you 3 available\n rooms."

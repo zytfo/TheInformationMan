@@ -10,13 +10,14 @@ public class DialogueAPI : MonoBehaviour {
     public Text healthPanel;
     public InputField inputField;
 
-    private int maxLines = 8;
+    private int maxLines;
 
     private string interlocutorName { get; set; }
     public int dialogueNumber { get; set; }
 
     void Start()
     {
+        GetMaxLines();
         interlocutorName = "";
         dialogueNumber = -1;
     }
@@ -138,6 +139,17 @@ public class DialogueAPI : MonoBehaviour {
         textPanel.text = textPanel.text.Remove(textPanel.text.LastIndexOf('\n'));
     }
 
+    private void GetMaxLines()
+    {
+        int resolution = Screen.currentResolution.width;
+        if (resolution == 1920) maxLines = 10;
+        else if (resolution == 1600) maxLines = 10;
+        else if (resolution == 1366) maxLines = 8;
+        else if (resolution == 1280) maxLines = 7;
+        else if (resolution == 1024) maxLines = 7;
+        else maxLines = 8;
+    }
+
     IEnumerator WaitSeconds(float seconds)
     {
         yield return new WaitForSeconds(seconds);
@@ -145,7 +157,6 @@ public class DialogueAPI : MonoBehaviour {
 
     public IEnumerator GameOver()
     {
-        //textPanel.text += "\nMr. Silitti: Basically, it's a GAMEOVER.";
         yield return new WaitForSeconds(2.0f);
         SceneManager.LoadScene("MainMenu");
     }
