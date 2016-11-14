@@ -14,12 +14,14 @@ public class DialogueAPI : MonoBehaviour {
 
     private string interlocutorName { get; set; }
     public int dialogueNumber { get; set; }
+    public int dialogueStep { get; set; }
 
     void Start()
     {
         GetMaxLines();
         interlocutorName = "";
         dialogueNumber = -1;
+        dialogueStep = -1;
     }
 
     void Update()
@@ -42,6 +44,8 @@ public class DialogueAPI : MonoBehaviour {
         this.interlocutorName = interlocutorName;
         this.rightPicture.sprite = rightPicture;
         this.dialogueNumber = dialogueNumber;
+        dialogueStep = 0;
+
         textPanel.text = interlocutorName + ": " + greeting;
         inputField.readOnly = false;
         inputField.ActivateInputField();
@@ -57,6 +61,7 @@ public class DialogueAPI : MonoBehaviour {
         textPanel.text += "\n" + interlocutorName + ": " + otherStr;
         inputField.text = "";
         inputField.ActivateInputField();
+        dialogueStep++;
     }
 
     public void DialogueSuccess(string playerStr, string otherStr)
@@ -67,6 +72,7 @@ public class DialogueAPI : MonoBehaviour {
         player.hadDialogue[dialogueNumber] = true;
         player.panelText = textPanel.text;
         inputField.text = "";
+        dialogueStep++;
     }
 
     public void DialogueFail(string playerStr, string otherStr)
@@ -84,7 +90,9 @@ public class DialogueAPI : MonoBehaviour {
             textPanel.text = textPanel.text.Remove(textPanel.text.LastIndexOf('\n'));
             textPanel.text = textPanel.text.Remove(textPanel.text.LastIndexOf('\n'));
         }
+        dialogueStep--;
     }
+
     public void WrongInput(string playerStr)
     {
         System.Random rnd = new System.Random();

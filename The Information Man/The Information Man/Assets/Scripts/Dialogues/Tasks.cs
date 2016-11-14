@@ -1,5 +1,4 @@
-﻿using UnityEngine;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -105,12 +104,12 @@ public class Tasks {
 
         public override string WriteTask()
         {
-            string result = "Assume you have following boxes containing ";
+            string result = " Assume you have following boxes containing ";
             result += contentName + "\n";
             int spaces = boxesCount - 1;
             foreach (Box b in boxes)
             {
-                result += b.color + " box: ";
+                result += " " + b.color + " box: ";
                 for (int i = 0; i < spaces; ++i) result += " ";
                 spaces--;
                 //if (spaces == 0) result = result.Substring(0, result.Length - 1);
@@ -120,7 +119,7 @@ public class Tasks {
                 }
                 result += "\n";
             }
-            result += "At first you pick the box. Then something inside it.\n";
+            result += " At first you pick the box. Then something inside it.\n";
 
             System.Random rnd = new System.Random();
             boxesIndex = rnd.Next(1, boxesCount);
@@ -128,15 +127,15 @@ public class Tasks {
             switch ((int)taskType)
             {
                 case 0:
-                    result += "What is the probability of picking " + itemTypes.ElementAt((int)contentName).ElementAt(itemsIndex)
+                    result += " What is the probability of picking " + itemTypes.ElementAt((int)contentName).ElementAt(itemsIndex)
                         + " regardless of the selected box?";
                     break;
                 case 1:
-                    result += "What is the probability of selecting " + colors.ElementAt(boxesIndex)
+                    result += " What is the probability of selecting " + colors.ElementAt(boxesIndex)
                         + " box and " + itemTypes.ElementAt((int)contentName).ElementAt(itemsIndex) + "?";
                     break;
                 case 2:
-                    result += "What is the probability of " + itemTypes.ElementAt((int)contentName).ElementAt(itemsIndex)
+                    result += " What is the probability of " + itemTypes.ElementAt((int)contentName).ElementAt(itemsIndex)
                         + " being picked up, given that " + colors.ElementAt(boxesIndex) + " box was selected?";
                     break;
             }
@@ -381,9 +380,12 @@ public class Tasks {
 
         public PoissonDistributionTask()
         {
-            GenerateValues();
-            double tmp;
-            double.TryParse(CalculateResult(), out tmp);
+            double tmp = 0;
+            while (tmp == 0)
+            {
+                GenerateValues();
+                double.TryParse(CalculateResult(), out tmp);
+            }
             writeAnswer = Math.Round(tmp, 2).ToString();
             taskDescription = WriteTask();
         }
@@ -402,8 +404,8 @@ public class Tasks {
 
         public override string WriteTask()
         {
-            string result = "I have counted that the number of students going through the skyway\n per minute is equal to " + mean
-                 + ". Find the probability that " + m + " students will go near me next\n minute.";
+            string result = "I have counted that the average number of students going through the skyway\n per minute is equal to " + mean
+                 + ". Find the probability that " + m + " students will go near me next minute.";
             return result;
         }
 
@@ -755,6 +757,35 @@ public class Tasks {
         }
 
         public override string WriteSubTask()
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public class DefinedTask : Task
+    {
+        public DefinedTask(string taskDescription, string writeAnswer)
+        {
+            this.writeAnswer = writeAnswer;
+            this.taskDescription = taskDescription;
+        }
+
+        public override string CalculateResult()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void GenerateValues()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override string WriteSubTask()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override string WriteTask()
         {
             throw new NotImplementedException();
         }
