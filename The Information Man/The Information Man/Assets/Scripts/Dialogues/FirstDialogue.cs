@@ -47,8 +47,7 @@ public class FirstDialogue : MonoBehaviour {
             if (guess == player.fullname
             || string.Equals(guess, "The Information Man", StringComparison.CurrentCultureIgnoreCase))
             {
-                api.ProcessDialogue(guess, "Oh, I have you in my lisk!. OK, I will give you a few tasks to check your\n skills. "
-                + "Are you ready for the first task?");
+                api.ProcessDialogue(guess, "Oh, I have you in my list! OK, I will give you a few tasks to check your skills.\n" + "Are you ready for the first task?");
                 dialogueStep++;
             }
             else api.DialogueFail(guess, "I don't have you in my list. Don't waste my time anymore!");

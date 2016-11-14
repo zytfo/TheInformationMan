@@ -47,18 +47,18 @@ public class PainterDialogue : MonoBehaviour {
         else if (dialogueStep == 2 && api.IsCool(guess))
         {
             api.ProcessDialogue(guess, "Not right now, haha. Just two questions actually. \n" +
-                " Firstly, don't you know who is an author of this masterpiece on the wall?");
+                "Firstly, don't you know who is an author of this masterpiece on the wall?");
             dialogueStep++;
         }
         else if (dialogueStep == 3)
         {
-            api.ProcessDialogue(guess, "I will remember your answer. Btw, I've never seen you in the University. \n Are you a freshman?");
+            api.ProcessDialogue(guess, "I will remember your answer. Btw, I've never seen you in the University. \nAre you a freshman?");
             dialogueStep++;
         }
         else if (dialogueStep == 4 && (guess == "yes" || guess == "Yes"))
         {
-            api.ProcessDialogue(guess, "Welcome to this wonderful place. I promise you'll have an unforgetable\n Information Theory journey, "
-                + "you, the Information Man. I'll give you a simple task that will\n surely help you to get "
+            api.ProcessDialogue(guess, "Welcome to this wonderful place. I promise you'll have an unforgetable\nInformation Theory journey, "
+                + "you, the Information Man. I'll give you a simple task that will\nsurely help you to get "
                 + "into the swing of things here. Are you excited?");
             dialogueStep++;
         }

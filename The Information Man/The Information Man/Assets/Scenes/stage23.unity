@@ -1744,16 +1744,19 @@ Prefab:
     - target: {fileID: 11484514, guid: f8362fb4c608ecd48a9dc6a0da8c13b6, type: 2}
       propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 11500000, guid: 991c970d8fef845449b334ff4359fd82,
-        type: 3}
+      objectReference: {fileID: 883691520}
     - target: {fileID: 11484514, guid: f8362fb4c608ecd48a9dc6a0da8c13b6, type: 2}
       propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: 
+      value: GetInput
       objectReference: {fileID: 0}
     - target: {fileID: 11462120, guid: f8362fb4c608ecd48a9dc6a0da8c13b6, type: 2}
       propertyPath: player
       value: 
       objectReference: {fileID: 99661096}
+    - target: {fileID: 11484514, guid: f8362fb4c608ecd48a9dc6a0da8c13b6, type: 2}
+      propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f8362fb4c608ecd48a9dc6a0da8c13b6, type: 2}
   m_IsPrefabParent: 0
