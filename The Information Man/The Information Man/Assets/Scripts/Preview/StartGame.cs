@@ -10,7 +10,11 @@ public class StartGame : MonoBehaviour {
     public Text age;
     public Button yes;
     public Button no;
-
+    ScreenFader fadeScr;
+    void Awake()
+    {
+        fadeScr = GameObject.FindObjectOfType<ScreenFader>();
+    }
 	// Use this for initialization
 	void Start () {
         yes.interactable = false;
@@ -29,11 +33,11 @@ public class StartGame : MonoBehaviour {
     public void StartNewGame()
     {
         PlayerPrefs.SetInt("health", 100);
-        Application.LoadLevel("stage1");
+        fadeScr.EndScene(2);
     }
 
     public void NoButton()
     {
-        Application.LoadLevel("MainMenu");
+        fadeScr.EndScene(0);
     }
 }
