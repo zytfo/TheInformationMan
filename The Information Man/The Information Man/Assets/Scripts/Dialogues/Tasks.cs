@@ -286,7 +286,7 @@ public class Tasks {
             if (taskType == 0)
             {
                 int gcd;
-                result = "Assume you have a distribution with following probabilities: ";
+                result = " Assume you have a distribution with following probabilities: ";
                 for (int i = 0; i < box.items.Count - 1; ++i)
                 {
                     gcd = GCD(box.items.ElementAt(i).count, box.itemsCount);
@@ -295,7 +295,7 @@ public class Tasks {
                 }
                 gcd = GCD(box.items.ElementAt(box.items.Count - 1).count, box.itemsCount);
                 result += box.items.ElementAt(box.items.Count - 1).count / gcd + "/" + box.itemsCount / gcd;
-                result += ".\nCalcucalute an entropy of the distribution";
+                result += ".\n Calcucalute an entropy of the distribution";
             }
             else result = "Calculate an entropy of this sentence:\n" + input;
             return result;
@@ -473,7 +473,7 @@ public class Tasks {
             {
                 result += ensemble.ElementAt(i).probability.ToString("N2") + " ";
             }
-            result += "\nCreate a coding using Huffman algorithm.";
+            result += "\nCreate a code using Huffman algorithm.";
             return result;
         }
 

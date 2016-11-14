@@ -1813,9 +1813,27 @@ Prefab:
       propertyPath: player
       value: 
       objectReference: {fileID: 1907089837}
+    - target: {fileID: 11462120, guid: f8362fb4c608ecd48a9dc6a0da8c13b6, type: 2}
+      propertyPath: hint
+      value: 
+      objectReference: {fileID: 2041801237}
+    - target: {fileID: 11462120, guid: f8362fb4c608ecd48a9dc6a0da8c13b6, type: 2}
+      propertyPath: answersObj
+      value: 
+      objectReference: {fileID: 2041801236}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f8362fb4c608ecd48a9dc6a0da8c13b6, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &2041801236 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 161096, guid: f8362fb4c608ecd48a9dc6a0da8c13b6, type: 2}
+  m_PrefabInternal: {fileID: 2041801235}
+--- !u!114 &2041801237 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11448270, guid: f8362fb4c608ecd48a9dc6a0da8c13b6,
+    type: 2}
+  m_PrefabInternal: {fileID: 2041801235}
+  m_Script: {fileID: 1392445389, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
 --- !u!1 &2103660212
 GameObject:
   m_ObjectHideFlags: 0

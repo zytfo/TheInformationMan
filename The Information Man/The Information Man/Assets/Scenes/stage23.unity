@@ -1138,6 +1138,12 @@ BoxCollider2D:
   m_Offset: {x: -0.07820618, y: 0}
   serializedVersion: 2
   m_Size: {x: 0.06856294, y: 1}
+--- !u!114 &890132602 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11448270, guid: f8362fb4c608ecd48a9dc6a0da8c13b6,
+    type: 2}
+  m_PrefabInternal: {fileID: 1550704689}
+  m_Script: {fileID: 1392445389, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
 --- !u!1 &929103952
 GameObject:
   m_ObjectHideFlags: 0
@@ -1757,6 +1763,14 @@ Prefab:
       propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11462120, guid: f8362fb4c608ecd48a9dc6a0da8c13b6, type: 2}
+      propertyPath: hint
+      value: 
+      objectReference: {fileID: 890132602}
+    - target: {fileID: 11462120, guid: f8362fb4c608ecd48a9dc6a0da8c13b6, type: 2}
+      propertyPath: answersObj
+      value: 
+      objectReference: {fileID: 1614356230}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f8362fb4c608ecd48a9dc6a0da8c13b6, type: 2}
   m_IsPrefabParent: 0
@@ -1960,6 +1974,10 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!1 &1614356230 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 161096, guid: f8362fb4c608ecd48a9dc6a0da8c13b6, type: 2}
+  m_PrefabInternal: {fileID: 1550704689}
 --- !u!1 &1667228765
 GameObject:
   m_ObjectHideFlags: 0

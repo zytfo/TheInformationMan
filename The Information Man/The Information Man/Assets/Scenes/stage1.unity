@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 939d40e575d63794ba041482e673245f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rightPicture: {fileID: 21300000, guid: eca12382946d20948a68eedc0caa5d23, type: 3}
+  rightPicture: {fileID: 21300000, guid: 7f1cad18b1c9b604abcd501e0daef55a, type: 3}
   box: {fileID: 1309987779}
 --- !u!1 &366120085 stripped
 GameObject:
