@@ -9,12 +9,15 @@ public class DialogueAPI : MonoBehaviour {
     public Text textPanel;
     public Text healthPanel;
     public InputField inputField;
+    public GameObject attemptsLeft;
+    public Text counter;
 
     private int maxLines;
 
     private string interlocutorName { get; set; }
     public int dialogueNumber { get; set; }
     public int dialogueStep { get; set; }
+    int leftTry;
 
     void Start()
     {
@@ -22,6 +25,7 @@ public class DialogueAPI : MonoBehaviour {
         interlocutorName = "";
         dialogueNumber = -1;
         dialogueStep = -1;
+        leftTry = 3;
     }
 
     void Update()
@@ -41,6 +45,8 @@ public class DialogueAPI : MonoBehaviour {
 
     public void DialogueStart(int dialogueNumber, string interlocutorName, string greeting, Sprite rightPicture)
     {
+        attemptsLeft.SetActive(true);
+        counter.text = leftTry.ToString();
         this.interlocutorName = interlocutorName;
         this.rightPicture.sprite = rightPicture;
         this.dialogueNumber = dialogueNumber;
@@ -69,6 +75,7 @@ public class DialogueAPI : MonoBehaviour {
         textPanel.text += "\n" + player.fullname + ": " + playerStr;
         textPanel.text += "\n" + interlocutorName + ": " + otherStr;
         player.taskPanel.SetActive(false);
+        attemptsLeft.SetActive(false);
         player.hadDialogue[dialogueNumber] = true;
         player.panelText = textPanel.text;
         inputField.text = "";
