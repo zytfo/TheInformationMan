@@ -10,7 +10,10 @@ public class DialogueAPI : MonoBehaviour {
     public Text healthPanel;
     public InputField inputField;
     public GameObject attemptsLeft;
+    public Button hint;
     public Text counter;
+    public Text answers;
+    public GameObject answersObj;
 
     private int maxLines;
 
@@ -68,6 +71,7 @@ public class DialogueAPI : MonoBehaviour {
         inputField.text = "";
         inputField.ActivateInputField();
         dialogueStep++;
+        answersObj.SetActive(false);
     }
 
     public void DialogueSuccess(string playerStr, string otherStr)
@@ -174,5 +178,20 @@ public class DialogueAPI : MonoBehaviour {
     {
         yield return new WaitForSeconds(2.0f);
         SceneManager.LoadScene("MainMenu");
+    }
+
+    public void hintsButton()
+    {
+        if (answersObj.activeInHierarchy) { return; }
+        else
+        {
+            leftTry--;
+            if (leftTry == 0)
+            {
+                hint.interactable = false;
+            }
+            counter.text = leftTry.ToString();
+            answersObj.SetActive(true);
+        }
     }
 }
