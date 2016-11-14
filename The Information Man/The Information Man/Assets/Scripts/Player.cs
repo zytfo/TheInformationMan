@@ -25,6 +25,7 @@ public class Player : MonoBehaviour
 
     public GameObject dialoguePanel;
     public GameObject taskPanel { get; set; }
+    public GameObject formulas { get; set; }
     public Text textPanel { get; set; }
     public Text healthPanel { get; set; }
 
@@ -60,6 +61,7 @@ public class Player : MonoBehaviour
         healthPanel = GameObject.Find("Health").GetComponent<Text>();
         textPanel.text = panelText;
         taskPanel = dialoguePanel.transform.Find("TaskPanel").gameObject;
+        formulas = dialoguePanel.transform.Find("Formulas").gameObject;
         task = null;
 
         hadDialogue = new bool[5];
@@ -91,6 +93,19 @@ public class Player : MonoBehaviour
         {
             UpdateTaskPanel();
             taskPanel.SetActive(!taskPanel.activeInHierarchy);
+            if (formulas.activeInHierarchy)
+            {
+                formulas.SetActive(!formulas.activeInHierarchy);
+            }
+        }
+
+        if (Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown("h"))
+        {
+            formulas.SetActive(!formulas.activeInHierarchy);
+            if (taskPanel.activeInHierarchy)
+            {
+                taskPanel.SetActive(!taskPanel.activeInHierarchy);
+            }
         }
 
         healthPanel.text = curHealth.ToString();

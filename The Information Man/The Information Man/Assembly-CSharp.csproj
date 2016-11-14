@@ -70,10 +70,13 @@
      <Compile Include="Assets\Scripts\Preview\KeepData.cs" />
      <Compile Include="Assets\Scripts\Preview\StartGame.cs" />
      <Compile Include="Assets\Scripts\Preview\Susceptibility.cs" />
+     <Compile Include="Assets\Scripts\ScreenFader.cs" />
      <Compile Include="Assets\Scripts\SetAvatar.cs" />
+     <Compile Include="Assets\Scripts\SimonLevel\SleepScript.cs" />
      <None Include="Assets\Dialogue System\Prefabs\Legacy Unity GUI Prefabs\Computer\Bitwise Font\!license.txt" />
      <None Include="Assets\Dialogue System\Prefabs\Legacy Unity GUI Prefabs\Shared Fonts\Orbitron\SIL Open Font License.txt" />
      <None Include="Assets\Dialogue System\Prefabs\Unity UI Prefabs\Unity UI Assets\_README.txt" />
+     <None Include="Assets\Resources\Plane_No_zTest.shader" />
  <Reference Include="UnityEngine.UI">
  <HintPath>D:/Soft/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
