@@ -16,6 +16,7 @@ public class FirstDialogue : MonoBehaviour {
 		if (other.name == "player" && !player.hadDialogue[0])
 		{
             api.DialogueStart(0, "Pr. Silitti", "Good Morning!", rightPicture);
+            api.SetHints("Greet the professor!\n1. Hi\n2. Hello");
         }
 	}
 
@@ -32,10 +33,12 @@ public class FirstDialogue : MonoBehaviour {
         else if (api.dialogueStep == 0 && api.IsGreeting(guess))
         {
             api.ProcessDialogue(guess, "You've came to the interview?");
+            api.SetHints("Answer positively");
         }
         else if (api.dialogueStep == 1 && (guess == "yes" || guess == "Yes"))
         {
             api.ProcessDialogue(guess, "Cool! Can you tell me your name?");
+            api.SetHints("Be accurate!");
         }
         else if (api.dialogueStep == 2)
         {
@@ -43,14 +46,17 @@ public class FirstDialogue : MonoBehaviour {
             || string.Equals(guess, "The Information Man", StringComparison.CurrentCultureIgnoreCase))
             {
                 api.ProcessDialogue(guess, "Oh, I have you in my list! OK, I will give you a few tasks to check your skills.\n " + "Are you ready for the first task?");
+                api.SetHints("Answer anything");
             }
-            else api.DialogueFail(guess, "I don't have you in my list. Don't waste my time anymore!");
+            else
+                api.DialogueFail(guess, "I don't have you in my list. Don't waste my time anymore!");
         }
         else if (api.dialogueStep == 3)
         {
             api.task(new Tasks.SumTask());
             player.UpdateTaskPanel();
             api.ProcessDialogue(guess, "Your answer doesn't matter actually. Never mind. " + api.task().taskDescription);
+            api.SetHints("Use:\n \"Ctrl+T\" to see the task\n \"Ctrl+H\" to see helpful formulas");
         }
         else if (api.dialogueStep == 4)
         {
@@ -59,6 +65,7 @@ public class FirstDialogue : MonoBehaviour {
                 api.task(null);
                 player.UpdateTaskPanel();
                 api.ProcessDialogue(guess, "Surprisingly, correct! OK. Next task.");
+                api.SetHints("Answer anything");
             } 
             else
             {
@@ -72,6 +79,7 @@ public class FirstDialogue : MonoBehaviour {
             player.UpdateTaskPanel();
             api.ProcessDialogue(guess, "I see your happy face. That's cool! This one may require more time to succeed.\n" 
                 + api.task().taskDescription);
+            api.SetHints("Use:\n \"Ctrl+T\" to see the task\n \"Ctrl+H\" to see helpful formulas");
         }
         else if (api.dialogueStep == 6)
         {
@@ -80,6 +88,7 @@ public class FirstDialogue : MonoBehaviour {
                 api.task(null);
                 player.UpdateTaskPanel();
                 api.ProcessDialogue(guess, "Basically, you're correct! And the last one: why do you want to study in Innopolis University?");
+                api.SetHints("Write something in\n>20 symbols and at least 5 words");
             }
             else
             {
@@ -91,6 +100,7 @@ public class FirstDialogue : MonoBehaviour {
         {
             api.DialogueSuccess(guess, "Very interesting. I think it's enough for you. Welcome to this wonderful place!\n " 
                 + "Dormitory manager is waiting for you. You are free to go.");
+            api.SetHints("");
         }
         else if (api.dialogueStep == 8 && guess != "")
         {

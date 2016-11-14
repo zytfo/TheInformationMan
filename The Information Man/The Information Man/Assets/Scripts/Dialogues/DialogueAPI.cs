@@ -84,6 +84,7 @@ public class DialogueAPI : MonoBehaviour {
         player.panelText = textPanel.text;
         inputField.text = "";
         dialogueStep++;
+        answersObj.SetActive(false);
     }
 
     public void DialogueFail(string playerStr, string otherStr)
@@ -169,17 +170,6 @@ public class DialogueAPI : MonoBehaviour {
         else maxLines = 8;
     }
 
-    IEnumerator WaitSeconds(float seconds)
-    {
-        yield return new WaitForSeconds(seconds);
-    }
-
-    public IEnumerator GameOver()
-    {
-        yield return new WaitForSeconds(2.0f);
-        SceneManager.LoadScene("MainMenu");
-    }
-
     public void hintsButton()
     {
         if (answersObj.activeInHierarchy) { return; }
@@ -193,5 +183,16 @@ public class DialogueAPI : MonoBehaviour {
             counter.text = leftTry.ToString();
             answersObj.SetActive(true);
         }
+    }
+
+    public void SetHints(string hints)
+    {
+        answers.text = hints;
+    }
+
+    public IEnumerator GameOver()
+    {
+        yield return new WaitForSeconds(2.0f);
+        SceneManager.LoadScene("MainMenu");
     }
 }
