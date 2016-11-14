@@ -25,7 +25,6 @@ public class Hall : MonoBehaviour
         flat[0].enabled = false;
         flat[1].enabled = false;
         flat[2].enabled = false;
-
         api = GameObject.Find("DialoguePanel").GetComponent<DialogueAPI>();
         textPanel = api.textPanel;
         player = api.player;
