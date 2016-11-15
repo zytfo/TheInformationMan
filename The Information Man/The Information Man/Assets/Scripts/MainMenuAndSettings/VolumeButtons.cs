@@ -5,7 +5,7 @@ public class VolumeButtons : MonoBehaviour {
 	public bool lessButton = false;
 	public GameObject valuePanel;
 	public bool moreButton = false;
-
+        
 	public void OnMouseEnter() {
 		this.GetComponent<Renderer>().material.color = Color.red;
 	}

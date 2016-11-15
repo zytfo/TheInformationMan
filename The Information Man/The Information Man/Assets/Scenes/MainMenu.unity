@@ -249,7 +249,7 @@ GameObject:
   - 114: {fileID: 44775323}
   - 65: {fileID: 44775322}
   m_Layer: 0
-  m_Name: Value
+  m_Name: AntialiasingValue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -573,14 +573,34 @@ MonoBehaviour:
   camera1: {fileID: 0}
   camera2: {fileID: 0}
   camera3: {fileID: 0}
-  resolution: {fileID: 0}
-  fullscreen: {fileID: 0}
+  grassObject: {fileID: 0}
   back: 0
   low: 0
   medium: 0
   high: 0
   fantastic: 1
   advancedSettings: 0
+  language: {fileID: 0}
+  lighting: {fileID: 0}
+  musicVolume: {fileID: 0}
+  superSampling: {fileID: 0}
+  motionBlur: {fileID: 0}
+  blood: {fileID: 0}
+  mode3D: {fileID: 0}
+  smoothing: {fileID: 0}
+  textures: {fileID: 0}
+  polygones: {fileID: 0}
+  effects: {fileID: 0}
+  postprocessing: {fileID: 0}
+  grid: {fileID: 0}
+  environment: {fileID: 0}
+  grass: {fileID: 0}
+  FXAA: {fileID: 0}
+  MSAA: {fileID: 0}
+  antialiasing: {fileID: 0}
+  alphaBlending: {fileID: 0}
+  resolution: {fileID: 0}
+  fullscreen: {fileID: 0}
 --- !u!1 &108902981
 GameObject:
   m_ObjectHideFlags: 0
@@ -741,6 +761,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 131135999}
+  - 114: {fileID: 131136000}
   m_Layer: 0
   m_Name: Text2
   m_TagString: Untagged
@@ -766,6 +787,17 @@ Transform:
   - {fileID: 539226396}
   m_Father: {fileID: 2002143540}
   m_RootOrder: 3
+--- !u!114 &131136000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 131135998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22c27cff0a4a9a241a860c221dc6ed60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &145735479
 GameObject:
   m_ObjectHideFlags: 0
@@ -966,6 +998,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 232982136}
+  - 114: {fileID: 232982137}
   m_Layer: 0
   m_Name: Text3
   m_TagString: Untagged
@@ -987,7 +1020,7 @@ Transform:
   - {fileID: 181240551}
   - {fileID: 1628456265}
   - {fileID: 260899472}
-  - {fileID: 597358126}
+  - {fileID: 1184926525}
   - {fileID: 2108769395}
   - {fileID: 1802760699}
   - {fileID: 379992454}
@@ -1003,11 +1036,21 @@ Transform:
   - {fileID: 1015510084}
   - {fileID: 2042317647}
   - {fileID: 1193271711}
-  - {fileID: 1184926525}
   - {fileID: 1293394275}
   - {fileID: 1194190859}
   m_Father: {fileID: 1117894005}
   m_RootOrder: 3
+--- !u!114 &232982137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 232982135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22c27cff0a4a9a241a860c221dc6ed60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &260899471
 GameObject:
   m_ObjectHideFlags: 0
@@ -1124,6 +1167,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 283728755}
   - 108: {fileID: 283728756}
+  - 114: {fileID: 283728757}
   m_Layer: 0
   m_Name: Spotlight3
   m_TagString: Untagged
@@ -1176,6 +1220,17 @@ Light:
   m_ShadowRadius: 0
   m_ShadowAngle: 0
   m_AreaSize: {x: 1, y: 1}
+--- !u!114 &283728757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 283728754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b9a9ff891d94584cbebd9ee6915e902, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &308985958
 GameObject:
   m_ObjectHideFlags: 0
@@ -1264,7 +1319,7 @@ GameObject:
   - 114: {fileID: 309838090}
   - 65: {fileID: 309838089}
   m_Layer: 0
-  m_Name: Value
+  m_Name: FullscreenValue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1423,7 +1478,7 @@ GameObject:
   - 114: {fileID: 341428005}
   - 65: {fileID: 341428004}
   m_Layer: 0
-  m_Name: Value
+  m_Name: EnvironmentValue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1625,6 +1680,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 379263953}
   - 108: {fileID: 379263954}
+  - 114: {fileID: 379263955}
   m_Layer: 0
   m_Name: Spotlight1
   m_TagString: Untagged
@@ -1677,6 +1733,17 @@ Light:
   m_ShadowRadius: 0
   m_ShadowAngle: 0
   m_AreaSize: {x: 1, y: 1}
+--- !u!114 &379263955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 379263952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b9a9ff891d94584cbebd9ee6915e902, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &379992453
 GameObject:
   m_ObjectHideFlags: 0
@@ -1754,14 +1821,34 @@ MonoBehaviour:
   camera1: {fileID: 0}
   camera2: {fileID: 0}
   camera3: {fileID: 0}
-  resolution: {fileID: 0}
-  fullscreen: {fileID: 0}
+  grassObject: {fileID: 0}
   back: 0
   low: 0
   medium: 1
   high: 0
   fantastic: 0
   advancedSettings: 0
+  language: {fileID: 0}
+  lighting: {fileID: 0}
+  musicVolume: {fileID: 0}
+  superSampling: {fileID: 0}
+  motionBlur: {fileID: 0}
+  blood: {fileID: 0}
+  mode3D: {fileID: 0}
+  smoothing: {fileID: 0}
+  textures: {fileID: 0}
+  polygones: {fileID: 0}
+  effects: {fileID: 0}
+  postprocessing: {fileID: 0}
+  grid: {fileID: 0}
+  environment: {fileID: 0}
+  grass: {fileID: 0}
+  FXAA: {fileID: 0}
+  MSAA: {fileID: 0}
+  antialiasing: {fileID: 0}
+  alphaBlending: {fileID: 0}
+  resolution: {fileID: 0}
+  fullscreen: {fileID: 0}
 --- !u!65 &387059440
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1834,7 +1921,7 @@ GameObject:
   - 114: {fileID: 406011738}
   - 65: {fileID: 406011737}
   m_Layer: 0
-  m_Name: Value
+  m_Name: SuperSamplingValue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1963,7 +2050,7 @@ GameObject:
   - 102: {fileID: 437592472}
   - 65: {fileID: 437592470}
   m_Layer: 0
-  m_Name: Value
+  m_Name: MusicValue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2040,6 +2127,48 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
+--- !u!1001 &470477423
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 407700, guid: 86dfccba919ff1443b5b3d23447c4b01, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0.1418171
+      objectReference: {fileID: 0}
+    - target: {fileID: 407700, guid: 86dfccba919ff1443b5b3d23447c4b01, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -1.5830454
+      objectReference: {fileID: 0}
+    - target: {fileID: 407700, guid: 86dfccba919ff1443b5b3d23447c4b01, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -19.875
+      objectReference: {fileID: 0}
+    - target: {fileID: 407700, guid: 86dfccba919ff1443b5b3d23447c4b01, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 407700, guid: 86dfccba919ff1443b5b3d23447c4b01, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 407700, guid: 86dfccba919ff1443b5b3d23447c4b01, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 407700, guid: 86dfccba919ff1443b5b3d23447c4b01, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 407700, guid: 86dfccba919ff1443b5b3d23447c4b01, type: 2}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 86dfccba919ff1443b5b3d23447c4b01, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &511473477
 GameObject:
   m_ObjectHideFlags: 0
@@ -2082,7 +2211,7 @@ GameObject:
   - 114: {fileID: 518538252}
   - 65: {fileID: 518538251}
   m_Layer: 0
-  m_Name: Value
+  m_Name: GrassValue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2394,14 +2523,34 @@ MonoBehaviour:
   camera1: {fileID: 1416978014}
   camera2: {fileID: 952400699}
   camera3: {fileID: 1914544493}
-  resolution: {fileID: 0}
-  fullscreen: {fileID: 0}
+  grassObject: {fileID: 0}
   back: 1
   low: 0
   medium: 0
   high: 0
   fantastic: 0
   advancedSettings: 0
+  language: {fileID: 0}
+  lighting: {fileID: 0}
+  musicVolume: {fileID: 0}
+  superSampling: {fileID: 0}
+  motionBlur: {fileID: 0}
+  blood: {fileID: 0}
+  mode3D: {fileID: 0}
+  smoothing: {fileID: 0}
+  textures: {fileID: 0}
+  polygones: {fileID: 0}
+  effects: {fileID: 0}
+  postprocessing: {fileID: 0}
+  grid: {fileID: 0}
+  environment: {fileID: 0}
+  grass: {fileID: 0}
+  FXAA: {fileID: 0}
+  MSAA: {fileID: 0}
+  antialiasing: {fileID: 0}
+  alphaBlending: {fileID: 0}
+  resolution: {fileID: 0}
+  fullscreen: {fileID: 0}
 --- !u!1 &570365678
 GameObject:
   m_ObjectHideFlags: 0
@@ -2415,7 +2564,7 @@ GameObject:
   - 114: {fileID: 570365681}
   - 65: {fileID: 570365680}
   m_Layer: 0
-  m_Name: Value
+  m_Name: SmoothingValue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2532,37 +2681,6 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
---- !u!1 &597358125
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 597358126}
-  m_Layer: 0
-  m_Name: SoundVolume
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &597358126
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 597358125}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1535136556}
-  - {fileID: 1597371278}
-  - {fileID: 1587339205}
-  - {fileID: 1677958203}
-  m_Father: {fileID: 232982136}
-  m_RootOrder: 4
 --- !u!1 &611766268
 GameObject:
   m_ObjectHideFlags: 0
@@ -2676,6 +2794,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 676034351}
   - 82: {fileID: 676034350}
+  - 81: {fileID: 676034352}
   m_Layer: 0
   m_Name: Audio
   m_TagString: Untagged
@@ -2769,6 +2888,13 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
+--- !u!81 &676034352
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 676034349}
+  m_Enabled: 1
 --- !u!1 &742739803
 GameObject:
   m_ObjectHideFlags: 0
@@ -2778,6 +2904,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 742739804}
   - 108: {fileID: 742739805}
+  - 114: {fileID: 742739806}
   m_Layer: 0
   m_Name: Spotlight2
   m_TagString: Untagged
@@ -2830,6 +2957,17 @@ Light:
   m_ShadowRadius: 0
   m_ShadowAngle: 0
   m_AreaSize: {x: 1, y: 1}
+--- !u!114 &742739806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 742739803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b9a9ff891d94584cbebd9ee6915e902, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &789933772
 GameObject:
   m_ObjectHideFlags: 0
@@ -3026,7 +3164,7 @@ GameObject:
   - 114: {fileID: 891056533}
   - 65: {fileID: 891056532}
   m_Layer: 0
-  m_Name: Value
+  m_Name: Mode3DValue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3230,7 +3368,6 @@ GameObject:
   - 20: {fileID: 952400699}
   - 124: {fileID: 952400698}
   - 92: {fileID: 952400697}
-  - 81: {fileID: 952400696}
   m_Layer: 0
   m_Name: Camera2
   m_TagString: Untagged
@@ -3250,13 +3387,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2002143540}
   m_RootOrder: 2
---- !u!81 &952400696
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 952400694}
-  m_Enabled: 1
 --- !u!92 &952400697
 Behaviour:
   m_ObjectHideFlags: 0
@@ -3318,7 +3448,7 @@ GameObject:
   - 114: {fileID: 962654471}
   - 65: {fileID: 962654470}
   m_Layer: 0
-  m_Name: Value
+  m_Name: PostprocessingValue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3553,7 +3683,7 @@ GameObject:
   - 114: {fileID: 1036740168}
   - 65: {fileID: 1036740167}
   m_Layer: 0
-  m_Name: Value
+  m_Name: LightValue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3681,7 +3811,6 @@ GameObject:
   - 23: {fileID: 1049071814}
   - 102: {fileID: 1049071813}
   - 61: {fileID: 1049071811}
-  - 114: {fileID: 1049071812}
   - 114: {fileID: 1049071815}
   m_Layer: 0
   m_Name: AdvancedSettings
@@ -3716,17 +3845,6 @@ BoxCollider2D:
   m_Offset: {x: 261.80002, y: -30.000008}
   serializedVersion: 2
   m_Size: {x: 523.60004, y: 60}
---- !u!114 &1049071812
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1049071809}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d23a2dba078616c4c9496ecdd01e68cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!102 &1049071813
 TextMesh:
   serializedVersion: 3
@@ -3791,14 +3909,34 @@ MonoBehaviour:
   camera1: {fileID: 1416978014}
   camera2: {fileID: 952400699}
   camera3: {fileID: 1914544493}
-  resolution: {fileID: 1614718357}
-  fullscreen: {fileID: 309838087}
+  grassObject: {fileID: 0}
   back: 0
   low: 0
   medium: 0
   high: 0
   fantastic: 0
   advancedSettings: 1
+  language: {fileID: 1908578416}
+  lighting: {fileID: 1036740165}
+  musicVolume: {fileID: 437592468}
+  superSampling: {fileID: 0}
+  motionBlur: {fileID: 0}
+  blood: {fileID: 0}
+  mode3D: {fileID: 0}
+  smoothing: {fileID: 0}
+  textures: {fileID: 0}
+  polygones: {fileID: 0}
+  effects: {fileID: 0}
+  postprocessing: {fileID: 0}
+  grid: {fileID: 0}
+  environment: {fileID: 0}
+  grass: {fileID: 0}
+  FXAA: {fileID: 0}
+  MSAA: {fileID: 0}
+  antialiasing: {fileID: 0}
+  alphaBlending: {fileID: 0}
+  resolution: {fileID: 1614718357}
+  fullscreen: {fileID: 309838087}
 --- !u!1 &1050428743
 GameObject:
   m_ObjectHideFlags: 0
@@ -3994,14 +4132,34 @@ MonoBehaviour:
   camera1: {fileID: 0}
   camera2: {fileID: 0}
   camera3: {fileID: 0}
-  resolution: {fileID: 0}
-  fullscreen: {fileID: 0}
+  grassObject: {fileID: 0}
   back: 0
   low: 0
   medium: 0
   high: 1
   fantastic: 0
   advancedSettings: 0
+  language: {fileID: 0}
+  lighting: {fileID: 0}
+  musicVolume: {fileID: 0}
+  superSampling: {fileID: 0}
+  motionBlur: {fileID: 0}
+  blood: {fileID: 0}
+  mode3D: {fileID: 0}
+  smoothing: {fileID: 0}
+  textures: {fileID: 0}
+  polygones: {fileID: 0}
+  effects: {fileID: 0}
+  postprocessing: {fileID: 0}
+  grid: {fileID: 0}
+  environment: {fileID: 0}
+  grass: {fileID: 0}
+  FXAA: {fileID: 0}
+  MSAA: {fileID: 0}
+  antialiasing: {fileID: 0}
+  alphaBlending: {fileID: 0}
+  resolution: {fileID: 0}
+  fullscreen: {fileID: 0}
 --- !u!1 &1059483557
 GameObject:
   m_ObjectHideFlags: 0
@@ -4201,14 +4359,34 @@ MonoBehaviour:
   camera1: {fileID: 0}
   camera2: {fileID: 0}
   camera3: {fileID: 0}
-  resolution: {fileID: 0}
-  fullscreen: {fileID: 0}
+  grassObject: {fileID: 0}
   back: 0
   low: 1
   medium: 0
   high: 0
   fantastic: 0
   advancedSettings: 0
+  language: {fileID: 0}
+  lighting: {fileID: 0}
+  musicVolume: {fileID: 0}
+  superSampling: {fileID: 0}
+  motionBlur: {fileID: 0}
+  blood: {fileID: 0}
+  mode3D: {fileID: 0}
+  smoothing: {fileID: 0}
+  textures: {fileID: 0}
+  polygones: {fileID: 0}
+  effects: {fileID: 0}
+  postprocessing: {fileID: 0}
+  grid: {fileID: 0}
+  environment: {fileID: 0}
+  grass: {fileID: 0}
+  FXAA: {fileID: 0}
+  MSAA: {fileID: 0}
+  antialiasing: {fileID: 0}
+  alphaBlending: {fileID: 0}
+  resolution: {fileID: 0}
+  fullscreen: {fileID: 0}
 --- !u!65 &1116356432
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4388,7 +4566,7 @@ GameObject:
   - 114: {fileID: 1153878059}
   - 65: {fileID: 1153878058}
   m_Layer: 0
-  m_Name: Value
+  m_Name: GridValue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4603,13 +4781,13 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1184926524}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11, y: -4.5, z: 0}
+  m_LocalPosition: {x: 0, y: -1.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 406011736}
   - {fileID: 844149697}
   m_Father: {fileID: 232982136}
-  m_RootOrder: 20
+  m_RootOrder: 4
 --- !u!1 &1188542356
 GameObject:
   m_ObjectHideFlags: 0
@@ -4623,7 +4801,7 @@ GameObject:
   - 114: {fileID: 1188542359}
   - 65: {fileID: 1188542358}
   m_Layer: 0
-  m_Name: Value
+  m_Name: AlphablendingValue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4791,13 +4969,13 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1194190858}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -5, z: 0}
+  m_LocalPosition: {x: 11, y: -5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 309838088}
   - {fileID: 39491719}
   m_Father: {fileID: 232982136}
-  m_RootOrder: 22
+  m_RootOrder: 21
 --- !u!1 &1195558857
 GameObject:
   m_ObjectHideFlags: 0
@@ -4893,14 +5071,34 @@ MonoBehaviour:
   camera1: {fileID: 0}
   camera2: {fileID: 0}
   camera3: {fileID: 0}
-  resolution: {fileID: 0}
-  fullscreen: {fileID: 0}
+  grassObject: {fileID: 0}
   back: 0
   low: 0
   medium: 0
   high: 0
   fantastic: 0
   advancedSettings: 0
+  language: {fileID: 0}
+  lighting: {fileID: 0}
+  musicVolume: {fileID: 0}
+  superSampling: {fileID: 0}
+  motionBlur: {fileID: 0}
+  blood: {fileID: 0}
+  mode3D: {fileID: 0}
+  smoothing: {fileID: 0}
+  textures: {fileID: 0}
+  polygones: {fileID: 0}
+  effects: {fileID: 0}
+  postprocessing: {fileID: 0}
+  grid: {fileID: 0}
+  environment: {fileID: 0}
+  grass: {fileID: 0}
+  FXAA: {fileID: 0}
+  MSAA: {fileID: 0}
+  antialiasing: {fileID: 0}
+  alphaBlending: {fileID: 0}
+  resolution: {fileID: 0}
+  fullscreen: {fileID: 0}
 --- !u!65 &1195558862
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5069,13 +5267,13 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1293394274}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11, y: -5, z: 0}
+  m_LocalPosition: {x: 11, y: -4.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1614718358}
   - {fileID: 266884528}
   m_Father: {fileID: 232982136}
-  m_RootOrder: 21
+  m_RootOrder: 20
 --- !u!1 &1416978009
 GameObject:
   m_ObjectHideFlags: 0
@@ -5087,7 +5285,6 @@ GameObject:
   - 20: {fileID: 1416978014}
   - 124: {fileID: 1416978013}
   - 92: {fileID: 1416978012}
-  - 81: {fileID: 1416978011}
   m_Layer: 0
   m_Name: Camera1
   m_TagString: Untagged
@@ -5107,13 +5304,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 817428633}
   m_RootOrder: 2
---- !u!81 &1416978011
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1416978009}
-  m_Enabled: 1
 --- !u!92 &1416978012
 Behaviour:
   m_ObjectHideFlags: 0
@@ -5280,7 +5470,7 @@ GameObject:
   - 114: {fileID: 1480503464}
   - 65: {fileID: 1480503463}
   m_Layer: 0
-  m_Name: Value
+  m_Name: TexturesValue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5357,7 +5547,7 @@ TextMesh:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1480503461}
-  m_Text: Average
+  m_Text: Ultra
   m_OffsetZ: 0
   m_CharacterSize: 1
   m_LineSpacing: 1
@@ -5397,82 +5587,6 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
---- !u!1 &1535136555
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1535136556}
-  - 23: {fileID: 1535136558}
-  - 102: {fileID: 1535136557}
-  m_Layer: 0
-  m_Name: Text
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1535136556
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1535136555}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8, y: 4, z: 3.717515}
-  m_LocalScale: {x: 0.02, y: 0.02, z: 0.02}
-  m_Children: []
-  m_Father: {fileID: 597358126}
-  m_RootOrder: 0
---- !u!102 &1535136557
-TextMesh:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1535136555}
-  m_Text: Sounds
-  m_OffsetZ: 0
-  m_CharacterSize: 1
-  m_LineSpacing: 1
-  m_Anchor: 0
-  m_Alignment: 1
-  m_TabSize: 4
-  m_FontSize: 150
-  m_FontStyle: 0
-  m_RichText: 1
-  m_Font: {fileID: 12800000, guid: 6bf2b47c467821641a686aa159989b5e, type: 3}
-  m_Color:
-    serializedVersion: 2
-    rgba: 4294967295
---- !u!23 &1535136558
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1535136555}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_Materials:
-  - {fileID: 2100000, guid: 6bf2b47c467821641a686aa159989b5e, type: 3}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 1
-  m_ReflectionProbeUsage: 1
-  m_ProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
 --- !u!1 &1544588616
 GameObject:
   m_ObjectHideFlags: 0
@@ -5486,7 +5600,7 @@ GameObject:
   - 114: {fileID: 1544588619}
   - 65: {fileID: 1544588618}
   m_Layer: 0
-  m_Name: Value
+  m_Name: MotionBlurValue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5692,7 +5806,7 @@ GameObject:
   - 114: {fileID: 1554115425}
   - 65: {fileID: 1554115424}
   m_Layer: 0
-  m_Name: Value
+  m_Name: FXAAValue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5809,184 +5923,6 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
---- !u!1 &1587339204
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1587339205}
-  - 23: {fileID: 1587339208}
-  - 102: {fileID: 1587339207}
-  - 65: {fileID: 1587339206}
-  m_Layer: 0
-  m_Name: Value
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1587339205
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1587339204}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.75, y: 4, z: 3.717515}
-  m_LocalScale: {x: 0.02, y: 0.02, z: 0.02}
-  m_Children: []
-  m_Father: {fileID: 597358126}
-  m_RootOrder: 2
---- !u!65 &1587339206
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1587339204}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 25, y: 18, z: 0}
-  m_Center: {x: 12.500122, y: -9.000015, z: 0}
---- !u!102 &1587339207
-TextMesh:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1587339204}
-  m_Text: 100
-  m_OffsetZ: 0
-  m_CharacterSize: 1
-  m_LineSpacing: 1
-  m_Anchor: 0
-  m_Alignment: 1
-  m_TabSize: 4
-  m_FontSize: 150
-  m_FontStyle: 0
-  m_RichText: 1
-  m_Font: {fileID: 12800000, guid: 6bf2b47c467821641a686aa159989b5e, type: 3}
-  m_Color:
-    serializedVersion: 2
-    rgba: 4294967295
---- !u!23 &1587339208
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1587339204}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_Materials:
-  - {fileID: 2100000, guid: 6bf2b47c467821641a686aa159989b5e, type: 3}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 1
-  m_ReflectionProbeUsage: 1
-  m_ProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
---- !u!1 &1597371277
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1597371278}
-  - 23: {fileID: 1597371281}
-  - 102: {fileID: 1597371280}
-  - 65: {fileID: 1597371279}
-  m_Layer: 0
-  m_Name: Less
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1597371278
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1597371277}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5, y: 4, z: 3.717515}
-  m_LocalScale: {x: 0.02, y: 0.02, z: 0.02}
-  m_Children: []
-  m_Father: {fileID: 597358126}
-  m_RootOrder: 1
---- !u!65 &1597371279
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1597371277}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 6.5, y: 18, z: 0}
-  m_Center: {x: 3.250122, y: -9.000015, z: 0}
---- !u!102 &1597371280
-TextMesh:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1597371277}
-  m_Text: <
-  m_OffsetZ: 0
-  m_CharacterSize: 1
-  m_LineSpacing: 1
-  m_Anchor: 0
-  m_Alignment: 1
-  m_TabSize: 4
-  m_FontSize: 150
-  m_FontStyle: 0
-  m_RichText: 1
-  m_Font: {fileID: 12800000, guid: 6bf2b47c467821641a686aa159989b5e, type: 3}
-  m_Color:
-    serializedVersion: 2
-    rgba: 4294967295
---- !u!23 &1597371281
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1597371277}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_Materials:
-  - {fileID: 2100000, guid: 6bf2b47c467821641a686aa159989b5e, type: 3}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 1
-  m_ReflectionProbeUsage: 1
-  m_ProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
 --- !u!1 &1604805071
 GameObject:
   m_ObjectHideFlags: 0
@@ -6082,14 +6018,34 @@ MonoBehaviour:
   camera1: {fileID: 0}
   camera2: {fileID: 0}
   camera3: {fileID: 0}
-  resolution: {fileID: 0}
-  fullscreen: {fileID: 0}
+  grassObject: {fileID: 0}
   back: 0
   low: 0
   medium: 0
   high: 0
   fantastic: 0
   advancedSettings: 0
+  language: {fileID: 0}
+  lighting: {fileID: 0}
+  musicVolume: {fileID: 0}
+  superSampling: {fileID: 0}
+  motionBlur: {fileID: 0}
+  blood: {fileID: 0}
+  mode3D: {fileID: 0}
+  smoothing: {fileID: 0}
+  textures: {fileID: 0}
+  polygones: {fileID: 0}
+  effects: {fileID: 0}
+  postprocessing: {fileID: 0}
+  grid: {fileID: 0}
+  environment: {fileID: 0}
+  grass: {fileID: 0}
+  FXAA: {fileID: 0}
+  MSAA: {fileID: 0}
+  antialiasing: {fileID: 0}
+  alphaBlending: {fileID: 0}
+  resolution: {fileID: 0}
+  fullscreen: {fileID: 0}
 --- !u!65 &1604805076
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6115,7 +6071,7 @@ GameObject:
   - 114: {fileID: 1614718360}
   - 65: {fileID: 1614718359}
   m_Layer: 0
-  m_Name: Value
+  m_Name: ResolutionValue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6365,95 +6321,6 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
---- !u!1 &1677958202
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1677958203}
-  - 23: {fileID: 1677958206}
-  - 102: {fileID: 1677958205}
-  - 65: {fileID: 1677958204}
-  m_Layer: 0
-  m_Name: More
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1677958203
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1677958202}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.15, y: 4, z: 3.717515}
-  m_LocalScale: {x: 0.02, y: 0.02, z: 0.02}
-  m_Children: []
-  m_Father: {fileID: 597358126}
-  m_RootOrder: 3
---- !u!65 &1677958204
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1677958202}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 6.5, y: 18, z: 0}
-  m_Center: {x: 3.250122, y: -9.000015, z: 0}
---- !u!102 &1677958205
-TextMesh:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1677958202}
-  m_Text: '>'
-  m_OffsetZ: 0
-  m_CharacterSize: 1
-  m_LineSpacing: 1
-  m_Anchor: 0
-  m_Alignment: 1
-  m_TabSize: 4
-  m_FontSize: 150
-  m_FontStyle: 0
-  m_RichText: 1
-  m_Font: {fileID: 12800000, guid: 6bf2b47c467821641a686aa159989b5e, type: 3}
-  m_Color:
-    serializedVersion: 2
-    rgba: 4294967295
---- !u!23 &1677958206
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1677958202}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_Materials:
-  - {fileID: 2100000, guid: 6bf2b47c467821641a686aa159989b5e, type: 3}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 1
-  m_ReflectionProbeUsage: 1
-  m_ProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
 --- !u!1 &1737973055
 GameObject:
   m_ObjectHideFlags: 0
@@ -6496,7 +6363,7 @@ GameObject:
   - 114: {fileID: 1741392088}
   - 65: {fileID: 1741392087}
   m_Layer: 0
-  m_Name: Value
+  m_Name: MSAAValue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6673,14 +6540,34 @@ MonoBehaviour:
   camera1: {fileID: 1416978014}
   camera2: {fileID: 952400699}
   camera3: {fileID: 1914544493}
-  resolution: {fileID: 0}
-  fullscreen: {fileID: 0}
+  grassObject: {fileID: 145735479}
   back: 1
   low: 0
   medium: 0
   high: 0
   fantastic: 0
   advancedSettings: 0
+  language: {fileID: 0}
+  lighting: {fileID: 0}
+  musicVolume: {fileID: 0}
+  superSampling: {fileID: 0}
+  motionBlur: {fileID: 0}
+  blood: {fileID: 0}
+  mode3D: {fileID: 0}
+  smoothing: {fileID: 0}
+  textures: {fileID: 0}
+  polygones: {fileID: 0}
+  effects: {fileID: 0}
+  postprocessing: {fileID: 0}
+  grid: {fileID: 0}
+  environment: {fileID: 0}
+  grass: {fileID: 0}
+  FXAA: {fileID: 0}
+  MSAA: {fileID: 0}
+  antialiasing: {fileID: 0}
+  alphaBlending: {fileID: 0}
+  resolution: {fileID: 0}
+  fullscreen: {fileID: 0}
 --- !u!102 &1781714406
 TextMesh:
   serializedVersion: 3
@@ -6741,7 +6628,7 @@ GameObject:
   - 114: {fileID: 1782883362}
   - 65: {fileID: 1782883361}
   m_Layer: 0
-  m_Name: Value
+  m_Name: EffectsValue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6976,7 +6863,7 @@ GameObject:
   - 114: {fileID: 1827961232}
   - 65: {fileID: 1827961231}
   m_Layer: 0
-  m_Name: Value
+  m_Name: BloodValue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7106,7 +6993,7 @@ GameObject:
   - 114: {fileID: 1832209763}
   - 65: {fileID: 1832209762}
   m_Layer: 0
-  m_Name: Value
+  m_Name: PolygonesValue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7231,6 +7118,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1847114907}
+  - 114: {fileID: 1847114908}
   m_Layer: 0
   m_Name: Text1
   m_TagString: Untagged
@@ -7253,6 +7141,17 @@ Transform:
   - {fileID: 1604805074}
   m_Father: {fileID: 817428633}
   m_RootOrder: 3
+--- !u!114 &1847114908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1847114906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22c27cff0a4a9a241a860c221dc6ed60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1898894530
 GameObject:
   m_ObjectHideFlags: 0
@@ -7342,7 +7241,7 @@ GameObject:
   - 114: {fileID: 1908578418}
   - 65: {fileID: 1908578419}
   m_Layer: 0
-  m_Name: Value
+  m_Name: LanguageValue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7470,7 +7369,6 @@ GameObject:
   - 20: {fileID: 1914544493}
   - 124: {fileID: 1914544496}
   - 92: {fileID: 1914544495}
-  - 81: {fileID: 1914544494}
   m_Layer: 0
   m_Name: Camera3
   m_TagString: Untagged
@@ -7512,13 +7410,6 @@ Camera:
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
   m_StereoMirrorMode: 0
---- !u!81 &1914544494
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1914544492}
-  m_Enabled: 1
 --- !u!92 &1914544495
 Behaviour:
   m_ObjectHideFlags: 0
@@ -7545,48 +7436,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1117894005}
   m_RootOrder: 2
---- !u!1001 &1948574246
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 407700, guid: 86dfccba919ff1443b5b3d23447c4b01, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0.1418171
-      objectReference: {fileID: 0}
-    - target: {fileID: 407700, guid: 86dfccba919ff1443b5b3d23447c4b01, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -1.5830454
-      objectReference: {fileID: 0}
-    - target: {fileID: 407700, guid: 86dfccba919ff1443b5b3d23447c4b01, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -19.875
-      objectReference: {fileID: 0}
-    - target: {fileID: 407700, guid: 86dfccba919ff1443b5b3d23447c4b01, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 407700, guid: 86dfccba919ff1443b5b3d23447c4b01, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 407700, guid: 86dfccba919ff1443b5b3d23447c4b01, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 407700, guid: 86dfccba919ff1443b5b3d23447c4b01, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 407700, guid: 86dfccba919ff1443b5b3d23447c4b01, type: 2}
-      propertyPath: m_RootOrder
-      value: 4
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 86dfccba919ff1443b5b3d23447c4b01, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &1978176611
 GameObject:
   m_ObjectHideFlags: 0
@@ -7783,14 +7632,34 @@ MonoBehaviour:
   camera1: {fileID: 1416978014}
   camera2: {fileID: 952400699}
   camera3: {fileID: 0}
-  resolution: {fileID: 0}
-  fullscreen: {fileID: 0}
+  grassObject: {fileID: 0}
   back: 0
   low: 0
   medium: 0
   high: 0
   fantastic: 0
   advancedSettings: 0
+  language: {fileID: 1908578416}
+  lighting: {fileID: 1036740165}
+  musicVolume: {fileID: 437592468}
+  superSampling: {fileID: 406011735}
+  motionBlur: {fileID: 1544588616}
+  blood: {fileID: 1827961229}
+  mode3D: {fileID: 891056530}
+  smoothing: {fileID: 570365678}
+  textures: {fileID: 1480503461}
+  polygones: {fileID: 1832209760}
+  effects: {fileID: 1782883359}
+  postprocessing: {fileID: 962654468}
+  grid: {fileID: 1153878056}
+  environment: {fileID: 341428002}
+  grass: {fileID: 518538249}
+  FXAA: {fileID: 1554115422}
+  MSAA: {fileID: 1741392085}
+  antialiasing: {fileID: 44775320}
+  alphaBlending: {fileID: 1188542356}
+  resolution: {fileID: 1614718357}
+  fullscreen: {fileID: 309838087}
 --- !u!65 &2141148277
 BoxCollider:
   m_ObjectHideFlags: 0

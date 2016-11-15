@@ -15,16 +15,41 @@ public class DialogueAPI : MonoBehaviour {
     public Text answers;
     public GameObject answersObj;
 
-    private int maxLines;
+    private int maxLines = 8;
 
     private string interlocutorName { get; set; }
     public int dialogueNumber { get; set; }
     public int dialogueStep { get; set; }
     int leftTry;
 
+    public void fontSizeGenerate()
+    {
+        if (GameConfig.resolutionWidth == 1024)
+        {
+            textPanel.fontSize = 8;
+        }
+        if (GameConfig.resolutionWidth == 1280)
+        {
+            textPanel.fontSize = 16;
+        }
+        if (GameConfig.resolutionWidth == 1366)
+        {
+            textPanel.fontSize = 16;
+        }
+        if (GameConfig.resolutionWidth == 1600)
+        {
+            textPanel.fontSize = 20;
+        }
+        if (GameConfig.resolutionWidth == 1920)
+        {
+            textPanel.fontSize = 25;
+        }
+    }
+
     void Start()
     {
-        GetMaxLines();
+        fontSizeGenerate();
+      //  GetMaxLines();
         interlocutorName = "";
         dialogueNumber = -1;
         dialogueStep = -1;
@@ -159,6 +184,7 @@ public class DialogueAPI : MonoBehaviour {
         textPanel.text = textPanel.text.Remove(textPanel.text.LastIndexOf('\n'));
     }
 
+    /*
     private void GetMaxLines()
     {
         int resolution = Screen.currentResolution.width;
@@ -169,6 +195,7 @@ public class DialogueAPI : MonoBehaviour {
         else if (resolution == 1024) maxLines = 7;
         else maxLines = 8;
     }
+    */
 
     public void hintsButton()
     {

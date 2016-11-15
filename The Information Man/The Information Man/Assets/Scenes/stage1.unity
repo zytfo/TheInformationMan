@@ -622,15 +622,11 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 11489892, guid: a3121083c30e91e4fa63d10c88732862, type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1109145659}
     - target: {fileID: 22373230, guid: a3121083c30e91e4fa63d10c88732862, type: 2}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1109145656}
-    - target: {fileID: 11454332, guid: a3121083c30e91e4fa63d10c88732862, type: 2}
+    - target: {fileID: 11489892, guid: a3121083c30e91e4fa63d10c88732862, type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1109145659}
@@ -638,26 +634,14 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1109145659}
+    - target: {fileID: 11454332, guid: a3121083c30e91e4fa63d10c88732862, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1109145659}
     - target: {fileID: 11447680, guid: a3121083c30e91e4fa63d10c88732862, type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1109145659}
-    - target: {fileID: 199348, guid: a3121083c30e91e4fa63d10c88732862, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11415420, guid: a3121083c30e91e4fa63d10c88732862, type: 2}
-      propertyPath: m_RaycastTarget
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11489892, guid: a3121083c30e91e4fa63d10c88732862, type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Resume
-      objectReference: {fileID: 0}
-    - target: {fileID: 156964, guid: a3121083c30e91e4fa63d10c88732862, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a3121083c30e91e4fa63d10c88732862, type: 2}
   m_IsPrefabParent: 0
