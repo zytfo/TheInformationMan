@@ -27,22 +27,42 @@ public class DialogueAPI : MonoBehaviour {
         if (GameConfig.resolutionWidth == 1024)
         {
             textPanel.fontSize = 8;
+            healthPanel.fontSize = 8;
+            inputField.textComponent.fontSize = 8;
+            counter.fontSize = 8;
+            answers.fontSize = 8;
         }
         if (GameConfig.resolutionWidth == 1280)
         {
             textPanel.fontSize = 16;
+            healthPanel.fontSize = 16;
+            inputField.textComponent.fontSize = 16;
+            counter.fontSize = 16;
+            answers.fontSize = 16;
         }
         if (GameConfig.resolutionWidth == 1366)
         {
             textPanel.fontSize = 16;
+            healthPanel.fontSize = 16;
+            inputField.textComponent.fontSize = 16;
+            counter.fontSize = 16;
+            answers.fontSize = 16;
         }
         if (GameConfig.resolutionWidth == 1600)
         {
             textPanel.fontSize = 20;
+            healthPanel.fontSize = 20;
+            inputField.textComponent.fontSize = 20;
+            counter.fontSize = 20;
+            answers.fontSize = 20;
         }
         if (GameConfig.resolutionWidth == 1920)
         {
             textPanel.fontSize = 25;
+            healthPanel.fontSize = 25;
+            inputField.textComponent.fontSize = 25;
+            counter.fontSize = 25;
+            answers.fontSize = 25;
         }
     }
 
