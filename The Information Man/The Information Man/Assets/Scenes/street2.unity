@@ -233,7 +233,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 44753127}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.68, z: 0}
+  m_LocalPosition: {x: 0, y: -1.95, z: 0}
   m_LocalScale: {x: 0.99968785, y: 2.7626853, z: 1.0161133}
   m_Children: []
   m_Father: {fileID: 808026324}
@@ -488,6 +488,12 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f8362fb4c608ecd48a9dc6a0da8c13b6, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &467550316 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11421716, guid: f8362fb4c608ecd48a9dc6a0da8c13b6,
+    type: 2}
+  m_PrefabInternal: {fileID: 467550315}
+  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
 --- !u!1 &517832280
 GameObject:
   m_ObjectHideFlags: 0
@@ -822,7 +828,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 808026323}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.26, z: 0}
+  m_LocalPosition: {x: 0, y: 0.03, z: 0}
   m_LocalScale: {x: 0.9841421, y: 0.9841422, z: 0.9841422}
   m_Children:
   - {fileID: 44753128}
@@ -841,9 +847,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: -1.0038781}
+  m_Offset: {x: 0, y: -1.2142237}
   serializedVersion: 2
-  m_Size: {x: 6.94, y: 0.04564396}
+  m_Size: {x: 6.94, y: 0.15382147}
 --- !u!212 &808026326
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -871,7 +877,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d0ec217c88e3c534e96efaf3d57205ae, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2f6c9beba6685bc41a887e1609183478, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1239,8 +1245,9 @@ MonoBehaviour:
   maxHealth: 100
   isPaused: 0
   grounded: 0
+  rightPicture: {fileID: 467550316}
   canMove: 0
-  dialoguePanel: {fileID: 0}
+  dialoguePanel: {fileID: 174906, guid: f8362fb4c608ecd48a9dc6a0da8c13b6, type: 2}
 --- !u!95 &1050205330
 Animator:
   serializedVersion: 3
@@ -1342,7 +1349,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1050205328}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.15, y: -0.4653799, z: 0}
+  m_LocalPosition: {x: -3.15, y: -0.61, z: 0}
   m_LocalScale: {x: 1.0161134, y: 1.0161133, z: 1.0161133}
   m_Children:
   - {fileID: 517832281}

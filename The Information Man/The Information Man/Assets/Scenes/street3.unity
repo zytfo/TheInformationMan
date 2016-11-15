@@ -171,6 +171,12 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f8362fb4c608ecd48a9dc6a0da8c13b6, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &2169227 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11421716, guid: f8362fb4c608ecd48a9dc6a0da8c13b6,
+    type: 2}
+  m_PrefabInternal: {fileID: 2169226}
+  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
 --- !u!1 &23011902
 GameObject:
   m_ObjectHideFlags: 0
@@ -1111,8 +1117,9 @@ MonoBehaviour:
   maxHealth: 100
   isPaused: 0
   grounded: 0
+  rightPicture: {fileID: 2169227}
   canMove: 0
-  dialoguePanel: {fileID: 0}
+  dialoguePanel: {fileID: 174906, guid: f8362fb4c608ecd48a9dc6a0da8c13b6, type: 2}
 --- !u!95 &1050205330
 Animator:
   serializedVersion: 3

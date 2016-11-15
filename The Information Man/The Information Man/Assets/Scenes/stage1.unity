@@ -250,6 +250,12 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8fdfe15dfb2c2c34ca7f602adbb23beb, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &873605091 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11421716, guid: f8362fb4c608ecd48a9dc6a0da8c13b6,
+    type: 2}
+  m_PrefabInternal: {fileID: 1953798540}
+  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
 --- !u!1001 &1002754818
 Prefab:
   m_ObjectHideFlags: 0
@@ -537,6 +543,10 @@ Prefab:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 11499836, guid: edf77b72502208d4989d48f5199201a1, type: 2}
+      propertyPath: rightPicture
+      value: 
+      objectReference: {fileID: 873605091}
+    - target: {fileID: 11499836, guid: edf77b72502208d4989d48f5199201a1, type: 2}
       propertyPath: dialoguePanel
       value: 
       objectReference: {fileID: 366120085}
@@ -789,14 +799,14 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 11484514, guid: f8362fb4c608ecd48a9dc6a0da8c13b6, type: 2}
-      propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 49086322}
     - target: {fileID: 11462120, guid: f8362fb4c608ecd48a9dc6a0da8c13b6, type: 2}
       propertyPath: player
       value: 
       objectReference: {fileID: 1368540727}
+    - target: {fileID: 11484514, guid: f8362fb4c608ecd48a9dc6a0da8c13b6, type: 2}
+      propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 49086322}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f8362fb4c608ecd48a9dc6a0da8c13b6, type: 2}
   m_IsPrefabParent: 0

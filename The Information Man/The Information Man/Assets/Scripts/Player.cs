@@ -20,6 +20,7 @@ public class Player : MonoBehaviour
     private Animator anim;
     private Rigidbody2D rb2d;
 
+    public Image rightPicture;
     public bool canMove;
     private bool isDead;
 
@@ -55,7 +56,7 @@ public class Player : MonoBehaviour
         canMove = true;
         isDead = false;
         fullname = PlayerPrefs.GetString("name");
-
+        rightPicture.sprite = Resources.Load<Sprite>("elbrus") as Sprite;
         dialoguePanel = GameObject.Find("DialoguePanel");
         textPanel = GameObject.Find("TextPanel").GetComponent<Text>();
         healthPanel = GameObject.Find("Health").GetComponent<Text>();
@@ -166,7 +167,7 @@ public class Player : MonoBehaviour
         easeVelocity.y = rb2d.velocity.y;
         easeVelocity.z = 0.0f;
         easeVelocity.x *= 0.75f;
-
+        rightPicture.sprite = Resources.Load<Sprite>("elbrus") as Sprite;
         if (!canMove)
         {
             rb2d.velocity = easeVelocity;

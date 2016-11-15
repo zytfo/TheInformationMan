@@ -58,7 +58,10 @@
      <Compile Include="Assets\Scripts\GroundCheck.cs" />
      <Compile Include="Assets\Scripts\Hall.cs" />
      <Compile Include="Assets\Scripts\MainMenuAndSettings\AdvancedSettings.cs" />
+     <Compile Include="Assets\Scripts\MainMenuAndSettings\GameConfig.cs" />
      <Compile Include="Assets\Scripts\MainMenuAndSettings\MainMenu.cs" />
+     <Compile Include="Assets\Scripts\MainMenuAndSettings\SpotLightMenu.cs" />
+     <Compile Include="Assets\Scripts\MainMenuAndSettings\TextMenu.cs" />
      <Compile Include="Assets\Scripts\MainMenuAndSettings\VolumeButtons.cs" />
      <Compile Include="Assets\Scripts\MovesForScenes\ChangeScene.cs" />
      <Compile Include="Assets\Scripts\PauseMenu.cs" />

@@ -771,6 +771,12 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f8362fb4c608ecd48a9dc6a0da8c13b6, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &590591639 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11421716, guid: f8362fb4c608ecd48a9dc6a0da8c13b6,
+    type: 2}
+  m_PrefabInternal: {fileID: 590591638}
+  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
 --- !u!1 &808026323
 GameObject:
   m_ObjectHideFlags: 0
@@ -814,9 +820,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: -1.0038781}
+  m_Offset: {x: 0, y: -1.1721548}
   serializedVersion: 2
-  m_Size: {x: 6.94, y: 0.04564396}
+  m_Size: {x: 6.94, y: 0.16584182}
 --- !u!212 &808026326
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1212,8 +1218,9 @@ MonoBehaviour:
   maxHealth: 100
   isPaused: 0
   grounded: 0
+  rightPicture: {fileID: 590591639}
   canMove: 0
-  dialoguePanel: {fileID: 0}
+  dialoguePanel: {fileID: 174906, guid: f8362fb4c608ecd48a9dc6a0da8c13b6, type: 2}
 --- !u!95 &1050205330
 Animator:
   serializedVersion: 3
@@ -1315,7 +1322,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1050205328}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.15, y: -0.4653799, z: 0}
+  m_LocalPosition: {x: -3.15, y: -0.58, z: 0}
   m_LocalScale: {x: 1.0161134, y: 1.0161133, z: 1.0161133}
   m_Children:
   - {fileID: 517832281}
