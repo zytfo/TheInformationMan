@@ -5,10 +5,10 @@ public class MainMenu : MonoBehaviour
     public bool play = false;
     public bool settings = false;
     public bool quit = false;
+    public bool credits = false;
 
-    public Camera camera1;
-    public Camera camera2;
-    public Camera camera3;
+    public Camera disactivateCamera;
+    public Camera activateCamera;
     public GameObject grassObject;
 
     public bool back = false;
@@ -167,7 +167,6 @@ public class MainMenu : MonoBehaviour
 
         foreach (var res in resolutions)
         {
-            Debug.Log(res);
             if (res.height == resolution1.height && res.width == resolution1.width)
             {
                 GameConfig.resolutions[0] = true;
@@ -235,20 +234,24 @@ public class MainMenu : MonoBehaviour
         }
         if (settings)
         {
-            camera1.enabled = false;
-            camera2.enabled = true;
+            disactivateCamera.enabled = false;
+            activateCamera.enabled = true;
         }
         if (quit == true)
         {
             Application.Quit();
         }
+        if (credits)
+        {
+            disactivateCamera.enabled = false;
+            activateCamera.enabled = true;
+        }
 
         //=============
         if (back == true)
         {
-            camera1.enabled = true;
-            camera2.enabled = false;
-            camera3.enabled = false;
+            activateCamera.enabled = true;
+            disactivateCamera.enabled = false;
             grassObject.SetActive(false);
         }
         if (low == true)
@@ -269,8 +272,8 @@ public class MainMenu : MonoBehaviour
         }
         if (advancedSettings == true)
         {
-            camera3.enabled = true;
-            camera2.enabled = false;
+            activateCamera.enabled = true;
+            disactivateCamera.enabled = false;
         }
     }
 }
