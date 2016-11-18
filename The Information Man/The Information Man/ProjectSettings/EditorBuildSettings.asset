@@ -34,8 +34,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/street2.unity
   - enabled: 1
-    path: Assets/Scenes/street3.unity
+    path: Assets/Scenes/final.unity
   - enabled: 1
-    path: Assets/Scenes/street4.unity
+    path: Assets/Scenes/exam.unity
   - enabled: 1
-    path: Assets/Scenes/street5.unity
+    path: Assets/Scenes/end.unity

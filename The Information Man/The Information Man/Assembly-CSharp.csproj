@@ -49,15 +49,15 @@
      <Compile Include="Assets\Scripts\Battery.cs" />
      <Compile Include="Assets\Scripts\Dialogues\DialogueAPI.cs" />
      <Compile Include="Assets\Scripts\Dialogues\FirstDialogue.cs" />
+     <Compile Include="Assets\Scripts\Dialogues\Hall.cs" />
      <Compile Include="Assets\Scripts\Dialogues\PainterDialogue.cs" />
      <Compile Include="Assets\Scripts\Dialogues\SecondDialogue.cs" />
      <Compile Include="Assets\Scripts\Dialogues\SimonGreeting.cs" />
-     <Compile Include="Assets\Scripts\Dialogues\Stage21Thoughts.cs" />
      <Compile Include="Assets\Scripts\Dialogues\Tasks.cs" />
      <Compile Include="Assets\Scripts\GameController.cs" />
      <Compile Include="Assets\Scripts\GroundCheck.cs" />
-     <Compile Include="Assets\Scripts\Hall.cs" />
      <Compile Include="Assets\Scripts\MainMenuAndSettings\AdvancedSettings.cs" />
+     <Compile Include="Assets\Scripts\MainMenuAndSettings\Credits.cs" />
      <Compile Include="Assets\Scripts\MainMenuAndSettings\GameConfig.cs" />
      <Compile Include="Assets\Scripts\MainMenuAndSettings\MainMenu.cs" />
      <Compile Include="Assets\Scripts\MainMenuAndSettings\SpotLightMenu.cs" />
