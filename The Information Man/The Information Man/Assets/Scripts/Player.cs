@@ -65,7 +65,7 @@ public class Player : MonoBehaviour
         formulas = dialoguePanel.transform.Find("Formulas").gameObject;
         task = null;
 
-        hadDialogue = new bool[5];
+        hadDialogue = new bool[7];
 
         //StartCoroutine(Dying());
 
@@ -82,6 +82,9 @@ public class Player : MonoBehaviour
                 break;
             case "stage3":
                 textPanel.text = "";
+                break;
+            case "afterend":
+                StartCoroutine(Dying());
                 break;
         }
     }

@@ -42,8 +42,7 @@ public class FirstDialogue : MonoBehaviour {
         }
         else if (api.dialogueStep == 2)
         {
-            if (guess == player.fullname
-            || string.Equals(guess, "The Information Man", StringComparison.CurrentCultureIgnoreCase))
+            if (guess == player.fullname || string.Equals(guess, "The Information Man", StringComparison.CurrentCultureIgnoreCase))
             {
                 api.ProcessDialogue(guess, "Oh, I have you in my list! OK, I will give you a few tasks to check your skills.\n " + "Are you ready for the first task?");
                 api.SetHints("Answer anything");

@@ -233,7 +233,7 @@ public class Tasks {
         public override void GenerateValues()
         {
             System.Random rnd = new System.Random();
-            int itemsCount = rnd.Next(2, 9);
+            int itemsCount = rnd.Next(4, 8);
             int[] possibleSums = { 8, 16, 32, 64 };
             int sum = possibleSums[rnd.Next(0, 4)];
             List<Item> items = new List<Item>();
@@ -253,7 +253,7 @@ public class Tasks {
         public EntropyTask(string input)
         {
             taskType = (TaskType)1;
-            this.input = input;
+            this.input = input.ToLower();
             double tmp;
             double.TryParse(CalculateResult(), out tmp);
             writeAnswer = Math.Round(tmp, 2).ToString();
@@ -297,7 +297,7 @@ public class Tasks {
                 result += box.items.ElementAt(box.items.Count - 1).count / gcd + "/" + box.itemsCount / gcd;
                 result += ".\n Calcucalute an entropy of the distribution";
             }
-            else result = "Calculate an entropy of this sentence:\n" + input;
+            else result = "Calculate an entropy of this sentence:\n \"" + input + "\"";
             return result;
         }
 
@@ -431,7 +431,7 @@ public class Tasks {
         public override void GenerateValues()
         {
             System.Random rnd = new System.Random();
-            itemsCount = rnd.Next(4, 9);
+            itemsCount = rnd.Next(5, 9);
             int sum = rnd.Next(0, 57) + 8;
             int tmp = sum;
             double probability;
@@ -450,9 +450,39 @@ public class Tasks {
 
         public HuffmanCodingTask()
         {
-            GenerateValues();
+            bool isValid = false;
+            while (!isValid)
+            {
+                GenerateValues();
+                isValid = CheckEnsemble();
+            }
             writeAnswer = CalculateResult();
             taskDescription = WriteTask();
+        }
+
+        private bool CheckEnsemble()
+        {
+            List<double> items = new List<double>();
+            foreach (Item i in ensemble)
+                items.Add(i.probability);
+
+            bool result = true;
+
+            while (result && items.Count > 1)
+            {
+                items.Sort();
+                for (int i = 0; i < items.Count; ++i)
+                    for (int j = 0; j < items.Count; ++j)
+                        if (i != j && items.ElementAt(i) == items.ElementAt(j))
+                        {
+                            return false;
+                        }
+                items.Add(items.ElementAt(0) + items.ElementAt(1));
+                items.RemoveAt(0);
+                items.RemoveAt(0);
+            }
+
+            return result;
         }
 
         public double Log2(double n)
@@ -481,7 +511,10 @@ public class Tasks {
         {
             string result = "";
 
-            List<string> codes = Huffman(ensemble);
+            List<Item> items = new List<Item>();
+            foreach (Item i in ensemble)
+                items.Add(i);
+            List<string> codes = Huffman(items);
 
             for (int i = 0; i < codes.Count - 1; ++i)
                 result += codes.ElementAt(i) + " ";
@@ -604,10 +637,10 @@ public class Tasks {
             string tmp;
             result = "Assume you have two random variables X (input of the noisy channel) and\n Y (output) "
                 + "with joint distribution of these two random variables as follows:\n";
-            result += "       x = a  x = b  x = c  x = d\n";
+            result += "        x = a  x = b  x = c  x = d\n";
             for (int j = 0; j < 4; ++j)
             {
-                result += "y = " + letters[j] + " ";
+                result += " y = " + letters[j] + " ";
                 for (int i = 0; i < 3; ++i)
                 {
                     gcd = GCD(boxes[j].items.ElementAt(i).count, sum);
@@ -640,17 +673,17 @@ public class Tasks {
             switch ((TaskType)subtaskNumber)
             {
                 case TaskType.margX:
-                    return "Compute the marginal entropy H(X) in bits.";
+                    return " Compute the marginal entropy H(X) in bits.";
                 case TaskType.margY:
-                    return "Compute the marginal entropy H(Y) in bits.";
+                    return " Compute the marginal entropy H(Y) in bits.";
                 case TaskType.joint:
-                    return "What is the joint entropy H(X, Y) of the two random variables in bits?";
+                    return " What is the joint entropy H(X, Y) of the two random variables in bits?";
                 case TaskType.condYX:
-                    return "What is the conditional entropy H(Y|X) in bits?";
+                    return " What is the conditional entropy H(Y|X) in bits?";
                 case TaskType.condXY:
-                    return "What is the conditional entropy H(X|Y) in bits?";
+                    return " What is the conditional entropy H(X|Y) in bits?";
                 case TaskType.mutInf:
-                    return "What is the mutual information I(X; Y) between the two random variables in bits?";
+                    return " What is the mutual information I(X; Y) between the two random variables in bits?";
             }
             return "All subtasks are passed!";
         }
