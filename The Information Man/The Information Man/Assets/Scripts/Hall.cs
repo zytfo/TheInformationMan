@@ -36,7 +36,11 @@ public class Hall : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (player.canMove) api.DialogueStart(2, "Yakubovich", "Pam pam pam! Welcome to the famous game show!", rightPicture);
+        if (player.canMove)
+        {
+            api.DialogueStart(2, "Yakubovich", "Pam pam pam! Welcome to the famous game show!", rightPicture);
+            api.attemptsLeft.SetActive(false);
+        }
         if (api.dialogueStep == 2 || api.dialogueStep == 12) Cursor.visible = true;
         else Cursor.visible = false;
     }

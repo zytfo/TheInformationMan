@@ -123,7 +123,7 @@ public class FirstDialogue : MonoBehaviour {
     {
         if (api.dialogueStep == 8 && (Input.GetKey("left") || Input.GetKey("right")))
         {
-            api.rightPicture.sprite = null;
+            api.rightPicture.sprite = Resources.Load<Sprite>("elbrus") as Sprite;
             inputField.readOnly = true;
             inputField.text = "";
             inputField.DeactivateInputField();

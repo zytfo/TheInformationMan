@@ -16,6 +16,7 @@ public class SimonGreeting : MonoBehaviour {
         if (other.name == "player" && !player.hadDialogue[3])
         {
             api.DialogueStart(3, "Simon Barrel-Roll", "*sighing* Hi! ", rightPicture);
+            api.SetHints("Greet the guy!\n1. Hi\n2. Hello");
         }
     }
 
@@ -34,34 +35,41 @@ public class SimonGreeting : MonoBehaviour {
         else if (api.dialogueStep == 0 && api.IsGreeting(guess))
         {
             api.ProcessDialogue(guess, " You are my new neighbor, aren't you?");
+            api.SetHints("Answer positively");
         }
         else if (api.dialogueStep == 1 && (guess == "yes" || guess == "Yes"))
         {
             api.ProcessDialogue(guess, "You think yes, but I think no. You can't be my neighbor so quickly.");
+            api.SetHints("Answer anything");
         }
         else if (api.dialogueStep == 2)
         {
             api.ProcessDialogue(guess, "Firstly, what is your name?");
+            api.SetHints("Be accurate!");
         }
         else if (api.dialogueStep == 3 && (guess == player.fullname
             || string.Equals(guess, "The Information Man", StringComparison.CurrentCultureIgnoreCase)))
         {
-            api.ProcessDialogue(guess, "Such an unusual name. You can compete for the prize of beign my new neighbor!");
+            api.ProcessDialogue(guess, "Such an unusual name. You can compete for the prize of being my new neighbor!");
+            api.SetHints("Answer anything");
         }
         else if (api.dialogueStep == 4)
         {
             api.ProcessDialogue("And yours?", "I'm Simon Barrel-Roll. Glad we know each others names, such a helpful information.");
+            api.SetHints("Answer anything");
         }
         else if (api.dialogueStep == 5)
         {
             api.ProcessDialogue(guess, "I've heard someones voice? Who is this? Ah, never mind. Well, didn't you know that\n all my previous neighbors had an IQ > 120? You should solve some tasks to "
                 + "proudly call me your\n neighbor!");
+            api.SetHints("Answer anything");
         }
         else if (api.dialogueStep == 6)
         {
             api.task(new Tasks.EntropyTask());
             player.UpdateTaskPanel();
             api.ProcessDialogue(guess, "Here's the task: \n" + api.task().taskDescription);
+            api.SetHints("Use:\n \"Ctrl+T\" to see the task\n \"Ctrl+H\" to see helpful formulas");
         }
         else if (api.dialogueStep == 7)
         {
@@ -70,6 +78,7 @@ public class SimonGreeting : MonoBehaviour {
                 api.task(null);
                 player.UpdateTaskPanel();
                 api.ProcessDialogue(guess, "Absobloodylootely! Welcome to this room. Hope you won't leave me soon!");
+                api.SetHints("Answer anything");
             }
             else
             {
@@ -81,11 +90,13 @@ public class SimonGreeting : MonoBehaviour {
         {
             api.ProcessDialogue(guess, "Here's your bed! I heard you're going to have a hard day tomorrow, so dispose\n yourself with comfort "
                 + "and have a nice dream!");
+            api.SetHints("Answer anything");
         }
         else if (api.dialogueStep == 9)
         {
             api.DialogueSuccess(guess, "See you soon! Goodnight!");
             inputField.text = "";
+            api.SetHints("");
         }
         else if (api.dialogueStep == 10 && guess != "")
         {
@@ -108,7 +119,7 @@ public class SimonGreeting : MonoBehaviour {
     {
         if (api.dialogueStep == 10 && (Input.GetKey("left") || Input.GetKey("right")))
         {
-            api.rightPicture.sprite = null;
+            api.rightPicture.sprite = Resources.Load<Sprite>("elbrus") as Sprite;
             inputField.readOnly = true;
             inputField.text = "";
             inputField.DeactivateInputField();

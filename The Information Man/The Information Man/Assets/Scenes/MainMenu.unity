@@ -3142,7 +3142,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 656119758}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.3503, y: 4.7825, z: 3.717515}
+  m_LocalPosition: {x: -8.8503, y: 4.3825, z: 3.717515}
   m_LocalScale: {x: 0.038749993, y: 0.034749992, z: 0.02}
   m_Children: []
   m_Father: {fileID: 1847114907}
@@ -3161,13 +3161,13 @@ TextMesh:
   m_Anchor: 0
   m_Alignment: 1
   m_TabSize: 4
-  m_FontSize: 500
+  m_FontSize: 400
   m_FontStyle: 1
   m_RichText: 1
-  m_Font: {fileID: 12800000, guid: cf1450a413027994d9d34b57c28b02c1, type: 3}
+  m_Font: {fileID: 12800000, guid: 6bf2b47c467821641a686aa159989b5e, type: 3}
   m_Color:
     serializedVersion: 2
-    rgba: 4289009950
+    rgba: 4288020224
 --- !u!23 &656119761
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3178,7 +3178,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: cf1450a413027994d9d34b57c28b02c1, type: 3}
+  - {fileID: 2100000, guid: 6bf2b47c467821641a686aa159989b5e, type: 3}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -11268,7 +11268,7 @@ Transform:
   - {fileID: 1434387841}
   - {fileID: 612928716}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
 --- !u!1 &1544588616
 GameObject:
   m_ObjectHideFlags: 0

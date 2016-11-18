@@ -125,7 +125,6 @@ public class DialogueAPI : MonoBehaviour {
         textPanel.text += "\n" + interlocutorName + ": " + otherStr;
         player.taskPanel.SetActive(false);
         attemptsLeft.SetActive(false);
-        rightPicture.sprite = Resources.Load<Sprite>("elbrus") as Sprite;
         player.hadDialogue[dialogueNumber] = true;
         player.panelText = textPanel.text;
         inputField.text = "";
