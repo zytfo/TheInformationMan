@@ -67,6 +67,8 @@ public class Player : MonoBehaviour
 
         hadDialogue = new bool[5];
 
+        //StartCoroutine(Dying());
+
         switch (SceneManager.GetActiveScene().name)
         {
             case "stage2": transform.eulerAngles = new Vector2(0, 0);
@@ -240,6 +242,16 @@ public class Player : MonoBehaviour
     public void decreaseHealth(int change)
     {
         curHealth = Mathf.Max(0, curHealth - change);
+    }
+
+    public IEnumerator Dying()
+    {
+        yield return new WaitForSeconds(3.0f);
+        while (true) {
+            yield return new WaitForSeconds(1.0f);
+            decreaseHealth(1);
+        }
+        SceneManager.LoadScene("MainMenu");
     }
 
     public IEnumerator GameOver()

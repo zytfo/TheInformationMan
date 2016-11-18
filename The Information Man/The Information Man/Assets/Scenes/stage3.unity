@@ -1052,7 +1052,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b871d6f9c3cde7341b0e0223576154b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rightPicture: {fileID: 21300000, guid: 3f6fe1cc5d6697741ad9b53f7f952baf, type: 3}
+  rightPicture: {fileID: 21300000, guid: 326dd2cbd8fa3aa4f85120d8f7025c4a, type: 3}
   box: {fileID: 1428254007}
 --- !u!114 &2061528174
 MonoBehaviour:

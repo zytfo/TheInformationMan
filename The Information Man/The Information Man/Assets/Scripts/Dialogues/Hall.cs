@@ -163,13 +163,13 @@ public class Hall : MonoBehaviour
         {
             api.task(new Tasks.DefinedTask("What is the probability that by switching in this game player wins?", "0.67"));
             player.UpdateTaskPanel();
-            api.ProcessDialogue(guess, "Hhhm.. You think that switching is better? Can you give the actual probability that you will\n win by switching?");
+            api.ProcessDialogue(guess, "Hmmm.. You think that switching is better? Can you give the actual probability that you will\n win by switching?");
         }
         else if (api.dialogueStep == 10 && (guess == "no" || guess == "No"))
         {
             api.task(new Tasks.DefinedTask("What is the probability that by selecting the same door in this game player wins?", "0.33"));
             player.UpdateTaskPanel();
-            api.ProcessDialogue(guess, "Hhhm.. You think that switching is a bad idea? Can you give the actual probability that you\n will win by selecting the same door?");
+            api.ProcessDialogue(guess, "Hmmm.. You think that switching is a bad idea? Can you give the actual probability that you\n will win by selecting the same door?");
         }
         else if (api.dialogueStep == 11)
         {
