@@ -75,6 +75,8 @@ public class Tasks {
                 }
                 boxes.Add(new Box(colors.ElementAt(i), items));
             }
+            boxesIndex = rnd.Next(0, boxesCount);
+            itemsIndex = rnd.Next(0, itemsCount);
         }
 
         private void FillTypes()
@@ -121,9 +123,6 @@ public class Tasks {
             }
             result += " At first you pick the box. Then something inside it.\n";
 
-            System.Random rnd = new System.Random();
-            boxesIndex = rnd.Next(1, boxesCount);
-            itemsIndex = rnd.Next(1, itemsCount);
             switch ((int)taskType)
             {
                 case 0:

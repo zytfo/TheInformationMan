@@ -73,7 +73,12 @@ public class DialogueAPI : MonoBehaviour {
         interlocutorName = "";
         dialogueNumber = -1;
         dialogueStep = -1;
-        leftTry = 3;
+        if (Application.loadedLevelName == "stage2")
+        {
+            leftTry = 3;
+            PlayerPrefs.SetInt("attempts", leftTry);
+            PlayerPrefs.Save();
+        } else leftTry = PlayerPrefs.GetInt("attempts");
     }
 
     void Update()
@@ -130,6 +135,8 @@ public class DialogueAPI : MonoBehaviour {
         inputField.text = "";
         dialogueStep++;
         answersObj.SetActive(false);
+        PlayerPrefs.SetInt("attempts", leftTry);
+        PlayerPrefs.Save();
     }
 
     public void DialogueFail(string playerStr, string otherStr)

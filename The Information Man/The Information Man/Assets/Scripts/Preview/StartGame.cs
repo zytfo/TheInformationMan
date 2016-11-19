@@ -33,6 +33,7 @@ public class StartGame : MonoBehaviour {
     public void StartNewGame()
     {
         PlayerPrefs.SetInt("health", 100);
+        PlayerPrefs.SetInt("attempts", 3);
         fadeScr.EndScene(2);
     }
 

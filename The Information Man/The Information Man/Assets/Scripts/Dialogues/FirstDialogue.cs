@@ -8,6 +8,8 @@ public class FirstDialogue : MonoBehaviour {
     private InputField inputField;
     public Sprite rightPicture;
     public BoxCollider2D box;
+    public Text attempts;
+    int tries;
 
     private DialogueAPI api;
 
