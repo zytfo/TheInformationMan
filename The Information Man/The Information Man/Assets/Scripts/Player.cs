@@ -247,13 +247,13 @@ public class Player : MonoBehaviour
             yield return new WaitForSeconds(1.0f);
             decreaseHealth(1);
         }
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("gameover");
     }
 
     public IEnumerator GameOver()
     {
         textPanel.text += "\n---We haven't find enough desire to win from you. Basically, it's a GAMEOVER---";
         yield return new WaitForSeconds(3.0f);
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("gameover");
     }
 }

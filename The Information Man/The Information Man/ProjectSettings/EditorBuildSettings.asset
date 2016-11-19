@@ -41,3 +41,5 @@ EditorBuildSettings:
     path: Assets/Scenes/end.unity
   - enabled: 1
     path: Assets/Scenes/afterend.unity
+  - enabled: 1
+    path: Assets/Scenes/gameover.unity
