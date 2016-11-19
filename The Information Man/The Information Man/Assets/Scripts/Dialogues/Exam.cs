@@ -176,7 +176,6 @@ public class Exam : MonoBehaviour
             {
                 api.DialogueSuccess(guess, "Hooray!! Mate, you've done everything. Now, hurry up! Rewrite solutions carefully and\n "
                     + "pass them to the Professor. And hope for your 'A' grade!");
-                api.SetHints("");
                 StartCoroutine(EndOfExam());
             }
             else

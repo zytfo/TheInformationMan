@@ -95,8 +95,6 @@ public class SimonGreeting : MonoBehaviour {
         else if (api.dialogueStep == 9)
         {
             api.DialogueSuccess(guess, "See you soon! Goodnight!");
-            inputField.text = "";
-            api.SetHints("");
         }
         else if (api.dialogueStep == 10 && guess != "")
         {
@@ -105,9 +103,7 @@ public class SimonGreeting : MonoBehaviour {
         }
         else if (guess == "skip")
         {
-            inputField.text = "";
-            player.hadDialogue[api.dialogueNumber] = true;
-            api.dialogueStep = 10;
+            api.DialogueSuccess(10);
         }
         else
         {

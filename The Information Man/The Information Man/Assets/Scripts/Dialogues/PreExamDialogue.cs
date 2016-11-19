@@ -36,7 +36,6 @@ public class PreExamDialogue : MonoBehaviour
         {
             api.DialogueSuccess(guess, "OK, that won't make sense if you don't succeed in the exam. All your classmates are doing last\n tasks now, I think. "
                 +"You have only 30 minutes out of 90 left. Good luck, the Information Man!");
-            api.SetHints("");
         }
         else if (api.dialogueStep == 1 && guess != "")
         {
@@ -45,9 +44,7 @@ public class PreExamDialogue : MonoBehaviour
         }
         else if (guess == "skip")
         {
-            inputField.text = "";
-            player.hadDialogue[api.dialogueNumber] = true;
-            api.dialogueStep = 1;
+            api.DialogueSuccess(1);
         }
         else
         {

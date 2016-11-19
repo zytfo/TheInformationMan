@@ -22,58 +22,13 @@ public class DialogueAPI : MonoBehaviour {
     public int dialogueStep { get; set; }
     int leftTry;
 
-    public void fontSizeGenerate()
-    {
-        if (GameConfig.resolutionWidth == 1024)
-        {
-            textPanel.fontSize = 8;
-            healthPanel.fontSize = 8;
-            inputField.textComponent.fontSize = 8;
-            counter.fontSize = 8;
-            answers.fontSize = 8;
-        }
-        if (GameConfig.resolutionWidth == 1280)
-        {
-            textPanel.fontSize = 16;
-            healthPanel.fontSize = 16;
-            inputField.textComponent.fontSize = 16;
-            counter.fontSize = 16;
-            answers.fontSize = 16;
-        }
-        if (GameConfig.resolutionWidth == 1366)
-        {
-            textPanel.fontSize = 16;
-            healthPanel.fontSize = 16;
-            inputField.textComponent.fontSize = 16;
-            counter.fontSize = 16;
-            answers.fontSize = 16;
-        }
-        if (GameConfig.resolutionWidth == 1600)
-        {
-            textPanel.fontSize = 20;
-            healthPanel.fontSize = 20;
-            inputField.textComponent.fontSize = 20;
-            counter.fontSize = 20;
-            answers.fontSize = 20;
-        }
-        if (GameConfig.resolutionWidth == 1920)
-        {
-            textPanel.fontSize = 25;
-            healthPanel.fontSize = 25;
-            inputField.textComponent.fontSize = 25;
-            counter.fontSize = 25;
-            answers.fontSize = 25;
-        }
-    }
-
     void Start()
     {
         fontSizeGenerate();
-      //  GetMaxLines();
         interlocutorName = "";
         dialogueNumber = -1;
         dialogueStep = -1;
-        if (Application.loadedLevelName == "stage2")
+        if (SceneManager.GetActiveScene().name == "stage1" || SceneManager.GetActiveScene().name == "stage3")
         {
             leftTry = 3;
             PlayerPrefs.SetInt("attempts", leftTry);
@@ -128,6 +83,17 @@ public class DialogueAPI : MonoBehaviour {
     {
         textPanel.text += "\n" + player.fullname + ": " + playerStr;
         textPanel.text += "\n" + interlocutorName + ": " + otherStr;
+        DialogueSuccessActions();
+    }
+
+    public void DialogueSuccess(int dialogueStep)
+    {
+        DialogueSuccessActions();
+        this.dialogueStep = dialogueStep;
+    }
+
+    private void DialogueSuccessActions()
+    {
         player.taskPanel.SetActive(false);
         attemptsLeft.SetActive(false);
         player.hadDialogue[dialogueNumber] = true;
@@ -135,6 +101,7 @@ public class DialogueAPI : MonoBehaviour {
         inputField.text = "";
         dialogueStep++;
         answersObj.SetActive(false);
+        SetHints("");
         PlayerPrefs.SetInt("attempts", leftTry);
         PlayerPrefs.Save();
     }
@@ -224,6 +191,50 @@ public class DialogueAPI : MonoBehaviour {
     }
     */
 
+    public void fontSizeGenerate()
+    {
+        if (GameConfig.resolutionWidth == 1024)
+        {
+            textPanel.fontSize = 8;
+            healthPanel.fontSize = 8;
+            inputField.textComponent.fontSize = 8;
+            counter.fontSize = 8;
+            answers.fontSize = 8;
+        }
+        if (GameConfig.resolutionWidth == 1280)
+        {
+            textPanel.fontSize = 16;
+            healthPanel.fontSize = 16;
+            inputField.textComponent.fontSize = 16;
+            counter.fontSize = 16;
+            answers.fontSize = 16;
+        }
+        if (GameConfig.resolutionWidth == 1366)
+        {
+            textPanel.fontSize = 16;
+            healthPanel.fontSize = 16;
+            inputField.textComponent.fontSize = 16;
+            counter.fontSize = 16;
+            answers.fontSize = 16;
+        }
+        if (GameConfig.resolutionWidth == 1600)
+        {
+            textPanel.fontSize = 20;
+            healthPanel.fontSize = 20;
+            inputField.textComponent.fontSize = 20;
+            counter.fontSize = 20;
+            answers.fontSize = 20;
+        }
+        if (GameConfig.resolutionWidth == 1920)
+        {
+            textPanel.fontSize = 25;
+            healthPanel.fontSize = 25;
+            inputField.textComponent.fontSize = 25;
+            counter.fontSize = 25;
+            answers.fontSize = 25;
+        }
+    }
+
     public void hintsButton()
     {
         if (answersObj.activeInHierarchy) { return; }
@@ -242,11 +253,5 @@ public class DialogueAPI : MonoBehaviour {
     public void SetHints(string hints)
     {
         answers.text = hints;
-    }
-
-    public IEnumerator GameOver()
-    {
-        yield return new WaitForSeconds(2.0f);
-        SceneManager.LoadScene("MainMenu");
     }
 }

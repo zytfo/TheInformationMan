@@ -60,7 +60,7 @@ public class Player : MonoBehaviour
         dialoguePanel = GameObject.Find("DialoguePanel");
         textPanel = GameObject.Find("TextPanel").GetComponent<Text>();
         healthPanel = GameObject.Find("Health").GetComponent<Text>();
-        textPanel.text = panelText;
+        //textPanel.text = panelText;
         taskPanel = dialoguePanel.transform.Find("TaskPanel").gameObject;
         formulas = dialoguePanel.transform.Find("Formulas").gameObject;
         task = null;
@@ -71,6 +71,9 @@ public class Player : MonoBehaviour
 
         switch (SceneManager.GetActiveScene().name)
         {
+            case "stage1":
+                curHealth = maxHealth;
+                break;
             case "stage2": transform.eulerAngles = new Vector2(0, 0);
                 textPanel.text = "";
                 break;
@@ -84,13 +87,14 @@ public class Player : MonoBehaviour
                 textPanel.text = "";
                 break;
             case "afterend":
+                curHealth = maxHealth;
                 StartCoroutine(Dying());
                 break;
         }
     }
 
-	public void SetMove(bool move) {
-		this.canMove = move;
+	public void SetMove(bool canMove) {
+		this.canMove = canMove;
 	}
 
     void Update()
@@ -158,11 +162,6 @@ public class Player : MonoBehaviour
             viewPos.x = Mathf.Clamp01(viewPos.x);
             viewPos.y = Mathf.Clamp01(viewPos.y);
             transform.position = Camera.main.ViewportToWorldPoint(viewPos);
-
-            if (curHealth > maxHealth)
-            {
-                curHealth = maxHealth;
-            }
         }
     }
 
@@ -172,7 +171,6 @@ public class Player : MonoBehaviour
         easeVelocity.y = rb2d.velocity.y;
         easeVelocity.z = 0.0f;
         easeVelocity.x *= 0.75f;
-        //rightPicture.sprite = Resources.Load<Sprite>("elbrus") as Sprite;
         if (!canMove)
         {
             rb2d.velocity = easeVelocity;
@@ -208,11 +206,6 @@ public class Player : MonoBehaviour
             rb2d.velocity = new Vector2(-maxSpeed, rb2d.velocity.y);
         }
 
-        if (curHealth > maxHealth)
-        {
-            curHealth = maxHealth;
-        }
-
         if (curHealth <= 0)
         {
             Die();
@@ -239,7 +232,7 @@ public class Player : MonoBehaviour
 
     public void increaseHealth(int change)
     {
-        curHealth = Mathf.Min(100, curHealth + change);
+        curHealth = Mathf.Min(maxHealth, curHealth + change);
     }
 
     public void decreaseHealth(int change)
@@ -250,7 +243,7 @@ public class Player : MonoBehaviour
     public IEnumerator Dying()
     {
         yield return new WaitForSeconds(3.0f);
-        while (true) {
+        while (curHealth > 0) {
             yield return new WaitForSeconds(1.0f);
             decreaseHealth(1);
         }

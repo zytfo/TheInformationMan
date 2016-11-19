@@ -56,7 +56,6 @@ public class LastDialogue : MonoBehaviour
         else if (api.dialogueStep == 3)
         {
             api.DialogueSuccess(guess, "I let you go! Goodbye!");
-            api.SetHints("");
         }
         else if (api.dialogueStep == 4 && guess != "")
         {
@@ -65,9 +64,7 @@ public class LastDialogue : MonoBehaviour
         }
         else if (guess == "skip")
         {
-            inputField.text = "";
-            player.hadDialogue[api.dialogueNumber] = true;
-            api.dialogueStep = 4;
+            api.DialogueSuccess(4);
         }
         else
         {

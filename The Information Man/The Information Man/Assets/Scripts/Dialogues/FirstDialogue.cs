@@ -8,8 +8,6 @@ public class FirstDialogue : MonoBehaviour {
     private InputField inputField;
     public Sprite rightPicture;
     public BoxCollider2D box;
-    public Text attempts;
-    int tries;
 
     private DialogueAPI api;
 
@@ -101,7 +99,6 @@ public class FirstDialogue : MonoBehaviour {
         {
             api.DialogueSuccess(guess, "Very interesting. I think it's enough for you. Welcome to this wonderful place!\n " 
                 + "Dormitory manager is waiting for you. You are free to go.");
-            api.SetHints("");
         }
         else if (api.dialogueStep == 8 && guess != "")
         {
@@ -110,9 +107,7 @@ public class FirstDialogue : MonoBehaviour {
         }
         else if (guess == "skip")
         {
-            inputField.text = "";
-            player.hadDialogue[api.dialogueNumber] = true;
-            api.dialogueStep = 8;
+            api.DialogueSuccess(8);
         }
         else
         {

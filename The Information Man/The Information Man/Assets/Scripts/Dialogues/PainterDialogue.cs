@@ -70,7 +70,6 @@ public class PainterDialogue : MonoBehaviour {
                 api.task(null);
                 player.UpdateTaskPanel();
                 api.DialogueSuccess(guess, "I see, you're a smart guy, the Information Man! I let you go.");
-                api.SetHints("");
             }
             else
             {
@@ -85,9 +84,7 @@ public class PainterDialogue : MonoBehaviour {
         }
         else if (guess == "skip")
         {
-            inputField.text = "";
-            player.hadDialogue[api.dialogueNumber] = true;
-            api.dialogueStep = 7;
+            api.DialogueSuccess(7);
         }
         else
         {
