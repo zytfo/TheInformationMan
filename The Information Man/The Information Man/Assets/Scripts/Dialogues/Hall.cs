@@ -119,7 +119,7 @@ public class Hall : MonoBehaviour
         {
             api.ProcessDialogue("Wait, what?", "Yes. Dormitory manager is away today. She has left for you 3 available rooms. "
             + "There is\n one elite room and two also good but not elite. You should pick one room. Then I will open one not elite\n room "
-            + "and your task is to pick a room again. You can either change your first choice or pick the same\n room. It will be your room then. "
+            + "and your task is to pick the room again. You can either change your first choice or pick the same\n room. It will be your room then. "
             + "Are you ready?");
             api.SetHints("Answer positively");
         }
@@ -136,12 +136,12 @@ public class Hall : MonoBehaviour
         }
         else if (api.dialogueStep == 4)
         {
-            api.ProcessDialogue("...spinning the barrel...", "Can you tell where did you came from?");
+            api.ProcessDialogue("...spinning the barrel...", "Can you tell me where did you come from?");
             api.SetHints("Name your city in >4 symbols");
         }
         else if (api.dialogueStep == 5 && guess.Length > 4)
         {
-            api.ProcessDialogue(guess, "Interesting! Who do you want to send you greetings to?");
+            api.ProcessDialogue(guess, "Interesting! Who do you want to send your greetings to?");
             api.SetHints("List three names");
         }
         else if (api.dialogueStep == 6 && guess.Split().Length > 2)
@@ -151,7 +151,7 @@ public class Hall : MonoBehaviour
         }
         else if (api.dialogueStep == 7)
         {
-            api.ProcessDialogue(guess, "Cool. 300 points on the barrel. Letter!");
+            api.ProcessDialogue(guess, "Cool. 300 points on the barrel! Letter!");
             api.SetHints("Do you know letter?");
         }
         else if (api.dialogueStep == 8 && guess.Length == 1 && char.IsLetter(guess[0]))

@@ -32,7 +32,7 @@ public class PainterDialogue : MonoBehaviour {
         if (guess == "") inputField.ActivateInputField();
         else if (api.dialogueStep == 0 && (guess.Contains("yes") || guess.Contains("no")))
         {
-            api.ProcessDialogue(guess, "Great. Why are here then?");
+            api.ProcessDialogue(guess, "Great. Why are you here then?");
             api.SetHints("Write something containing \"go\"");
         }
         else if (api.dialogueStep == 1 && guess.Contains("go"))
@@ -53,7 +53,7 @@ public class PainterDialogue : MonoBehaviour {
         else if (api.dialogueStep == 4 && (guess == "yes" || guess == "Yes"))
         {
             api.ProcessDialogue(guess, "Welcome to this wonderful place. I promise you'll have an unforgetable Information Theory\n journey, "
-                + "you, the Information Man. I'll give you a simple task that will surely help you to get into the\n swing of things here. Are you excited?");
+                + "the Information Man. I'll give you a simple task that will surely help you to get into the\n swing of things here. Are you excited?");
             api.SetHints("Answer anything");
         }
         else if (api.dialogueStep == 5)
@@ -69,7 +69,7 @@ public class PainterDialogue : MonoBehaviour {
             {
                 api.task(null);
                 player.UpdateTaskPanel();
-                api.DialogueSuccess(guess, "I see, you're a smart guy, the Information Man! I let you go.");
+                api.DialogueSuccess(guess, "I see you're a smart guy, the Information Man! I let you go.");
             }
             else
             {

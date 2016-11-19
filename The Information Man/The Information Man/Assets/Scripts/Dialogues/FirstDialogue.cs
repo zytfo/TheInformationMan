@@ -44,7 +44,7 @@ public class FirstDialogue : MonoBehaviour {
         {
             if (guess == player.fullname || string.Equals(guess, "The Information Man", StringComparison.CurrentCultureIgnoreCase))
             {
-                api.ProcessDialogue(guess, "Oh, I have you in my list! OK, I will give you a few tasks to check your skills.\n " + "Are you ready for the first task?");
+                api.ProcessDialogue(guess, "Oh, I have you in my list! OK, I will give you few tasks to check your skills.\n " + "Are you ready for the first task?");
                 api.SetHints("Answer anything");
             }
             else
@@ -76,7 +76,7 @@ public class FirstDialogue : MonoBehaviour {
         {
             api.task(new Tasks.ProbabilityTask());
             player.UpdateTaskPanel();
-            api.ProcessDialogue(guess, "I see your happy face. That's cool! This one may require more time to succeed.\n" 
+            api.ProcessDialogue(guess, "I see your happy face. That's cool! Next one may require more time to succeed.\n" 
                 + api.task().taskDescription);
             api.SetHints("Use:\n \"Ctrl+T\" to see the task\n \"Ctrl+H\" to see helpful formulas");
         }

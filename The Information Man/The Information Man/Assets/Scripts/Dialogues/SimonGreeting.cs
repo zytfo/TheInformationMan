@@ -55,7 +55,7 @@ public class SimonGreeting : MonoBehaviour {
         }
         else if (api.dialogueStep == 4)
         {
-            api.ProcessDialogue("And yours?", "I'm Simon Barrel-Roll. Glad we know each others names, such a helpful information.");
+            api.ProcessDialogue("And yours?", "I'm Simon Barrel-Roll. Glad we know each others' names, such a helpful information.");
             api.SetHints("Answer anything");
         }
         else if (api.dialogueStep == 5)

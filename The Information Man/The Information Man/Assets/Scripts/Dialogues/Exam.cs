@@ -56,7 +56,7 @@ public class Exam : MonoBehaviour
         else if (api.dialogueStep == 3)
         {
             api.ProcessDialogue(guess, "OK, let's postpone our important talk for a short time. We'll have enough time after\n the exam. "
-                +"Let's unite and together solve these annoying tasks. Hope I'll bring tasks to you correctly.\n Are you ready for the first one?");
+                +"Let's unite and together solve these annoying tasks. Hope I'll bring them to you correctly.\n Are you ready for the first one?");
             api.SetHints("Answer anything");
         }
         else if (api.dialogueStep == 4)
@@ -65,7 +65,7 @@ public class Exam : MonoBehaviour
             String word = "";
             switch (rnd.Next(0, 3))
             {
-                case 0: word = "I love Indormation Theory"; break;
+                case 0: word = "I love Information Theory"; break;
                 case 1: word = "Sheet of Paper is my friend"; break;
                 case 2: word = "this is a game of the year"; break;
             }
@@ -84,7 +84,7 @@ public class Exam : MonoBehaviour
             else
             {
                 api.AnotherAttempt();
-                api.ProcessDialogue(guess, "My paper disappointment to you. Wrong one! Try again!");
+                api.ProcessDialogue(guess, "My paper disappointments to you. Wrong one! Try again!");
             }
         }
         else if (api.dialogueStep == 6)
@@ -105,7 +105,7 @@ public class Exam : MonoBehaviour
             else
             {
                 api.AnotherAttempt();
-                api.ProcessDialogue(guess, "My paper disappointment to you. Wrong one! Try again!");
+                api.ProcessDialogue(guess, "My paper disappointments to you. Wrong one! Try again!");
             }
         }
         else if (api.dialogueStep == 8)
@@ -119,7 +119,7 @@ public class Exam : MonoBehaviour
             else
             {
                 api.AnotherAttempt();
-                api.ProcessDialogue(guess, "My paper disappointment to you. Wrong one! Try again!");
+                api.ProcessDialogue(guess, "My paper disappointments to you. Wrong one! Try again!");
             }
         }
         else if (api.dialogueStep == 9)
@@ -133,7 +133,7 @@ public class Exam : MonoBehaviour
             else
             {
                 api.AnotherAttempt();
-                api.ProcessDialogue(guess, "My paper disappointment to you. Wrong one! Try again!");
+                api.ProcessDialogue(guess, "My paper disappointments to you. Wrong one! Try again!");
             }
         }
         else if (api.dialogueStep == 10)
@@ -147,7 +147,7 @@ public class Exam : MonoBehaviour
             else
             {
                 api.AnotherAttempt();
-                api.ProcessDialogue(guess, "My paper disappointment to you. Wrong one! Try again!");
+                api.ProcessDialogue(guess, "My paper disappointments to you. Wrong one! Try again!");
             }
         }
         else if (api.dialogueStep == 11)
@@ -160,7 +160,7 @@ public class Exam : MonoBehaviour
             else
             {
                 api.AnotherAttempt();
-                api.ProcessDialogue(guess, "My paper disappointment to you. Wrong one! Try again!");
+                api.ProcessDialogue(guess, "My paper disappointments to you. Wrong one! Try again!");
             }
         }
         else if (api.dialogueStep == 12)
@@ -181,7 +181,7 @@ public class Exam : MonoBehaviour
             else
             {
                 api.AnotherAttempt();
-                api.ProcessDialogue(guess, "My paper disappointment to you. Wrong one! Try again!");
+                api.ProcessDialogue(guess, "My paper disappointments to you. Wrong one! Try again!");
             }
         }
         else if (api.dialogueStep == 14 && guess != "")

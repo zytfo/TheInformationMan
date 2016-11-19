@@ -15,8 +15,8 @@ public class PreExamDialogue : MonoBehaviour
     {
         if (other.name == "player" && !player.hadDialogue[4])
         {
-            api.DialogueStart(4, "Pr. Silitti", "Good day, " + player.fullname + ".. Why you are so late? Did you forget that you have a final exam today?", rightPicture);
-            api.SetHints("Apologize to the proffessor!\nSay something containing \"sorry\"");
+            api.DialogueStart(4, "Pr. Silitti", "Good day, " + player.fullname + ".. Why are you so late? Did you forget that you have a final exam today?", rightPicture);
+            api.SetHints("Apologize to the professor!\nSay something containing \"sorry\"");
         }
     }
 
