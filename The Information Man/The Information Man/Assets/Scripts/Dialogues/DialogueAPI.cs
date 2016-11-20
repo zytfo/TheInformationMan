@@ -14,13 +14,17 @@ public class DialogueAPI : MonoBehaviour {
     public Text counter;
     public Text answers;
     public GameObject answersObj;
+    public GameObject timePanel;
+    private Text time;
 
     private int maxLines = 8;
 
     private string interlocutorName { get; set; }
     public int dialogueNumber { get; set; }
     public int dialogueStep { get; set; }
-    int leftTry;
+    private int leftTry;
+    private int minutes;
+    private int seconds;
 
     void Start()
     {
@@ -28,6 +32,7 @@ public class DialogueAPI : MonoBehaviour {
         interlocutorName = "";
         dialogueNumber = -1;
         dialogueStep = -1;
+        time = timePanel.GetComponentInChildren<Text>();
         if (SceneManager.GetActiveScene().name == "stage1" || SceneManager.GetActiveScene().name == "stage3")
         {
             leftTry = 3;
@@ -133,7 +138,8 @@ public class DialogueAPI : MonoBehaviour {
             EraseLine();
         textPanel.text += "\n" + player.fullname + ": " + playerStr;
         inputField.text = "";
-        inputField.ActivateInputField();
+        if (player.curHealth > 0) inputField.ActivateInputField();
+        else inputField.readOnly = true;
     }
 
     public bool IsGreeting(string input)
@@ -253,5 +259,43 @@ public class DialogueAPI : MonoBehaviour {
     public void SetHints(string hints)
     {
         answers.text = hints;
+    }
+
+    public void UpdateTime()
+    {
+        string mins = minutes.ToString();
+        string secs = seconds.ToString();
+        if (minutes.ToString().Length == 1) mins = "0" + mins;
+        if (seconds.ToString().Length == 1) secs = "0" + secs;
+        time.text = mins + ":" + secs;
+    }
+
+    public void StartTimer(int minutes, int seconds)
+    {
+        this.minutes = minutes;
+        this.seconds = seconds;
+        StartCoroutine(Timer());
+    }
+
+    public void DecreaseTime()
+    {
+        if (minutes == 0 && seconds == 0) return;
+        if (seconds == 0)
+        {
+            minutes--;
+            seconds = 59;
+        }
+        else seconds--;
+        UpdateTime();
+    }
+
+    public IEnumerator Timer()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(1.0f);
+            DecreaseTime();
+            if (minutes == 0 && seconds == 0) player.curHealth = 0;
+        }
     }
 }
