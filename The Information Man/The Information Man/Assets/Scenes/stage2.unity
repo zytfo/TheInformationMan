@@ -1348,7 +1348,7 @@ MonoBehaviour:
   - {fileID: 69609670}
   - {fileID: 326012987}
   - {fileID: 66963954}
-  rightPicture: {fileID: 0}
+  rightPicture: {fileID: 21300000, guid: 373dde07915f99447b674ecaea6a6d27, type: 3}
 --- !u!1 &1800612707
 GameObject:
   m_ObjectHideFlags: 0

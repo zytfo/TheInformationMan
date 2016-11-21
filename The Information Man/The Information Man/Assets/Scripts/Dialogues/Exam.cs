@@ -21,7 +21,7 @@ public class Exam : MonoBehaviour
         inputField = api.inputField;
 
         api.timePanel.SetActive(true);
-        api.StartTimer(0, 20);
+        api.StartTimer(30, 0);
 
         player.canMove = false;
     }

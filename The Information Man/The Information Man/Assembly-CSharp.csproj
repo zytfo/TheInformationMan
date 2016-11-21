@@ -60,6 +60,7 @@
      <Compile Include="Assets\Scripts\GameOver.cs" />
      <Compile Include="Assets\Scripts\GroundCheck.cs" />
      <Compile Include="Assets\Scripts\MainMenuAndSettings\AdvancedSettings.cs" />
+     <Compile Include="Assets\Scripts\MainMenuAndSettings\AfterEndCredits.cs" />
      <Compile Include="Assets\Scripts\MainMenuAndSettings\Credits.cs" />
      <Compile Include="Assets\Scripts\MainMenuAndSettings\GameConfig.cs" />
      <Compile Include="Assets\Scripts\MainMenuAndSettings\MainMenu.cs" />
