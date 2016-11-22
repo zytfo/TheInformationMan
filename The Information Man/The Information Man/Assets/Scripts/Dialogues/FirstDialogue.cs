@@ -32,7 +32,7 @@ public class FirstDialogue : MonoBehaviour {
         if (guess == "") inputField.ActivateInputField();
         else if (api.dialogueStep == 0 && api.IsGreeting(guess))
         {
-            api.ProcessDialogue(guess, "You've came to the interview?");
+            api.ProcessDialogue(guess, "You've come to the interview?");
             api.SetHints("Answer positively");
         }
         else if (api.dialogueStep == 1 && (guess == "yes" || guess == "Yes"))

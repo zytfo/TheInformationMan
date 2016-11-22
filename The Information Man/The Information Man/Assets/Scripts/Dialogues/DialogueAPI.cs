@@ -59,6 +59,7 @@ public class DialogueAPI : MonoBehaviour {
     public void DialogueStart(int dialogueNumber, string interlocutorName, string greeting, Sprite rightPicture)
     {
         attemptsLeft.SetActive(true);
+        if (leftTry < 1) hint.interactable = false;
         counter.text = leftTry.ToString();
         this.interlocutorName = interlocutorName;
         this.rightPicture.sprite = rightPicture;
@@ -247,8 +248,9 @@ public class DialogueAPI : MonoBehaviour {
         else
         {
             leftTry--;
-            if (leftTry == 0)
+            if (leftTry <= 0)
             {
+                leftTry = 0;
                 hint.interactable = false;
             }
             counter.text = leftTry.ToString();
