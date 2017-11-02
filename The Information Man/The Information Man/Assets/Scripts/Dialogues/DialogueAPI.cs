@@ -28,7 +28,7 @@ public class DialogueAPI : MonoBehaviour {
 
     void Start()
     {
-        fontSizeGenerate();
+        //fontSizeGenerate();
         interlocutorName = "";
         dialogueNumber = -1;
         dialogueStep = -1;

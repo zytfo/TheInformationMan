@@ -6,16 +6,28 @@ public class FirstDialogue : MonoBehaviour {
     private Player player;
     private Text textPanel;
     private InputField inputField;
-    public Sprite rightPicture;
     public BoxCollider2D box;
 
     private DialogueAPI api;
+    private string professorName;
+    private Sprite professorImage;
 
     void OnTriggerEnter2D(Collider2D other)
 	{
 		if (other.name == "player" && !player.hadDialogue[0])
 		{
-            api.DialogueStart(0, "Pr. Silitti", "Good Morning!", rightPicture);
+            switch (PlayerPrefs.GetInt("professor"))
+            {
+                case 0:
+                    professorName = "Pr. Silitti";
+                    professorImage = Resources.Load<Sprite>("Professors/silitti_face");
+                break;
+                case 1:
+                    professorName = "Pr. Sanya";
+                    professorImage = Resources.Load<Sprite>("Preview/kos");
+                    break;
+            }
+            api.DialogueStart(0, professorName, "Good Morning!", professorImage);
             api.SetHints("Greet the professor!\n1. Hi\n2. Hello");
         }
 	}

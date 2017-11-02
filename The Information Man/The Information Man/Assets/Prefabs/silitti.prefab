@@ -9,6 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 493154}
   - 212: {fileID: 21208680}
+  - 114: {fileID: 11479096}
   m_Layer: 0
   m_Name: silitti
   m_TagString: Untagged
@@ -28,6 +29,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &11479096
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 165660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 643ced1767a2fee429ba8c09a3b8f3de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &21208680
 SpriteRenderer:
   m_ObjectHideFlags: 1

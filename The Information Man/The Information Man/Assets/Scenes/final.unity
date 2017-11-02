@@ -1626,6 +1626,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rightPicture: {fileID: 21300000, guid: 7f1cad18b1c9b604abcd501e0daef55a, type: 3}
   box: {fileID: 869055359}
+--- !u!1 &1544208894 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 165660, guid: 41336d891340e1b49814e1538fe1ba0e, type: 2}
+  m_PrefabInternal: {fileID: 270729394}
+--- !u!114 &1544208895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1544208894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 643ced1767a2fee429ba8c09a3b8f3de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1606972149
 GameObject:
   m_ObjectHideFlags: 0
