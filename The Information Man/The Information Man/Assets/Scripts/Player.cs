@@ -56,7 +56,7 @@ public class Player : MonoBehaviour
         canMove = true;
         isDead = false;
         fullname = PlayerPrefs.GetString("name");
-        rightPicture.sprite = Resources.Load<Sprite>("elbrus") as Sprite;
+        rightPicture.sprite = Resources.Load<Sprite>("logo") as Sprite;
         dialoguePanel = GameObject.Find("DialoguePanel");
         textPanel = GameObject.Find("TextPanel").GetComponent<Text>();
         healthPanel = GameObject.Find("Health").GetComponent<Text>();

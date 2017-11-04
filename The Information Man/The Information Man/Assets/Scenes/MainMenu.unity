@@ -3471,6 +3471,84 @@ Light:
   m_ShadowRadius: 0
   m_ShadowAngle: 0
   m_AreaSize: {x: 1, y: 1}
+--- !u!1 &722406204
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 722406205}
+  - 23: {fileID: 722406207}
+  - 102: {fileID: 722406206}
+  m_Layer: 0
+  m_Name: Anniversary
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &722406205
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 722406204}
+  m_LocalRotation: {x: 0, y: 0, z: 0.11086187, w: 0.99383587}
+  m_LocalPosition: {x: 4.47, y: 2.71, z: 2.67}
+  m_LocalScale: {x: 0.038749993, y: 0.034749992, z: 0.02}
+  m_Children: []
+  m_Father: {fileID: 1847114907}
+  m_RootOrder: 6
+--- !u!102 &722406206
+TextMesh:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 722406204}
+  m_Text: 'Anniversary
+
+    Edition'
+  m_OffsetZ: 0
+  m_CharacterSize: 1
+  m_LineSpacing: 1
+  m_Anchor: 0
+  m_Alignment: 1
+  m_TabSize: 4
+  m_FontSize: 150
+  m_FontStyle: 1
+  m_RichText: 1
+  m_Font: {fileID: 12800000, guid: f9eed32ec40f52745a3d3e3f770f5881, type: 3}
+  m_Color:
+    serializedVersion: 2
+    rgba: 4279894271
+--- !u!23 &722406207
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 722406204}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_Materials:
+  - {fileID: 2100000, guid: f9eed32ec40f52745a3d3e3f770f5881, type: 3}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 1
+  m_ReflectionProbeUsage: 1
+  m_ProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
 --- !u!1 &740828317
 GameObject:
   m_ObjectHideFlags: 0
@@ -13036,6 +13114,7 @@ Transform:
   - {fileID: 467106824}
   - {fileID: 1604805074}
   - {fileID: 2028130639}
+  - {fileID: 722406205}
   m_Father: {fileID: 817428633}
   m_RootOrder: 3
 --- !u!114 &1847114908

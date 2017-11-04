@@ -21,10 +21,18 @@ public class FirstDialogue : MonoBehaviour {
                 case 0:
                     professorName = "Pr. Silitti";
                     professorImage = Resources.Load<Sprite>("Professors/silitti_face");
-                break;
+                    break;
                 case 1:
+                    professorName = "Pr. Shilov";
+                    professorImage = Resources.Load<Sprite>("Professors/shilov_face");
+                    break;
+                case 2:
+                    professorName = "Pr. Zouev";
+                    professorImage = Resources.Load<Sprite>("Professors/zouev_face");
+                    break;
+                case 3:
                     professorName = "Pr. Sanya";
-                    professorImage = Resources.Load<Sprite>("Preview/kos");
+                    professorImage = Resources.Load<Sprite>("Professors/shilov_face");
                     break;
             }
             api.DialogueStart(0, professorName, "Good Morning!", professorImage);
@@ -44,7 +52,7 @@ public class FirstDialogue : MonoBehaviour {
         if (guess == "") inputField.ActivateInputField();
         else if (api.dialogueStep == 0 && api.IsGreeting(guess))
         {
-            api.ProcessDialogue(guess, "You've come to the interview?");
+            api.ProcessDialogue(guess, "You've come for an interview?");
             api.SetHints("Answer positively");
         }
         else if (api.dialogueStep == 1 && (guess == "yes" || guess == "Yes"))
@@ -56,7 +64,7 @@ public class FirstDialogue : MonoBehaviour {
         {
             if (guess == player.fullname || string.Equals(guess, "The Information Man", StringComparison.CurrentCultureIgnoreCase))
             {
-                api.ProcessDialogue(guess, "Oh, I have you in my list! OK, I will give you few tasks to check your skills.\n " + "Are you ready for the first task?");
+                api.ProcessDialogue(guess, "Oh, I have you in my list! OK, I will give you few tasks to check your skills.\n " + "Are you ready for the first one?");
                 api.SetHints("Answer anything");
             }
             else

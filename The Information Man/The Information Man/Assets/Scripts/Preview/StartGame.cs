@@ -35,7 +35,7 @@ public class StartGame : MonoBehaviour {
         PlayerPrefs.SetInt("health", 100);
         PlayerPrefs.SetInt("attempts", 3);
         System.Random rnd = new System.Random();
-        PlayerPrefs.SetInt("professor", rnd.Next(0, 2));
+        PlayerPrefs.SetInt("professor", rnd.Next(0, 4));
         PlayerPrefs.Save();
         fadeScr.EndScene(2);
     }
