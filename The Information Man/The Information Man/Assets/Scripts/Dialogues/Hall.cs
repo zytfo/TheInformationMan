@@ -118,7 +118,7 @@ public class Hall : MonoBehaviour
         else if (api.dialogueStep == 0)
         {
             api.ProcessDialogue("Wait, what?", "Yes. Dormitory manager is away today. She has left for you 3 available rooms. "
-            + "There is\n one elite room and two also good but not elite. You should pick one room. Then I will open one not elite\n room "
+            + "There is\n one elite room and two good but not elite. You should pick one room. Then I will open one not elite\n room "
             + "and your task is to pick the room again. You can either change your first choice or pick the same\n room. It will be your room then. "
             + "Are you ready?");
             api.SetHints("Answer positively");

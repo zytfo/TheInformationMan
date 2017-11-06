@@ -139,7 +139,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FadeImg: {fileID: 11442712}
-  fadeSpeed: 5
+  fadeSpeed: 4
   sceneStarting: 1
 --- !u!222 &22256738
 CanvasRenderer:

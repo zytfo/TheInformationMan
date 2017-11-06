@@ -17,45 +17,48 @@ public class PauseMenu : MonoBehaviour {
         player = FindObjectOfType<Player>();
         inputField = player.dialoguePanel.GetComponentInChildren<InputField>();
         player.inputText = inputField.text;
+        paused = false;
     }
 
 	public void Update()
 	{
-		if (Input.GetButtonDown ("Pause")) 
+		if (Input.GetKeyDown (KeyCode.Escape)) 
 		{
+            paused = !paused;
             bool isFocused = inputField.isFocused;
-            if (!paused)
+
+            if (paused)
             {
+                PauseUI.SetActive(true);
+                Time.timeScale = 0;
+                Cursor.visible = true;
+                player.taskPanel.SetActive(false);
+
                 player.inputText = inputField.text;
                 inputField.enabled = false;
             }
-            else
+
+            if (!paused)
             {
+                PauseUI.SetActive(false);
+                Cursor.visible = false;
+                Time.timeScale = 1;
+
                 inputField.enabled = true;
                 inputField.text = player.inputText;
                 if (isFocused) inputField.ActivateInputField();
             }
-            paused = !paused;
-        }
-
-		if (paused) 
-		{
-			PauseUI.SetActive (true);
-			Time.timeScale = 0;
-            Cursor.visible = true;
-            player.taskPanel.SetActive(false);
-        }
-
-		if (!paused) 
-		{
-			PauseUI.SetActive (false);
-			Time.timeScale = 1;
         }
 	}
 
 	public void Resume() {
 		paused = false;
-	}
+        PauseUI.SetActive(false);
+        Cursor.visible = false;
+        Time.timeScale = 1;
+        inputField.enabled = true;
+        inputField.text = player.inputText;
+    }
 
 	public void Restart() {
         SceneManager.LoadScene("MainMenu");
