@@ -212,6 +212,17 @@ public class Player : MonoBehaviour
         }
     }
 
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.transform.GetComponent<Rigidbody2D>() == GameObject.Find("dog").GetComponent<Rigidbody2D>())
+        {
+            curHealth -= 5;
+            collision.transform.position = new Vector3(transform.position.x + 0.25f,
+                -0.8f, transform.position.z);
+            Instantiate(GameObject.Find("dog"), new Vector3(-5f, -0.85f, 0f), new Quaternion());
+        }
+    }
+
     void Die()
     {
         StartCoroutine(GameOver());
@@ -220,9 +231,11 @@ public class Player : MonoBehaviour
     public void UpdateTaskPanel()
     {
         if (task == null)
-            taskPanel.GetComponentInChildren<Text>().GetComponent<Text>().text = "No tasks at the moment, you, lucky man!";
-        else
+            taskPanel.GetComponentInChildren<Text>().GetComponent<Text>().text = "No tasks at the moment. You are a lucky man!";
+        else if (curHealth <= 25)
             taskPanel.GetComponentInChildren<Text>().text = task.taskDescription + "\nRight answer is: " + task.writeAnswer;
+        else
+            taskPanel.GetComponentInChildren<Text>().text = task.taskDescription;
     }
 
     void stopPlayer()
@@ -238,6 +251,8 @@ public class Player : MonoBehaviour
     public void decreaseHealth(int change)
     {
         curHealth = Mathf.Max(0, curHealth - change);
+        if (curHealth <= 25)
+            UpdateTaskPanel();
     }
 
     public IEnumerator Dying()

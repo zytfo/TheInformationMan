@@ -121,7 +121,7 @@ public class DialogueAPI : MonoBehaviour {
 
     public void AnotherAttempt()
     {
-        player.decreaseHealth(20);
+        player.decreaseHealth(10);
         if (textPanel.text.EndsWith("Try again!"))
         {
             textPanel.text = textPanel.text.Remove(textPanel.text.LastIndexOf('\n'));
@@ -133,7 +133,7 @@ public class DialogueAPI : MonoBehaviour {
     public void WrongInput(string playerStr)
     {
         System.Random rnd = new System.Random();
-        player.decreaseHealth(rnd.Next(1, 21));
+        player.decreaseHealth(rnd.Next(1, 11));
         string[] lines = textPanel.text.Split('\n');
         if (lines[lines.Length - 1].Contains(player.fullname + ":"))
             EraseLine();
