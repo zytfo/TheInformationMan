@@ -18,9 +18,12 @@ public class SleepScript : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        PlayerPrefs.SetInt("health", other.GetComponent<Player>().curHealth);
-        other.GetComponent<Player>().panelText = other.GetComponent<Player>().textPanel.GetComponent<Text>().text;
-        player.GetComponent<Player>().SetMove(false);
-        fadeScr.EndScene(SceneNumber);
+        if (other.name == "player")
+        {
+            PlayerPrefs.SetInt("health", other.GetComponent<Player>().curHealth);
+            other.GetComponent<Player>().panelText = other.GetComponent<Player>().textPanel.GetComponent<Text>().text;
+            player.GetComponent<Player>().SetMove(false);
+            fadeScr.EndScene(SceneNumber);
+        }
     }
 }

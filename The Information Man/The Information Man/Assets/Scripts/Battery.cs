@@ -18,11 +18,6 @@ public class Battery : MonoBehaviour {
         {
             if (inc && player.curHealth < 100) player.increaseHealth(1);
             else { inc = false; player.decreaseHealth(1); }
-            }
-        if (Input.GetKey("left") || Input.GetKey("right"))
-        {
-            player.SetMove(true);
-            activated = false;
         }
     }
 
@@ -30,9 +25,28 @@ public class Battery : MonoBehaviour {
     {
         if (other.name == "player")
         {
-            player.SetMove(false);
             inc = true;
             activated = true;
+        }
+    }
+
+    void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.name == "player")
+        {
+            if (Input.GetKey("h"))
+            {
+                if (inc && player.curHealth < 100) player.increaseHealth(1);
+                else { inc = false; player.decreaseHealth(1); }
+            }
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.name == "player")
+        {
+            activated = false;
         }
     }
 }

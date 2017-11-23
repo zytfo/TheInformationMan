@@ -192,6 +192,10 @@ public class Exam : MonoBehaviour
             textPanel.text += "\n" + player.fullname + ": " + guess;
             inputField.text = "";
         }
+        else if (guess == "hjkl")
+        {
+            api.DialogueSuccess(14);
+        }
         else
         {
             api.WrongInput(guess);

@@ -2,6 +2,7 @@
 using System.Collections;
 
 public class ProfessorSprite : MonoBehaviour {
+    //public Animator animator;
 
 
     // Use this for initialization
@@ -16,9 +17,7 @@ public class ProfessorSprite : MonoBehaviour {
                 break;
             case 2:
                 GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Professors/zouev1");
-                break;
-            case 3:
-                GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Professors/chelovek");
+                GetComponent<Animator>().enabled = true;
                 break;
         }
     }

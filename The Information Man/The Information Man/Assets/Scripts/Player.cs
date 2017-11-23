@@ -91,6 +91,10 @@ public class Player : MonoBehaviour
                 StartCoroutine(Dying());
                 break;
         }
+        if (SceneManager.GetActiveScene().name != "MainMenu")
+        {
+            PlayerPrefs.SetInt("loading", 1);
+        }
     }
 
 	public void SetMove(bool canMove) {
@@ -212,14 +216,11 @@ public class Player : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    void OnTriggerEnter2D(Collider2D other)
     {
-        if (collision.transform.GetComponent<Rigidbody2D>() == GameObject.Find("dog").GetComponent<Rigidbody2D>())
+        if (other.gameObject.name == "dog")
         {
             curHealth -= 5;
-            collision.transform.position = new Vector3(transform.position.x + 0.25f,
-                -0.8f, transform.position.z);
-            Instantiate(GameObject.Find("dog"), new Vector3(-5f, -0.85f, 0f), new Quaternion());
         }
     }
 
@@ -232,7 +233,7 @@ public class Player : MonoBehaviour
     {
         if (task == null)
             taskPanel.GetComponentInChildren<Text>().GetComponent<Text>().text = "No tasks at the moment. You are a lucky man!";
-        else if (curHealth <= 25)
+        else if (curHealth <= PlayerPrefs.GetInt("survivalRate"))
             taskPanel.GetComponentInChildren<Text>().text = task.taskDescription + "\nRight answer is: " + task.writeAnswer;
         else
             taskPanel.GetComponentInChildren<Text>().text = task.taskDescription;
@@ -251,7 +252,7 @@ public class Player : MonoBehaviour
     public void decreaseHealth(int change)
     {
         curHealth = Mathf.Max(0, curHealth - change);
-        if (curHealth <= 25)
+        if (curHealth <= PlayerPrefs.GetInt("survivalRate"))
             UpdateTaskPanel();
     }
 

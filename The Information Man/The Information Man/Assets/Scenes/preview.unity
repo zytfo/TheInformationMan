@@ -1766,6 +1766,45 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 170488804}
+--- !u!1 &175691832
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 175691834}
+  - 114: {fileID: 175691833}
+  m_Layer: 0
+  m_Name: Quit
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &175691833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 175691832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76d7259a91f02ee42a94cc238bf332e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &175691834
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 175691832}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.1418171, y: -1.5830454, z: -19.875}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
 --- !u!1 &188448070
 GameObject:
   m_ObjectHideFlags: 0
@@ -16397,12 +16436,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   image: {fileID: 188448072}
   counter: {fileID: 1104838612}
-  name:
-  - alb
-  - artur
-  - dolj
-  - ilya
-  - kos
   i: 0
 --- !u!114 &1489699344
 MonoBehaviour:
@@ -16538,6 +16571,11 @@ MonoBehaviour:
   age: {fileID: 811083010}
   yes: {fileID: 1828525251}
   no: {fileID: 927360390}
+  scienceSkill: {fileID: 878565624}
+  trapsSkill: {fileID: 644192464}
+  pilotingSkill: {fileID: 316188334}
+  lungsSkill: {fileID: 888545951}
+  survSkill: {fileID: 386899510}
 --- !u!114 &1489699351
 MonoBehaviour:
   m_ObjectHideFlags: 0

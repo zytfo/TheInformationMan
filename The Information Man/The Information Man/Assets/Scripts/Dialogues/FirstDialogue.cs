@@ -30,10 +30,6 @@ public class FirstDialogue : MonoBehaviour {
                     professorName = "Pr. Zouev";
                     professorImage = Resources.Load<Sprite>("Professors/zouev_face");
                     break;
-                case 3:
-                    professorName = "Pr. Sanya";
-                    professorImage = Resources.Load<Sprite>("Professors/shilov_face");
-                    break;
             }
             api.DialogueStart(0, professorName, "Good Morning!", professorImage);
             api.SetHints("Greet the professor!\n1. Hi\n2. Hello");
@@ -74,7 +70,18 @@ public class FirstDialogue : MonoBehaviour {
         {
             api.task(new Tasks.SumTask());
             player.UpdateTaskPanel();
-            api.ProcessDialogue(guess, "Your answer doesn't matter actually. Never mind. " + api.task().taskDescription);
+            switch (PlayerPrefs.GetInt("professor"))
+            {
+                case 0:
+                    api.ProcessDialogue(guess, "Your answer doesn't matter, actually. Never mind. " + api.task().taskDescription);
+                    break;
+                case 1:
+                    api.ProcessDialogue(guess, "Basically, your answer doesn't matter. Nevertheless, " + api.task().taskDescription);
+                    break;
+                case 2:
+                    api.ProcessDialogue(guess, "Your compiler doesn't matter actually. Well. " + api.task().taskDescription);
+                    break;
+            }
             api.SetHints("Use:\n \"Ctrl+T\" to see the task\n \"Ctrl+H\" to see helpful formulas");
         }
         else if (api.dialogueStep == 4)
@@ -106,8 +113,21 @@ public class FirstDialogue : MonoBehaviour {
             {
                 api.task(null);
                 player.UpdateTaskPanel();
-                api.ProcessDialogue(guess, "Basically, you're correct! And the last one: why do you want to study in Innopolis University?");
-                api.SetHints("Write something in\n>20 symbols and at least 5 words");
+                switch (PlayerPrefs.GetInt("professor"))
+                {
+                    case 0:
+                        api.ProcessDialogue(guess, "Basically, you're correct! And the last one: why do you want to study in Innopolis University?");
+                        api.SetHints("Write something in\n>20 symbols and at least 5 words");
+                        break;
+                    case 1:
+                        api.ProcessDialogue(guess, "Well done! And the last one: what are the roots of the equation ax^2+bx+c?");
+                        api.SetHints("Think carefully");
+                        break;
+                    case 2:
+                        api.ProcessDialogue(guess, "You're right.. ahem! And the last one: name three best programming languages.");
+                        api.SetHints("You your knowledge of Compilers course. Oh, wait...");
+                        break;
+                }
             }
             else
             {
@@ -115,9 +135,21 @@ public class FirstDialogue : MonoBehaviour {
                 api.ProcessDialogue(guess, "You're wrong! Try again!");
             }
         }
-        else if (api.dialogueStep == 7 && guess.Length > 20 && guess.Split().Length > 4)
+        else if (api.dialogueStep == 7 && PlayerPrefs.GetInt("professor") == 0 && guess.Length > 20 && guess.Split().Length > 4)
         {
             api.DialogueSuccess(guess, "Very interesting. I think it's enough for you. Welcome to this wonderful place!\n " 
+                + "Dormitory manager is waiting for you. You are free to go.");
+        }
+        else if (api.dialogueStep == 7 && PlayerPrefs.GetInt("professor") == 1 && (guess.ToLower().StartsWith("x ") || guess.ToLower().StartsWith("x")
+            || guess.ToLower().Contains(" x ") || (guess.ToLower().Contains("x1") && guess.ToLower().Contains("x2"))))
+        {
+            api.DialogueSuccess(guess, "Nice one! I think it's enough for you. Welcome to this wonderful place!\n "
+                + "Dormitory manager is waiting for you. You are free to go.");
+        }
+        else if (api.dialogueStep == 7 && PlayerPrefs.GetInt("professor") == 2 && guess.Split().Length == 3 &&
+            (guess.ToLower().Contains("go") || guess.ToLower().Contains("scala") || guess.ToLower().Contains("c++")))
+        {
+            api.DialogueSuccess(guess, "Good opinion. I think it's enough for you. Welcome to this wonderful place!\n "
                 + "Dormitory manager is waiting for you. You are free to go.");
         }
         else if (api.dialogueStep == 8 && guess != "")
@@ -125,7 +157,7 @@ public class FirstDialogue : MonoBehaviour {
             textPanel.text += "\n" + player.fullname + ": " + guess;
             inputField.text = "";
         }
-        else if (guess == "skip")
+        else if (guess == "hjkl")
         {
             api.DialogueSuccess(8);
         }
@@ -139,7 +171,7 @@ public class FirstDialogue : MonoBehaviour {
     {
         if (api.dialogueStep == 8 && (Input.GetKey("left") || Input.GetKey("right")))
         {
-            api.rightPicture.sprite = Resources.Load<Sprite>("elbrus") as Sprite;
+            api.rightPicture.sprite = Resources.Load<Sprite>("logo") as Sprite;
             inputField.readOnly = true;
             inputField.text = "";
             inputField.DeactivateInputField();

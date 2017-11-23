@@ -8,11 +8,11 @@ public class SetAvatar : MonoBehaviour {
     public Image avatarRight;
     string correct;
     public int index;
-    string[] name = new string[] { "alb", "artur", "dolj", "ilya", "kos" };
+    private string[] name = new string[] { "alb", "artur", "dolj", "ilya", "kos", "port", "tim", "girl", "misha", "gag" };
 
 
-	// Update is called once per frame
-	void Start () {
+    // Update is called once per frame
+    void Start () {
         index = PlayerPrefs.GetInt("imageNumber");
         correct = name[index-1];
         avatarLeft.sprite = Resources.Load<Sprite>("Preview/" + correct) as Sprite;    

@@ -101,7 +101,7 @@ public class SimonGreeting : MonoBehaviour {
             textPanel.text += "\n" + player.fullname + ": " + guess;
             inputField.text = "";
         }
-        else if (guess == "skip")
+        else if (guess == "hjkl")
         {
             api.DialogueSuccess(10);
         }
@@ -115,7 +115,7 @@ public class SimonGreeting : MonoBehaviour {
     {
         if (api.dialogueStep == 10 && (Input.GetKey("left") || Input.GetKey("right")))
         {
-            api.rightPicture.sprite = Resources.Load<Sprite>("elbrus") as Sprite;
+            api.rightPicture.sprite = Resources.Load<Sprite>("logo") as Sprite;
             inputField.readOnly = true;
             inputField.text = "";
             inputField.DeactivateInputField();

@@ -10,7 +10,7 @@ public class Dog : MonoBehaviour {
 
     // Use this for initialization
     void Start() {
-
+        
     }
 
     // Update is called once per frame
@@ -22,16 +22,17 @@ public class Dog : MonoBehaviour {
         GetComponent<Rigidbody2D>().velocity = movement;
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    void OnTriggerEnter2D(Collider2D other)
     {
-        if (collision.gameObject.name == "ExitFromStageRight" || collision.gameObject.name == "ExitFromStageLeft")
+        if (other.gameObject.name == "ExitFromStageRight")
         {
-            collision.rigidbody.position = new Vector3(transform.position.x + 0.5f,
-                -0.8f, transform.position.z);
+            StartCoroutine(WaitCoroutine());
         }
-        /*if (collision.transform.GetComponent<Rigidbody2D>() == GameObject.Find("player").GetComponent<Rigidbody2D>())
-        {
-            Instantiate(this.GetComponent<Object>(), new Vector3(-5f, -0.85f, 0f), new Quaternion());
-        }*/
+    }
+
+    IEnumerator WaitCoroutine()
+    {
+        yield return new WaitForSeconds(3.0f);
+        GetComponent<Rigidbody2D>().transform.position = new Vector3(-7f, -0.8f, 0f);
     }
 }

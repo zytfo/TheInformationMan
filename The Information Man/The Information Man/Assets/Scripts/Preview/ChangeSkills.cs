@@ -14,7 +14,7 @@ public class ChangeSkills : MonoBehaviour
         //counter.text = age.ToString();
         for (int i = 0; i < 34; i++)
         {
-            counter[i].text = Random.Range(1, 50).ToString();
+            counter[i].text = Random.Range(1, 51).ToString();
         }
     }
 

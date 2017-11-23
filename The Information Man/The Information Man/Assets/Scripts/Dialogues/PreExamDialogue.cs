@@ -10,12 +10,29 @@ public class PreExamDialogue : MonoBehaviour
     public BoxCollider2D box;
 
     private DialogueAPI api;
+    private string professorName;
+    private Sprite professorImage;
 
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.name == "player" && !player.hadDialogue[4])
         {
-            api.DialogueStart(4, "Pr. Silitti", "Good day, " + player.fullname + ".. Why are you so late? Did you forget that you have a final exam today?", rightPicture);
+            switch (PlayerPrefs.GetInt("professor"))
+            {
+                case 0:
+                    professorName = "Pr. Silitti";
+                    professorImage = Resources.Load<Sprite>("Professors/silitti_face");
+                    break;
+                case 1:
+                    professorName = "Pr. Shilov";
+                    professorImage = Resources.Load<Sprite>("Professors/shilov_face");
+                    break;
+                case 2:
+                    professorName = "Pr. Zouev";
+                    professorImage = Resources.Load<Sprite>("Professors/zouev_face");
+                    break;
+            }
+            api.DialogueStart(4, professorName, "Good day, " + player.fullname + ".. Why are you so late? Did you forget that you have a final exam today?", professorImage);
             api.SetHints("Apologize to the professor!\nSay something containing \"sorry\"");
         }
     }
@@ -42,7 +59,7 @@ public class PreExamDialogue : MonoBehaviour
             textPanel.text += "\n" + player.fullname + ": " + guess;
             inputField.text = "";
         }
-        else if (guess == "skip")
+        else if (guess == "hjkl")
         {
             api.DialogueSuccess(1);
         }
@@ -56,7 +73,7 @@ public class PreExamDialogue : MonoBehaviour
     {
         if (api.dialogueStep == 1 && (Input.GetKey("left") || Input.GetKey("right")))
         {
-            api.rightPicture.sprite = Resources.Load<Sprite>("elbrus") as Sprite;
+            api.rightPicture.sprite = Resources.Load<Sprite>("logo") as Sprite;
             inputField.readOnly = true;
             inputField.text = "";
             inputField.DeactivateInputField();

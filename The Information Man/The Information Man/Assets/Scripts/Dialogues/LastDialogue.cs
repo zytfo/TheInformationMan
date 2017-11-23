@@ -62,7 +62,7 @@ public class LastDialogue : MonoBehaviour
             textPanel.text += "\n" + player.fullname + ": " + guess;
             inputField.text = "";
         }
-        else if (guess == "skip")
+        else if (guess == "hjkl")
         {
             api.DialogueSuccess(4);
         }
@@ -76,7 +76,7 @@ public class LastDialogue : MonoBehaviour
     {
         if (api.dialogueStep == 4 && (Input.GetKey("left") || Input.GetKey("right")))
         {
-            api.rightPicture.sprite = Resources.Load<Sprite>("elbrus") as Sprite;
+            api.rightPicture.sprite = Resources.Load<Sprite>("logo") as Sprite;
             inputField.readOnly = true;
             inputField.text = "";
             inputField.DeactivateInputField();

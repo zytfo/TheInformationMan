@@ -10,6 +10,12 @@ public class StartGame : MonoBehaviour {
     public Text age;
     public Button yes;
     public Button no;
+    public Text scienceSkill;
+    public Text trapsSkill;
+    public Text pilotingSkill;
+    public Text lungsSkill;
+    public Text survSkill;
+
     ScreenFader fadeScr;
     void Awake()
     {
@@ -35,7 +41,37 @@ public class StartGame : MonoBehaviour {
         PlayerPrefs.SetInt("health", 100);
         PlayerPrefs.SetInt("attempts", 3);
         System.Random rnd = new System.Random();
-        PlayerPrefs.SetInt("professor", rnd.Next(0, 4));
+        int[] skills = new int[] {
+            System.Convert.ToInt32(scienceSkill.text),
+            System.Convert.ToInt32(trapsSkill.text),
+            System.Convert.ToInt32(pilotingSkill.text),
+            System.Convert.ToInt32(lungsSkill.text)
+        };
+        int sum = skills[0] + skills[1] + skills[2] + skills[3];
+        Debug.Log(sum);
+        if (skills[3] < 15)
+        {
+            PlayerPrefs.SetInt("professor", 2);
+        } else if (skills[2] < 15)
+        {
+            PlayerPrefs.SetInt("professor", 1);
+        }
+        else if (skills[1] < 15)
+        {
+            PlayerPrefs.SetInt("professor", 0);
+        } else if (sum < 60)
+        {
+            PlayerPrefs.SetInt("professor", 2);
+        }
+        else if (sum < 110)
+        {
+            PlayerPrefs.SetInt("professor", 1);
+        }
+        else
+        {
+            PlayerPrefs.SetInt("professor", 0);
+        }
+        PlayerPrefs.SetInt("survivalRate", System.Convert.ToInt32(survSkill.text));
         PlayerPrefs.Save();
         fadeScr.EndScene(2);
     }

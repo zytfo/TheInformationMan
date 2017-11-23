@@ -194,6 +194,10 @@ public class Hall : MonoBehaviour
                 api.ProcessDialogue(guess, "You're wrong! You thought that it's only a show? It's a life, my friend, life itself. Try again!");
             }
         }
+        else if (guess == "hjkl")
+        {
+            api.DialogueSuccess(11);
+        }
         else
         {
             api.WrongInput(guess);

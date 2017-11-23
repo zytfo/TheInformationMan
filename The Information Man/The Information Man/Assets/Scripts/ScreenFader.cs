@@ -89,4 +89,26 @@ public class ScreenFader : MonoBehaviour
         sceneStarting = false;
         StartCoroutine("EndSceneRoutine", SceneNumber);
     }
+
+    public void changeCamera(Camera oldcam, Camera newcam)
+    {
+        FadeImg.enabled = true;
+        Debug.Log("Haff");
+        do
+        {
+            // Start fading towards black.
+            FadeToBlack();
+
+            Debug.Log(FadeImg.color.a);
+
+            // If the screen is almost black...
+            if (FadeImg.color.a >= 0.95f)
+            {
+                // ... reload the level
+                oldcam.enabled = false;
+                newcam.enabled = true;
+            }
+        } while (true);
+        
+    }
 }
