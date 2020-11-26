@@ -51,7 +51,7 @@ public class FirstDialogue : MonoBehaviour {
             api.ProcessDialogue(guess, "You've come for an interview?");
             api.SetHints("Answer positively");
         }
-        else if (api.dialogueStep == 1 && (guess == "yes" || guess == "Yes"))
+		else if (api.dialogueStep == 1 && (guess.ToLower() == "yes" || guess.ToLower() == "yeah"))
         {
             api.ProcessDialogue(guess, "Cool! Can you tell me your name?");
             api.SetHints("Be accurate!");

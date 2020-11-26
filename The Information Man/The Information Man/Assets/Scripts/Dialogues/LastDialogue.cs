@@ -11,15 +11,32 @@ public class LastDialogue : MonoBehaviour
     public BoxCollider2D box;
 
     private DialogueAPI api;
+	private string professorName;
+	private Sprite professorImage;
 
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.name == "player" && !player.hadDialogue[0])
-        {
-            api.DialogueStart(0, "Pr. Silitti", "Good Morning!", rightPicture);
-            api.SetHints("Greet the professor!\n1. Hi\n2. Hello");
-        }
-    }
+	void OnTriggerEnter2D(Collider2D other)
+	{
+		if (other.name == "player" && !player.hadDialogue[0])
+		{
+			switch (PlayerPrefs.GetInt("professor"))
+			{
+			case 0:
+				professorName = "Pr. Silitti";
+				professorImage = Resources.Load<Sprite>("Professors/silitti_face");
+				break;
+			case 1:
+				professorName = "Pr. Shilov";
+				professorImage = Resources.Load<Sprite>("Professors/shilov_face");
+				break;
+			case 2:
+				professorName = "Pr. Zouev";
+				professorImage = Resources.Load<Sprite>("Professors/zouev_face");
+				break;
+			}
+			api.DialogueStart(0, professorName, "Good Morning!", professorImage);
+			api.SetHints("Greet the professor!\n1. Hi\n2. Hello");
+		}
+	}
 
     void Start()
     {
@@ -38,7 +55,7 @@ public class LastDialogue : MonoBehaviour
             api.ProcessDialogue(guess, "You've come to get the exam results?");
             api.SetHints("Answer positively");
         }
-        else if (api.dialogueStep == 1 && (guess == "yes" || guess == "Yes"))
+		else if (api.dialogueStep == 1 && (guess.ToLower() == "yes" || guess.ToLower() == "yeah"))
         {
             api.ProcessDialogue(guess, "Cool! Can you tell me your name?");
             api.SetHints("Be accurate!");

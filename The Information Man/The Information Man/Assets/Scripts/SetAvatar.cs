@@ -8,7 +8,10 @@ public class SetAvatar : MonoBehaviour {
     public Image avatarRight;
     string correct;
     public int index;
-    private string[] name = new string[] { "alb", "artur", "dolj", "ilya", "kos", "port", "tim", "girl", "misha", "gag" };
+	private string[] name = new string[] { 
+		"alb", "artur", "dolj", "ilya", "kos", "port", "tim", "girl", "misha", "gag",
+		"leha", "borya", "sasha", "bulat", "alb2", "artur2", "ilya2", "kos2"
+	};
 
 
     // Update is called once per frame

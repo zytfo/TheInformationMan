@@ -37,7 +37,7 @@ public class SimonGreeting : MonoBehaviour {
             api.ProcessDialogue(guess, " You are my new neighbor, aren't you?");
             api.SetHints("Answer positively");
         }
-        else if (api.dialogueStep == 1 && (guess == "yes" || guess == "Yes"))
+		else if (api.dialogueStep == 1 && (guess.ToLower() == "yes" || guess.ToLower() == "yeah"))
         {
             api.ProcessDialogue(guess, "You think yes, but I think no. You can't be my neighbor so quickly.");
             api.SetHints("Answer anything");

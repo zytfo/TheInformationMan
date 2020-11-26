@@ -30,12 +30,12 @@ public class PainterDialogue : MonoBehaviour {
     public void GetInput(string guess)
     {
         if (guess == "") inputField.ActivateInputField();
-        else if (api.dialogueStep == 0 && (guess.Contains("yes") || guess.Contains("no")))
+		else if (api.dialogueStep == 0 && (guess.ToLower().Contains("yes") || guess.ToLower().Contains("no")))
         {
             api.ProcessDialogue(guess, "Great. Why are you here then?");
             api.SetHints("Write something containing \"go\"");
         }
-        else if (api.dialogueStep == 1 && guess.Contains("go"))
+		else if (api.dialogueStep == 1 && guess.ToLower().Contains("go"))
         {
             api.ProcessDialogue(guess, "OK, I will let you go.");
             api.SetHints("Answer anything");
@@ -50,7 +50,7 @@ public class PainterDialogue : MonoBehaviour {
             api.ProcessDialogue(guess, "I will remember your answer. Btw, I've never seen you here before. Are you a freshman?");
             api.SetHints("You're a freshman. Confirm it!");
         }
-        else if (api.dialogueStep == 4 && (guess == "yes" || guess == "Yes"))
+		else if (api.dialogueStep == 4 && (guess.ToLower() == "yes" || guess.ToLower() == "yeah"))
         {
             api.ProcessDialogue(guess, "Welcome to this wonderful place. I promise you'll have an unforgetable Information Theory\n journey, "
                 + "the Information Man. I'll give you a simple task that will surely help you to get into the\n swing of things here. Are you excited?");

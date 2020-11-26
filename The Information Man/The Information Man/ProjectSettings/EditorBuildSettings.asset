@@ -7,39 +7,61 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
+    guid: dbc219cdb812b5f4b970d022ec6b7943
   - enabled: 1
     path: Assets/Scenes/preview.unity
+    guid: 9c65e054bbb494c4fb78887e6e5b5772
   - enabled: 1
     path: Assets/Scenes/stage1.unity
+    guid: 4a7b36d40f30cf74a8a0dd2de3d379fd
   - enabled: 1
     path: Assets/Scenes/stage2.unity
+    guid: 503ae15a0daa24744a100e450c161483
   - enabled: 0
     path: Assets/Scenes/stage2temp.unity
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/stage21.unity
+    guid: fb166dd681dd7b347bd74e44eacc8cf5
   - enabled: 1
     path: Assets/Scenes/stage22.unity
+    guid: bb0d8a0c976bb804983640a6ddc90214
   - enabled: 0
     path: Assets/stage2.unity
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/stage23.unity
+    guid: 5744be042a6bc32499a7a481cb106c1c
   - enabled: 1
     path: Assets/Scenes/stage3.unity
+    guid: e961ff899a3fffe44bd562b521bb7209
   - enabled: 1
     path: Assets/Scenes/stage3-2.unity
+    guid: 1299662fe64dc6e45a0c34c78e573d70
   - enabled: 1
     path: Assets/Scenes/campus.unity
+    guid: 449c481803e90044b8e7ad1d2aeef5cc
   - enabled: 1
     path: Assets/Scenes/street1.unity
+    guid: 4cf53e0cf13373b4f926c73b9ccc5a5e
   - enabled: 1
     path: Assets/Scenes/street2.unity
+    guid: c11e2e7b80382cb429d33f82393f571c
   - enabled: 1
     path: Assets/Scenes/final.unity
+    guid: c032128451279904685b044bb400bb13
   - enabled: 1
     path: Assets/Scenes/exam.unity
+    guid: f3a388b8a8be0894d9fe41244c568482
   - enabled: 1
     path: Assets/Scenes/end.unity
+    guid: 9567b37661d00584b83f25dfc13da9d6
   - enabled: 1
     path: Assets/Scenes/afterend.unity
+    guid: cc4712c858a5056419a0a1ae6c0b1c52
   - enabled: 1
     path: Assets/Scenes/gameover.unity
+    guid: 639a6b47e8d2a9e468d16b22be6e0b87
+  - enabled: 1
+    path: Assets/Scenes/street3.unity
+    guid: 743b920dd8532c74182f3eb9a73884e9
